@@ -1,4 +1,4 @@
-# Projeto_IP2
+# Projeto_Host4U
 
 <h3> Repositório do grupo Graduandos em Totólogia no projeto Host4U para a cadeira de Introdução a Programação 2. </h3>
 <h4> Alunos </h4>
