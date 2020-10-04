@@ -1,4 +1,8 @@
+import javax.swing.JOptionPane;
+
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -23,6 +27,7 @@ public class H4ULoginAPP extends Application{
 	public void start (Stage stage) throws Exception {
 		
 		initComponentes();
+		initAcoes();
 		
 		
 		Scene scene = new Scene(pane);
@@ -72,9 +77,45 @@ public class H4ULoginAPP extends Application{
 		
 	}
 	
-	private void initAcoes() {
+	private void initAcoes() { //inicia as acoes de componetentes
 		
+		btEntrar.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				
+				logar();
+				
+			}
+		});
 		
+		btSair.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				
+				fecharAplicacao();
+				
+			}
+		});
+	}
+	
+	private void fecharAplicacao() {
+		
+		System.exit(0);
+	}
+	
+	private void logar() {//aqui fica todas as configs de login, como validacao, nao sei se aqui fica a parte de adicionar novos user tb
+		
+		if(txLogin.getText().equals("administrador") &&	txSenha.getText().equals("12345")) {
+			
+				
+			//parte em que vai pra tela inicial com permissoes de admin (falta implementar)	
+			
+		}else {
+			
+			JOptionPane.showMessageDialog(null, "Login e/ou senha inválidos", "ERRO", JOptionPane.ERROR_MESSAGE);
+		}
 	}
 	
 	public static void main (String [] args) {
