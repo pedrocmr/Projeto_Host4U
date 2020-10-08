@@ -1,4 +1,4 @@
-package GUI;
+package gui;
 import javax.swing.JOptionPane;
 
 import javafx.application.Application;

@@ -6,7 +6,7 @@ public abstract class EsqueletoHotel { //todos hoteis vao herdar essa classe, no
 	
 	
 
-	private String nome = "Host4U";
+	private String nome;
 	private Endereco endereco;
 	private int idHotel;
 	private int qtdQuartos;
@@ -16,11 +16,12 @@ public abstract class EsqueletoHotel { //todos hoteis vao herdar essa classe, no
 													 //surgindo e ter varios lugares legais por perto, antes só podia ser um
 													//falta um getLugares proximos
 									
-	public EsqueletoHotel(int idHotel, int qtdQuartos, int andares, LugarProximo lugarProximo) {
+	public EsqueletoHotel(String nome, int idHotel, int qtdQuartos, int andares, LugarProximo lugarProximo) {
 		
+		this.nome = nome;
 		this.idHotel = idHotel;
 		this.qtdQuartos = qtdQuartos;
-		this.endereco = new Endereco(idHotel);			
+		this.endereco = new Endereco();			
 		this.quartos = new ArrayList<>(qtdQuartos);	//aloca uma quantidade inicial de quartos
 		this.andares = andares;
 		this.lugaresProximos = new ArrayList<>();
@@ -48,7 +49,7 @@ public abstract class EsqueletoHotel { //todos hoteis vao herdar essa classe, no
 	}
 
 	public void setIdHotel(int idHotel) {
-		idHotel = idHotel;
+		this.idHotel = idHotel;
 	}
 
 	public int getQtdQuartos() {

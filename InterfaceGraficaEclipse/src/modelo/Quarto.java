@@ -84,9 +84,9 @@ public class Quarto {
 		}
 	}
 	@Override
-	public String toString() {
+	public String toString() { //da um jeito ai Pedrao
 		return "Quarto [ocupacaoMaximaPessoas=" + ocupacaoMaximaPessoas + ", andar=" + andar + ", suite=" + suite
-				+ ", numeroCamas=" + numeroCamas + ", valorReserva=" + valorReserva + "]";
+				+ ", numeroCamas=" + numeroCamas + ", valorReserva=" + valorReserva + "]"; 
 	}
 	
 }

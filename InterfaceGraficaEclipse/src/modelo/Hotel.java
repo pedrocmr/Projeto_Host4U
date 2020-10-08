@@ -1,12 +1,12 @@
 package modelo;
 
-import java.util.ArrayList;
 
 public class Hotel extends EsqueletoHotel{
+	
 		
-	public Hotel(int idHotel, int qtdQuartos, int andares, LugarProximo lugarProximo) {
+	public Hotel(String nome, int idHotel, int qtdQuartos, int andares, LugarProximo lugarProximo) {
 		
-		super(idHotel, qtdQuartos, andares, lugarProximo);
+		super(nome,idHotel, qtdQuartos, andares, lugarProximo);
 	}
 
 	

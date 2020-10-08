@@ -7,20 +7,56 @@ public class Endereco {
 	private String Cidade;
 	private String estado;
 	
-	public Endereco (int idHotel) {
+	public Endereco () {
 		
-		if (idHotel == 1) {  				//aqui usei o id do hotel, pensando q todos os hoteis se chamarão Host4U
-		
-			this.logradouro = "Rua da Aurora";
-			this.numero = 6621;
-			this.Cidade = "Recife";
-			this.estado = "PE";
-	
-		}
 	}
 
 	@Override
 	public String toString() {
 		return  ""+logradouro + ", numero " + numero + ", " + Cidade + "-" + estado;
 	}
+
+	public String getLogradouro() {
+		return logradouro;
+	}
+
+	public void setLogradouro(String logradouro) {
+		this.logradouro = logradouro;
+	}
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public String getCidade() {
+		return Cidade;
+	}
+
+	public void setCidade(String cidade) {
+		Cidade = cidade;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+	
+	public void preencherEndereco(String logradouro, String cidade, String estado, int numero) {
+		
+		this.logradouro = logradouro;
+		this.Cidade = cidade;
+		this.estado = estado;
+		this.numero = numero;
+		
+		
+	}
+	
+	
 }
