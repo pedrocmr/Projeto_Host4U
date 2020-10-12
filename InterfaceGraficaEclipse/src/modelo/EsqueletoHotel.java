@@ -16,6 +16,7 @@ public abstract class EsqueletoHotel { //todos hoteis vao herdar essa classe, no
 													 //surgindo e ter varios lugares legais por perto, antes só podia ser um
 													//falta um getLugares proximos
 									
+	public EsqueletoHotel() {}
 	public EsqueletoHotel(String nome, int idHotel, int qtdQuartos, int andares, LugarProximo lugarProximo) {
 		
 		this.nome = nome;
