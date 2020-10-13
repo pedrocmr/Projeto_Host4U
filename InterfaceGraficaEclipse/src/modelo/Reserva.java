@@ -1,22 +1,26 @@
 package modelo;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class Reserva extends EsqueletoHotel{
 
 	private int quantidadeResevas;
 	private Usuario usuario;
-	LocalDate checkin;
-	LocalDate checkout;
+	LocalDateTime checkin;
+	LocalDateTime checkout;
+	private ArrayList<Reserva> reservas;
+	private int cancelar;
 	
 	//CONSTRUTOR
-	public Reserva(Usuario usuario,LocalDate checkin, LocalDate checkout) {
+	public Reserva(Usuario usuario,LocalDateTime checkin, LocalDateTime checkout) {
 		
 		super();
 		
 		this.usuario = usuario;
 		this.checkin = checkin;
 		this.checkout = checkout;
+		this.reservas = new ArrayList<>();
 	}
 
 	//METODOS GETTERS E SETTERS
@@ -41,19 +45,19 @@ public class Reserva extends EsqueletoHotel{
 		this.usuario = usuario;
 	}
 
-	public LocalDate getCheckin() {
+	public LocalDateTime getCheckin() {
 		return checkin;
 	}
 
-	public void setCheckin(LocalDate checkin) {
+	public void setCheckin(LocalDateTime checkin) {
 		this.checkin = checkin;
 	}
 
-	public LocalDate getCheckout() {
+	public LocalDateTime getCheckout() {
 		return checkout;
 	}
 
-	public void setCheckout(LocalDate checkout) {
+	public void setCheckout(LocalDateTime checkout) {
 		this.checkout = checkout;
 	}
 	
@@ -77,5 +81,19 @@ public class Reserva extends EsqueletoHotel{
 		}
 		
 		return this.quantidadeResevas;
+	}
+	
+	public void reservar(Reserva... reservas) {
+		for(Reserva res : reservas) {
+			this.reservas.add(res);
+			
+		}
+	}
+	
+	public void cancelar(int cancelar) {
+		for(Reserva res : reservas) {
+			this.reservas.remove(cancelar);
+			
+		}
 	}
 }
