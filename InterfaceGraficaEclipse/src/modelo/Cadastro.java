@@ -10,10 +10,8 @@ public class Cadastro {
 	private String nome;
 	private String sexo;
 	private ArrayList<Cadastro> cadastros;
-	//private ArrayList<Usuario> usuarios;
 	
-	
-	//construtores
+	//CONSTRUTORES
 	public Cadastro(String login,
 			String senha,
 			String nome,
@@ -25,7 +23,7 @@ public class Cadastro {
 		this.cadastros = new ArrayList<>();
 	}
 	
-	//métodos
+	//MÉTODOS
 	public String getLogin() {
 		return this.login;
 	}

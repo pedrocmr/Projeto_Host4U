@@ -150,4 +150,12 @@ public class Pagamento {
 		}
 	}
 
+	@Override
+	public String toString() {
+		return "Pagamento [reserva= " + reserva + ", quarto= " + quarto + ", tipoPagamento= " + tipoPagamento
+				+ ", numeroCartao= " + numeroCartao + ", titularCartao= " + titularCartao + ", cvv= " + cvv
+				+ ", validadeCartao= " + validadeCartao + ", parcelas= " + parcelas + ", valorTotal= " + valorTotal
+				+ "]";
+	}
+
 }

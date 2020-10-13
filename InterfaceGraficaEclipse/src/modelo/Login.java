@@ -5,7 +5,7 @@ public class Login {
 	private String nome;
 	private String senha;
 	
-	
+	//CLASSE AINDA PRECISA DE CLASSES NÃO BÁSICAS PARA SER INICIALIZADA;
 	
 	/*public boolean verificarAdmin()
 	{

@@ -24,10 +24,13 @@ public class Relatorio {
 		
 		
 	}
-	public String toString()
-	{
-		return " " ;
+	
+	@Override
+	public String toString() {
+		return "Relatorio [pagamento= " + pagamento + ", hotel= " + hotel + ", reserva= " + reserva + ", usuario= "
+				+ usuario + "]";
 	}
+	
 	
 	
 }

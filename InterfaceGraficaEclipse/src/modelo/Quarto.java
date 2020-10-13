@@ -1,19 +1,18 @@
 package modelo;
 
 public class Quarto {
-	
+
 	private int ocupacaoMaximaPessoas;
 	private int andar;
 	private int numero;
 	private String preferenciaCamas;
 	private boolean suite;
 	private int numeroCamas;
-	
 
 	private double valorReserva;
-	
+
 	public Quarto(int numero, int andar, int ocupacaoMaximaPessoas, boolean suite) {
-		
+
 		this.numero = numero;
 		this.andar = andar;
 		this.ocupacaoMaximaPessoas = ocupacaoMaximaPessoas;
@@ -44,11 +43,12 @@ public class Quarto {
 		this.numero = numero;
 	}
 
-	public String getPreferenciaCamas() { 
+	public String getPreferenciaCamas() {
 		return preferenciaCamas;
 	}
 
-	public void setPreferenciaCamas(String preferenciaCamas) { //aqui vai ter q ser implementado junto cm alguma opção de usuario, ainda n sei como
+	public void setPreferenciaCamas(String preferenciaCamas) { // aqui vai ter q ser implementado junto cm alguma opção
+																// de usuario, ainda n sei como
 		this.preferenciaCamas = preferenciaCamas;
 	}
 
@@ -72,21 +72,22 @@ public class Quarto {
 		return valorReserva;
 	}
 
-	public void setValorReserva(double valorReserva) { //falta colocar uma relação entre numero de ocupaçao maxima
-		
+	public void setValorReserva(double valorReserva) { // falta colocar uma relação entre numero de ocupaçao maxima
+
 		if (this.suite == false) {
-		
+
 			this.valorReserva = valorReserva;
-		
-		}else {
-			
+
+		} else {
+
 			this.valorReserva += 100;
 		}
 	}
+
 	@Override
-	public String toString() { //da um jeito ai Pedrao
+	public String toString() {
 		return "Quarto [ocupacaoMaximaPessoas=" + ocupacaoMaximaPessoas + ", andar=" + andar + ", suite=" + suite
-				+ ", numeroCamas=" + numeroCamas + ", valorReserva=" + valorReserva + "]"; 
+				+ ", numeroCamas=" + numeroCamas + ", valorReserva=" + valorReserva + "]";
 	}
-	
+
 }

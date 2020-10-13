@@ -3,34 +3,45 @@ package modelo;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Reserva extends EsqueletoHotel{
+public class Reserva extends EsqueletoHotel {
 
-	private int quantidadeResevas;
+	private int quantidadeResevas = 0;
 	private Usuario usuario;
 	LocalDateTime checkin;
 	LocalDateTime checkout;
 	private ArrayList<Reserva> reservas;
 	private int cancelar;
-	
-	//CONSTRUTOR
-	public Reserva(Usuario usuario,LocalDateTime checkin, LocalDateTime checkout) {
-		
+
+	// CONSTRUTOR
+	public Reserva(Usuario usuario, LocalDateTime checkin, LocalDateTime checkout) {
+
 		super();
-		
+
 		this.usuario = usuario;
 		this.checkin = checkin;
 		this.checkout = checkout;
 		this.reservas = new ArrayList<>();
 	}
 
-	//METODOS GETTERS E SETTERS
+	// METODOS GETTERS E SETTERS
 	public int getQuantidadeResevas() {
 		return quantidadeResevas;
 	}
 
-	public Reserva(String nome, int idHotel, int qtdQuartos, int andares, LugarProximo lugarProximo) {
-		super(nome, idHotel, qtdQuartos, andares, lugarProximo);
-		// TODO Auto-generated constructor stub
+	public ArrayList<Reserva> getReservas() {
+		return reservas;
+	}
+
+	public void setReservas(ArrayList<Reserva> reservas) {
+		this.reservas = reservas;
+	}
+
+	public int getCancelar() {
+		return cancelar;
+	}
+
+	public void setCancelar(int cancelar) {
+		this.cancelar = cancelar;
 	}
 
 	public void setQuantidadeResevas(int quantidadeResevas) {
@@ -60,40 +71,55 @@ public class Reserva extends EsqueletoHotel{
 	public void setCheckout(LocalDateTime checkout) {
 		this.checkout = checkout;
 	}
-	
+
 	public boolean verificaDisponiblidadeQuartos() {
-		
-		if(getQuartos().size() > 0) {
-			
+
+		if (getQuartos().size() > 0) {
+
 			return true;
 		}
-		
+
 		else {
 			return false;
 		}
-		
+
 	}
-	
+
+	// MÉTODOS DE AÇÃO
 	public int adicionarReservas() {
-		
-		if(verificaDisponiblidadeQuartos() == true) {
+
+		if (verificaDisponiblidadeQuartos() == true) {
 			this.quantidadeResevas++;
 		}
-		
+
 		return this.quantidadeResevas;
 	}
-	
+
 	public void reservar(Reserva... reservas) {
-		for(Reserva res : reservas) {
+		for (Reserva res : reservas) {
 			this.reservas.add(res);
-			
+
 		}
 	}
-	
+
 	public void cancelar(int cancelar) {
-		for(Reserva res : reservas) {
+		for (Reserva res : reservas) {
 			this.reservas.remove(cancelar);
-			
+
 		}
 	}
+
+	public void listaReservas() {
+
+		for (Reserva res : reservas) {
+			System.out.println(res);
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "Reserva [quantidadeResevas=" + quantidadeResevas + ", usuario=" + usuario + ", checkin=" + checkin
+				+ ", checkout=" + checkout + "]";
+	}
+
 }
