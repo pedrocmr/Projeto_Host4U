@@ -8,15 +8,34 @@ public class Quarto {
 	private String preferenciaCamas;
 	private boolean suite;
 	private int numeroCamas;
-
 	private double valorReserva;
 
-	public Quarto(int numero, int andar, int ocupacaoMaximaPessoas, boolean suite) {
+	public Quarto(int numero, int andar, int ocupacaoMaximaPessoas, boolean suite, boolean valorSuite, double valorDiariaUnidade, double valorDeAdicaoPorPessoa) {
 
+		
+		
+		if (ocupacaoMaximaPessoas > 1) {
+			
+			this.valorReserva = ocupacaoMaximaPessoas*valorDeAdicaoPorPessoa;
+		}else {
+			
+			ocupacaoMaximaPessoas = 1;
+		}
+		
+		if (andar < 0) {
+			andar = 0;
+		}
+		if (numero < 0) {
+			
+			numero*=-1;
+		}
+		
 		this.numero = numero;
 		this.andar = andar;
 		this.ocupacaoMaximaPessoas = ocupacaoMaximaPessoas;
 		this.suite = suite;
+		this.valorReserva = valorDiariaUnidade;
+		
 	}
 
 	public int getOcupacaoMaximaPessoas() {
@@ -74,6 +93,7 @@ public class Quarto {
 
 	public void setValorReserva(double valorReserva) { // falta colocar uma relação entre numero de ocupaçao maxima
 
+		
 		if (this.suite == false) {
 
 			this.valorReserva = valorReserva;
@@ -86,7 +106,7 @@ public class Quarto {
 
 	@Override
 	public String toString() {
-		return "Quarto [ocupacaoMaximaPessoas=" + ocupacaoMaximaPessoas + ", andar=" + andar + ", suite=" + suite
+		return "Ocupação máxima de " + ocupacaoMaximaPessoas + ", no " + andar + "º andar. Suite"+suite
 				+ ", numeroCamas=" + numeroCamas + ", valorReserva=" + valorReserva + "]";
 	}
 
