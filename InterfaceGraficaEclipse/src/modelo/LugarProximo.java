@@ -7,16 +7,16 @@ public class LugarProximo {
 	private double distanciaLugarKM;
 	
 	public LugarProximo() {}
-	public LugarProximo(String nomeDoLugar, String tipoDeLugar, double DistanciaLugarKM) {
+	public LugarProximo(String nomeDoLugar, String tipoDeLugar, double distanciaLugarKM) {
 		
 		this.nomeDoLugar = nomeDoLugar;
 		this.tipoDeLugar = tipoDeLugar;
 		this.distanciaLugarKM = distanciaLugarKM;
 	}
 	
-	public double calcularDistancia(double Kmlugar, double KmHotel) {
+	public double calcularDistancia(double kmlugar, double kmHotel) {
 		
-		return Math.abs(Kmlugar-KmHotel);
+		return Math.abs(kmlugar-kmHotel);
 	}
 	public String getNomeDoLugar() {
 		return nomeDoLugar;

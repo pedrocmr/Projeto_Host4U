@@ -9,7 +9,6 @@ public class Cadastro {
 	private String senha;
 	private String nome;
 	private String sexo;
-	private ArrayList<Cadastro> cadastros;
 	
 	//CONSTRUTORES
 	public Cadastro(String login,
@@ -20,7 +19,6 @@ public class Cadastro {
 		this.senha = senha;
 		this.nome = nome;
 		this.sexo = sexo;
-		this.cadastros = new ArrayList<>();
 	}
 	
 	//MÉTODOS
@@ -45,25 +43,16 @@ public class Cadastro {
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
-	public ArrayList<Cadastro> getCadastros(){
-		return this.cadastros;
-	}
-	
 	public String toString() {
 		return "Login: " + getLogin() + " " + 
 	    "Nome: " + getNome() + " " + 
 	    "Sexo: " + getSexo() ;
 	}
 	
-	public void cadastrar(Cadastro... cadastros) {
-		for(Cadastro cad : cadastros) {
-			this.cadastros.add(cad);
-			
-		}
-	}
-	
-	
-	
-
+		
 	
 }
+
+
+	
+

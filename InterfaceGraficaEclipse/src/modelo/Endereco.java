@@ -4,7 +4,7 @@ public class Endereco {
 	
 	private String logradouro;
 	private int numero;
-	private String Cidade;
+	private String cidade;
 	private String estado;
 	
 	public Endereco () {
@@ -13,7 +13,7 @@ public class Endereco {
 
 	@Override
 	public String toString() {
-		return  ""+logradouro + ", numero " + numero + ", " + Cidade + "-" + estado;
+		return  ""+logradouro + ", numero " + numero + ", " + cidade + "-" + estado;
 	}
 
 	public String getLogradouro() {
@@ -33,11 +33,11 @@ public class Endereco {
 	}
 
 	public String getCidade() {
-		return Cidade;
+		return cidade;
 	}
 
 	public void setCidade(String cidade) {
-		Cidade = cidade;
+		this.cidade = cidade;
 	}
 
 	public String getEstado() {
@@ -48,15 +48,7 @@ public class Endereco {
 		this.estado = estado;
 	}
 	
-	public void preencherEndereco(String logradouro, String cidade, String estado, int numero) {
-		
-		this.logradouro = logradouro;
-		this.Cidade = cidade;
-		this.estado = estado;
-		this.numero = numero;
-		
-		
-	}
+	
 	
 	
 }
