@@ -18,6 +18,10 @@ public class Usuario {
 	public Usuario(ArrayList<Cadastro> usuarios) {
 		this.usuarios = usuarios;
 	}
+	
+	public Usuario() {
+		
+	}
 
 	// MÉTODOS
 	public ArrayList<Cadastro> getUsuario() {

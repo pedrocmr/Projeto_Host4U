@@ -1,17 +1,13 @@
 package modelo;
 
-public class Administrador {
+
+public class Administrador extends Usuario{
+
 	
-	private String nome;
-	private String senha;
 	
-	
-	public String getNome() {
-		return nome;
+	public Administrador() {
 	}
-	public String getSenha() {
-		return senha;
-	}
+	
 	
 	
 	

@@ -22,6 +22,10 @@ public class Reserva extends EsqueletoHotel {
 		this.checkout = checkout;
 		this.reservas = new ArrayList<>();
 	}
+	
+	public Reserva() {
+		
+	}
 
 	// METODOS GETTERS E SETTERS
 	public int getQuantidadeResevas() {
