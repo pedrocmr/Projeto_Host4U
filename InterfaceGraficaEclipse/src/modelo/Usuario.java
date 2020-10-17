@@ -12,20 +12,11 @@ public class Usuario {
 	private LocalDateTime checkin;
 	private LocalDateTime checkout;
 	private Reserva reservas;
-	
+	private int cancel;
 
 	// CONSTRUTORES
-	public Usuario( Cadastro novo) {
-		
-		
-		if(usuarios.contains(novo)) {
-			
-		}else {
-			
-			usuarios.add(novo);
-			
-		}
-		
+	public Usuario(ArrayList<Cadastro> usuarios) {
+		this.usuarios = usuarios;
 	}
 
 	// MÉTODOS
