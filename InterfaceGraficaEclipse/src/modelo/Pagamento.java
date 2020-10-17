@@ -51,10 +51,7 @@ public class Pagamento {
 	}
 
 	public String getNumeroCartao() {
-
-		SimpleDateFormat formatador = new SimpleDateFormat("MM/YYYY");
-		String resultado = formatador.format(this.validadeCartao);
-		return resultado;
+		return numeroCartao;
 	}
 
 	public void setNumeroCartao(String numeroCartao) {
@@ -77,8 +74,12 @@ public class Pagamento {
 		this.cvv = cvv;
 	}
 
-	public LocalDate getValidadeCartao() {
-		return validadeCartao;
+	public String getValidadeCartao() {
+
+		SimpleDateFormat formatador = new SimpleDateFormat("MM/YYYY");
+		String resultado = formatador.format(this.validadeCartao);
+		return resultado;
+
 	}
 
 	public void setValidadeCartao(LocalDate validadeCartao) {
@@ -139,23 +140,23 @@ public class Pagamento {
 	}
 
 	// MÉTODO QUE DIZ SE A RESERVA FOI APROVADA
-	public void aprovacao() {
+	public String aprovacao() {
 
 		if (verificaCartao() == true) {
-			System.out.println("Reserva efeatuada!");
+			return "Transação Aprovada!";
 		}
 
 		else {
-			System.out.println("Reserva não efetuada");
+			return "Cartão Inválido!";
 		}
 	}
 
 	@Override
 	public String toString() {
-		return "Pagamento [reserva= " + reserva + ", quarto= " + quarto + ", tipoPagamento= " + tipoPagamento
-				+ ", numeroCartao= " + numeroCartao + ", titularCartao= " + titularCartao + ", cvv= " + cvv
-				+ ", validadeCartao= " + validadeCartao + ", parcelas= " + parcelas + ", valorTotal= " + valorTotal
-				+ "]";
+		return "Pagamento [Reserva: " + reserva + ", Quarto: " + quarto + ", Pagamento: " + tipoPagamento
+				+ ", Número do Cartão: " + numeroCartao + ", Titular do Cartão: " + titularCartao + ", CVV: " + cvv
+				+ ", Validade do Cartão: " + validadeCartao + ", Parcelas: " + parcelas + ", Valor Total = "
+				+ valorTotal + "]";
 	}
 
 }

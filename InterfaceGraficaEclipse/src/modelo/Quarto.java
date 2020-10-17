@@ -1,17 +1,19 @@
 package modelo;
 
+import java.util.ArrayList;
+
 public class Quarto {
 
 	private int ocupacaoMaximaPessoas;
 	private int andar;
 	private int numero;
 	private String preferenciaCamas;
-	private Reserva reserva;
+	private ArrayList<Reserva> reserva;
 	private double valorSuite;
 	private int numeroCamas;
 	private double valorReserva;
 
-	public Quarto(int numero, int andar, int ocupacaoMaximaPessoas, boolean suite, double valorSuite, double valorDiariaUnidade, double valorDeAdicaoPorPessoa) {
+	public Quarto(int numero, int andar, int ocupacaoMaximaPessoas, double valorSuite, double valorDiariaUnidade, double valorDeAdicaoPorPessoa) {
 
 		this.valorSuite = valorSuite;
 		this.valorReserva = valorDiariaUnidade;
@@ -32,7 +34,7 @@ public class Quarto {
 			numero*=-1;
 		}
 		
-		this.reserva = new Reserva();
+		reserva = new ArrayList<>();
 		this.numero = numero;
 		this.andar = andar;
 		this.ocupacaoMaximaPessoas = ocupacaoMaximaPessoas;
@@ -68,11 +70,11 @@ public class Quarto {
 		return preferenciaCamas;
 	}
 
-	public Reserva getReserva() {
+	public ArrayList<Reserva> getReserva() {
 		return reserva;
 	}
 
-	public void setReserva(Reserva reserva) {
+	public void setReserva(ArrayList<Reserva> reserva) {
 		this.reserva = reserva;
 	}
 
@@ -92,8 +94,6 @@ public class Quarto {
 																// de usuario, ainda n sei como
 		this.preferenciaCamas = preferenciaCamas;
 	}
-
-
 
 	public int getNumeroCamas() {
 		return numeroCamas;

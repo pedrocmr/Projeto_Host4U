@@ -1,7 +1,6 @@
 package modelo;
 
 import java.util.ArrayList;
-import java.time.LocalDateTime;
 
 public class Usuario {
 
@@ -9,10 +8,6 @@ public class Usuario {
 
 	private ArrayList<Cadastro> usuarios;
 	private int idUsuario;
-	private LocalDateTime checkin;
-	private LocalDateTime checkout;
-	private Reserva reservas;
-	private int cancel;
 
 	// CONSTRUTORES
 	public Usuario(ArrayList<Cadastro> usuarios) {
@@ -26,22 +21,6 @@ public class Usuario {
 	// MÉTODOS
 	public ArrayList<Cadastro> getUsuario() {
 		return usuarios;
-	}
-
-	public LocalDateTime getCheckin() {
-		return checkin;
-	}
-
-	public void setCheckin(LocalDateTime checkin) {
-		this.checkin = checkin;
-	}
-
-	public LocalDateTime getCheckout() {
-		return checkout;
-	}
-
-	public void setCheckout(LocalDateTime checkout) {
-		this.checkout = checkout;
 	}
 
 	public void setUsuarioNome(String nome) {
@@ -74,15 +53,6 @@ public class Usuario {
 
 	public String toString() {
 		return "Nome: " + getNome() + " " + "Login: " + getLogin() + " " + "Sexo: " + getSexo();
-	}
-
-	public void remarcarReserva(LocalDateTime checkin, LocalDateTime checkout) {
-		this.checkin = checkin;
-		this.checkout = checkout;
-	}
-
-	public void cancelarReserva(int cancel) {
-		reservas.cancelar(cancel);
 	}
 
 }
