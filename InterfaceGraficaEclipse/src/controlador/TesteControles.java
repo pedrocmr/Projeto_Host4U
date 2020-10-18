@@ -2,7 +2,7 @@ package controlador;
 
 import java.time.LocalDateTime;
 
-import modelo.Cadastro;
+import modelo.Usuario;
 import modelo.Quarto;
 import modelo.Reserva;
 import modelo.Usuario;
@@ -12,24 +12,18 @@ public class TesteControles {
 	public static void main(String[] args) {
 
 		// TESTANDO CONTROLE CADASTRO
-		Cadastro cad = new Cadastro("Edu", "9", "Eduardo", "Macho");
-		Cadastro cad2 = new Cadastro("Renan", "9", "paixão", "Macho");
-		Cadastro cad3 = new Cadastro("Rafão", "9", "Lindão", "Macho");
-		Cadastro cad4 = new Cadastro("Pipico", "9", "Pipicão", "Melhor do mundo");
+		Usuario cad = new Usuario("Edu", "9", "Eduardo","12312312309", "Macho");
+		Usuario cad2 = new Usuario("Renan", "9", "paixão","12312312309", "Macho");
+		Usuario cad3 = new Usuario("Rafão", "9", "Lindão","12312312309", "Macho");
+		Usuario cad4 = new Usuario("Pipico", "9", "Pipicão","12312312309", "Melhor do mundo");
 
 		ControleCadastro ccad = new ControleCadastro(cad);
-
-		/*
-		 * ccad.dadoCadastro(cad); ccad.dadoCadastro(cad2); ccad.dadoCadastro(cad3);
-		 * ccad.dadoCadastro(cad4);
-		 */
 
 		////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////////////////
 		
 		// TESTANDO RESERVA E CONTROLE RESERVA
-		Usuario user = new Usuario(cad);
-		Usuario user2 = new Usuario(cad2);
+		
 
 		// CRIANDO AS DATAS DE CHECK-IN E CHECK-OUT
 		LocalDateTime checkin = LocalDateTime.of(2020, 11, 19, 10, 05, 12);
@@ -39,8 +33,8 @@ public class TesteControles {
 		LocalDateTime checkout1 = LocalDateTime.of(2020, 11, 30, 19, 15, 50);
 
 		// CRIANDO RESERVA
-		Reserva reserva1 = new Reserva(user, checkin, checkout);
-		Reserva reserva2 = new Reserva(user2, checkin, checkout);
+		Reserva reserva1 = new Reserva(cad, checkin, checkout);
+		Reserva reserva2 = new Reserva(cad2, checkin, checkout);
 
 		System.out.println(reserva1 + "\n");
 
@@ -52,8 +46,8 @@ public class TesteControles {
 		ControleReserva cr = new ControleReserva(quarto1);
 
 		// MÉTODO PARA PREENCHER A RESERVA
-		cr.preencheReserva(user, checkin, checkout);
-		cr.preencheReserva(user2, checkin, checkout);
+		cr.preencheReserva(cad, checkin, checkout);
+		cr.preencheReserva(cad, checkin, checkout);
 
 		// MÉTODO QUE LISTA A RESERVA
 		cr.listaReservas();
