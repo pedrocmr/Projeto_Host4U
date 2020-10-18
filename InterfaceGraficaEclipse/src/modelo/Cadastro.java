@@ -1,6 +1,6 @@
 package modelo;
 
-import java.util.ArrayList;
+
 
 public class Cadastro {
 	
@@ -9,6 +9,7 @@ public class Cadastro {
 	private String senha;
 	private String nome;
 	private String sexo;
+	
 	
 	//CONSTRUTORES
 	public Cadastro(String login,
@@ -28,6 +29,11 @@ public class Cadastro {
 	public void setLogin(String login) {
 		this.login = login;
 	}
+	
+	public String getSenha() {
+		return this.senha;
+	}
+	
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}

@@ -1,0 +1,69 @@
+package controlador;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import modelo.Cadastro;
+
+
+public class controleCadastro {
+
+
+	static FileWriter fileWriter;
+	static FileReader fileReader;
+	static BufferedReader leitor;
+	static BufferedWriter escrever;
+	Cadastro cadastro;
+	
+	
+	public void dadoCadastro(Cadastro cadastro) {
+		try {
+			File arquivo = new File("src/arquivo.txt");
+			String linhaDados;
+			fileWriter = new FileWriter(arquivo);
+			escrever = new BufferedWriter(fileWriter);
+			linhaDados = cadastro.getLogin() + "," + cadastro.getSenha() + "," + cadastro.getNome() + "," + cadastro.getSexo();			
+			escrever.write(linhaDados);
+			
+			escrever.close();
+			fileWriter.close();
+			
+			fileReader = new FileReader(arquivo);
+			leitor = new BufferedReader(fileReader);
+			String linha = leitor.readLine();
+			
+			while(linha != null) {
+				System.out.println(linha);
+				linha = leitor.readLine();
+			}
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	public static void main(String[] args) {
+		File arquivo = new File("src/arquivo.txt");
+		String linhaDados;
+		//arquivo.createNewFile();
+				
+				
+	}
+	
+	
+	//construtor
+	public controleCadastro(Cadastro cadastro) {
+		this.cadastro = cadastro;
+		
+	}
+	
+	
+	
+	
+}
