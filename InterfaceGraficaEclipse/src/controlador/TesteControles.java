@@ -12,21 +12,27 @@ public class TesteControles {
 	public static void main(String[] args) {
 
 		// TESTANDO CONTROLE CADASTRO
-		Cadastro cad = new Cadastro("Edu", "9", "Eduardo", "Macho");
-		Cadastro cad2 = new Cadastro("Renan", "9", "paixão", "Macho");
-		Cadastro cad3 = new Cadastro("Rafão", "9", "Lindão", "Macho");
-		Cadastro cad4 = new Cadastro("Pipico", "9", "Pipicão", "Melhor do mundo");
+		//Cadastro cad = new Cadastro("Edu", "9", "Eduardo", "Macho");
+		//Cadastro cad2 = new Cadastro("Renan", "9", "paixão", "Macho");
+	//	Cadastro cad3 = new Cadastro("Rafão", "9", "Lindão", "Macho");
+		Cadastro cad4 = new Cadastro("Pipico", "9", "Pipicão", "999" ,"Melhor do mundo");
 
-		ControleCadastro ccad = new ControleCadastro(cad);
+		ControleCadastro ccad = new ControleCadastro(cad4);
+		
+		//ccad.dadoCadastroAdiciona(cad4);
+		//ccad.lerDadoCadastro();
 
 		/*
 		 * ccad.dadoCadastro(cad); ccad.dadoCadastro(cad2); ccad.dadoCadastro(cad3);
 		 * ccad.dadoCadastro(cad4);
 		 */
+		
 
 		////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////////////////
-		
+	/*
+	 * 	
+	 
 		// TESTANDO RESERVA E CONTROLE RESERVA
 		Usuario user = new Usuario(cad);
 		Usuario user2 = new Usuario(cad2);
@@ -67,7 +73,7 @@ public class TesteControles {
 		cr.remarcarReserva(checkin1, checkout1);
 		System.out.println("\n");
 		cr.listaReservas();
-
+	*/
 	}
 
 }
