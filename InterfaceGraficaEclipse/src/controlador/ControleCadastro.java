@@ -8,24 +8,20 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.swing.JOptionPane;
+
 import modelo.Usuario;
 
 
 public class ControleCadastro {
 
 
-	static FileWriter fileWriter;
-	static FileReader fileReader;
-	static BufferedReader leitor;
-	static BufferedWriter escrever;
-	static PrintWriter pwriter;
-	Usuario usuario;
-	
+	private static FileWriter fileWriter;
+	private static FileReader fileReader;
+	private static BufferedReader leitor;
+	private static BufferedWriter escrever;
 	//construtor
-		public ControleCadastro(Usuario usuario) {
-			this.usuario = usuario;
-			
-		}
+		
 		public ControleCadastro() {}
 		
 	
@@ -39,8 +35,18 @@ public class ControleCadastro {
 			escrever = new BufferedWriter(fileWriter);
 			
 			
-			linhaDados = usuario.getLogin() + "," + usuario.getSenha() + "," + usuario.getNome() + "," + usuario.getCpf()+ "," + usuario.getSexo() ;			
-			escrever.write(linhaDados + "\n");
+			
+			if(verificaCadastro(usuario.getCpf())) {
+				
+				JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!", "Information", JOptionPane.INFORMATION_MESSAGE);
+				linhaDados = usuario.getLogin() + "," + usuario.getSenha() + "," + usuario.getNome() + "," + usuario.getCpf()+ "," + usuario.getSexo();			
+				escrever.write(linhaDados + "\n");
+				
+			}else{
+				
+				JOptionPane.showMessageDialog(null, "Usuário já cadastrado!", "ERRO", JOptionPane.ERROR_MESSAGE);
+			}
+			
 			escrever.close();
 			fileWriter.close();
 			
@@ -67,10 +73,41 @@ public class ControleCadastro {
 		
 	}
 	
-	public boolean verificaCadastro() {
+	public boolean verificaCadastro(String cpf) {
+		
+		File arquivo = new File("src/arquivo.txt");
 		
 		
-		return false;
+		try {
+			
+			fileReader = new FileReader(arquivo);
+			leitor = new BufferedReader(fileReader);
+			String linha = leitor.readLine();
+			
+			
+			do {
+				
+				String [] vamosPorPartes = linha.split(",");
+				
+				if (cpf.equals(vamosPorPartes[3])) {
+					
+					return false;
+				}
+				
+				if (linha != null) {
+					
+					linha = leitor.readLine();
+				
+				}
+				
+			}while(linha != null);
+		
+		} catch (IOException e) {
+			
+			System.out.println("erro"+e.getMessage());
+		}
+		
+		return true;
 		
 	}
 	
