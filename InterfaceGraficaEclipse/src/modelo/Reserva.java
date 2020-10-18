@@ -50,7 +50,7 @@ public class Reserva {
 		String in = checkin.format(formatador);
 		String out = checkout.format(formatador);
 
-		return "Reserva [Usuário: " + usuario.cadastro.getNome() + ", Check-in: " + in + ", Check-out: " + out + "]";
+		return "Reserva [Usuário: " + usuario.getNome() + ", Check-in: " + in + ", Check-out: " + out + "]";
 	}
 
 }

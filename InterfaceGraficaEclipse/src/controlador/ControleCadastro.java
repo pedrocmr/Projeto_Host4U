@@ -3,14 +3,12 @@ package controlador;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 
-import modelo.Cadastro;
+import modelo.Usuario;
 
 
 public class ControleCadastro {
@@ -21,23 +19,27 @@ public class ControleCadastro {
 	static BufferedReader leitor;
 	static BufferedWriter escrever;
 	static PrintWriter pwriter;
-	Cadastro cadastro;
+	Usuario usuario;
 	
 	//construtor
-		public ControleCadastro(Cadastro cadastro) {
-			this.cadastro = cadastro;
+		public ControleCadastro(Usuario usuario) {
+			this.usuario = usuario;
 			
 		}
 		public ControleCadastro() {}
 		
 	
-	public void dadoCadastroAdiciona(Cadastro cadastro) {
+	public void dadoCadastroAdiciona(Usuario usuario) {
+		
+		
 		try {
 			File arquivo = new File("src/arquivo.txt");
 			String linhaDados;
 			fileWriter = new FileWriter(arquivo,true);
 			escrever = new BufferedWriter(fileWriter);
-			linhaDados = cadastro.getLogin() + "," + cadastro.getSenha() + "," + cadastro.getNome() + "," + cadastro.getCpf()+ "," + cadastro.getSexo() ;			
+			
+			
+			linhaDados = usuario.getLogin() + "," + usuario.getSenha() + "," + usuario.getNome() + "," + usuario.getCpf()+ "," + usuario.getSexo() ;			
 			escrever.write(linhaDados + "\n");
 			escrever.close();
 			fileWriter.close();
@@ -63,8 +65,12 @@ public class ControleCadastro {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public boolean verificaCadastro() {
 		
 		
+		return false;
 		
 	}
 	
