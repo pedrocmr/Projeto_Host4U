@@ -8,20 +8,31 @@ public class Cadastro {
 	private String login;
 	private String senha;
 	private String nome;
+	private String cpf;
 	private String sexo;
 	
 	
 	//CONSTRUTORES
 	public Cadastro(String login,
 			String senha,
-			String nome,
+			String nome, 
+			String cpf,
 			String sexo) {
 		this.login = login;
 		this.senha = senha;
 		this.nome = nome;
+		this.cpf = cpf;
 		this.sexo = sexo;
 	}
 	
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
 	//MÉTODOS
 	public String getLogin() {
 		return this.login;
@@ -51,7 +62,8 @@ public class Cadastro {
 	}
 	public String toString() {
 		return "Login: " + getLogin() + " " + 
-	    "Nome: " + getNome() + " " + 
+	    "Nome: " + getNome() + " " +
+		"CPF:" + getCpf()+ " "+		
 	    "Sexo: " + getSexo() ;
 	}
 	
