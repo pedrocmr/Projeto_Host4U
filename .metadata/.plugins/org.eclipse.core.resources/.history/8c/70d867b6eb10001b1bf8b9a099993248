@@ -1,0 +1,18 @@
+package controlador;
+
+import modelo.Cadastro;
+
+public class TesteControles {
+
+	public static void main(String[] args) {
+
+		Cadastro cad = new Cadastro("Edu", "9", "Eduado Felipão", "Macho");
+		Cadastro cad2 = new Cadastro("Edu", "9", "Eduado Felipão", "Macho");
+		
+		ControleCadastro ccad = new ControleCadastro(cad);
+		
+		//ccad.dadoCadastro(cad);
+		ccad.dadoCadastro(cad2);
+	}
+
+}
