@@ -11,7 +11,7 @@ public class ControleQuarto {
 	Quarto quarto;
 
 	public ControleQuarto(Quarto quarto) {
-		this.quarto = quarto;
+		this.quarto = quarto; 
 	}
 
 	// MÉTODO PARA PREENCHER RESERVAS

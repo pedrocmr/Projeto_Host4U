@@ -3,6 +3,7 @@ package controlador;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -30,27 +31,16 @@ public class ControleCadastro {
 		public ControleCadastro() {}
 		
 	
-	public void dadoCadastro(Cadastro cadastro) {
+	public void dadoCadastroAdiciona(Cadastro cadastro) {
 		try {
 			File arquivo = new File("src/arquivo.txt");
 			String linhaDados;
 			fileWriter = new FileWriter(arquivo,true);
 			escrever = new BufferedWriter(fileWriter);
-			linhaDados = cadastro.getLogin() + "," + cadastro.getSenha() + "," + cadastro.getNome() + "," + cadastro.getSexo() ;			
+			linhaDados = cadastro.getLogin() + "," + cadastro.getSenha() + "," + cadastro.getNome() + "," + cadastro.getCpf()+ "," + cadastro.getSexo() ;			
 			escrever.write(linhaDados + "\n");
-			//escrever.append("\n");
-		
 			escrever.close();
 			fileWriter.close();
-			
-			fileReader = new FileReader(arquivo);
-			leitor = new BufferedReader(fileReader);
-			String linha = leitor.readLine();
-			
-			while(linha != null) {
-				System.out.println(linha);
-				linha = leitor.readLine();
-			}
 			
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -58,7 +48,25 @@ public class ControleCadastro {
 
 	}
 	
+	public void lerDadoCadastro() {
 		
+		File arquivo = new File("src/arquivo.txt");
+		try {
+			fileReader = new FileReader(arquivo);
+			leitor = new BufferedReader(fileReader);
+			String linha = leitor.readLine();
+			while(linha != null) {
+			System.out.println(linha);
+			linha = leitor.readLine();
+		}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+	}
 	
 	
 	
