@@ -3,3 +3,8 @@ Renan,9,paixão,Macho
 Rafão,9,Lindão,Macho
 Pipico,9,Pipicão,Melhor do mundo
 
+Edu,9,Eduardo,Macho
+Renan,9,paixão,Macho
+Rafão,9,Lindão,Macho
+Pipico,9,Pipicão,Melhor do mundo
+Edu,9,Eduardo,Macho

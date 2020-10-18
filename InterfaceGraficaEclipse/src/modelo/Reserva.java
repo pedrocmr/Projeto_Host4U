@@ -1,6 +1,7 @@
 package modelo;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Reserva {
 
@@ -14,10 +15,6 @@ public class Reserva {
 		this.usuario = usuario;
 		this.checkin = checkin;
 		this.checkout = checkout;
-
-	}
-
-	public Reserva() {
 
 	}
 
@@ -48,7 +45,12 @@ public class Reserva {
 
 	@Override
 	public String toString() {
-		return "Reserva [Usuário: " + usuario + ", Check-in: " + checkin + ", Check-out: " + checkout + "]";
+		DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/YYYY - HH:mm:ss");
+
+		String in = checkin.format(formatador);
+		String out = checkout.format(formatador);
+
+		return "Reserva [Usuário: " + usuario.cadastro.getNome() + ", Check-in: " + in + ", Check-out: " + out + "]";
 	}
 
 }
