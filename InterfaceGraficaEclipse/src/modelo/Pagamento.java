@@ -2,7 +2,6 @@ package modelo;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 
 public class Pagamento {
 
@@ -71,12 +70,8 @@ public class Pagamento {
 		this.cvv = cvv;
 	}
 
-	public String getValidadeCartao() {
-
-		SimpleDateFormat formatador = new SimpleDateFormat("MM/YYYY");
-		String resultado = formatador.format(this.validadeCartao);
-		return resultado;
-
+	public LocalDate getValidadeCartao() {
+		return validadeCartao;
 	}
 
 	public void setValidadeCartao(LocalDate validadeCartao) {
@@ -99,14 +94,11 @@ public class Pagamento {
 		this.valorTotal = valorTotal;
 	}
 
-	
-
 	@Override
 	public String toString() {
-		return "Pagamento [Reserva: " + reserva +  ", Pagamento: " + tipoPagamento
-				+ ", Número do Cartão: " + numeroCartao + ", Titular do Cartão: " + titularCartao + ", CVV: " + cvv
-				+ ", Validade do Cartão: " + validadeCartao + ", Parcelas: " + parcelas + ", Valor Total = "
-				+ valorTotal + "]";
+		return "Pagamento [Reserva: " + reserva + ", Pagamento: " + tipoPagamento + ", Número do Cartão: "
+				+ numeroCartao + ", Titular do Cartão: " + titularCartao + ", CVV: " + cvv + ", Validade do Cartão: "
+				+ getValidadeCartao() + ", Parcelas: " + parcelas + ", Valor Total = " + valorTotal + "]";
 	}
 
 }

@@ -1,19 +1,14 @@
 package modelo;
 
 public class Endereco {
-	
+
 	private String logradouro;
 	private int numero;
 	private String cidade;
 	private String estado;
-	
-	public Endereco () {
-		
-	}
 
-	@Override
-	public String toString() {
-		return  ""+logradouro + ", numero " + numero + ", " + cidade + "-" + estado;
+	public Endereco() {
+
 	}
 
 	public String getLogradouro() {
@@ -47,8 +42,11 @@ public class Endereco {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return "Endereco [Logradouro: " + logradouro + ", Número: " + numero + ", Cidade: " + cidade + ", Estado: "
+				+ estado + "]";
+	}
+
 }

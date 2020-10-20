@@ -1,7 +1,7 @@
 package modelo;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class Reserva {
 
@@ -45,10 +45,10 @@ public class Reserva {
 
 	@Override
 	public String toString() {
-		DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/YYYY - HH:mm:ss");
+		SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/YYYY");
 
-		String in = checkin.format(formatador);
-		String out = checkout.format(formatador);
+		String in = formatador.format(checkin);
+		String out = formatador.format(checkout);
 
 		return "Reserva [Usuário: " + usuario.getNome() + ", Check-in: " + in + ", Check-out: " + out + "]";
 	}

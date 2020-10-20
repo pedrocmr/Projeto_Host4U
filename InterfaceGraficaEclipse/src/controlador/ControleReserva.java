@@ -8,7 +8,7 @@ import modelo.Usuario;
 
 public class ControleReserva {
 
-	Quarto quarto;
+	Quarto quarto; // ESSA REFERENCIA A CLASSE QUARTO NÃO DEVE EXISTIR MAIS
 
 	public ControleReserva(Quarto quarto) {
 		this.quarto = quarto;

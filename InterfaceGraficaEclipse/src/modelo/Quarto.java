@@ -8,38 +8,38 @@ public class Quarto {
 	private int andar;
 	private int numero;
 	private String preferenciaCamas;
-	private ArrayList<Reserva> reserva;
+	private ArrayList<Reserva> reserva; // ACHO QUE NÃO VAI SER MAIS NECESSÁRIO;
 	private double valorSuite;
 	private int numeroCamas;
 	private double valorReserva;
 
-	public Quarto(int numero, int andar, int ocupacaoMaximaPessoas, double valorSuite, double valorDiariaUnidade, double valorDeAdicaoPorPessoa) {
+	public Quarto(int numero, int andar, int ocupacaoMaximaPessoas, double valorSuite, double valorDiariaUnidade,
+			double valorDeAdicaoPorPessoa) {
 
 		this.valorSuite = valorSuite;
 		this.valorReserva = valorDiariaUnidade;
-		
+
 		if (ocupacaoMaximaPessoas > 1) {
-			
-			this.valorReserva += ocupacaoMaximaPessoas*valorDeAdicaoPorPessoa + valorSuite;
-		}else {
-			
+
+			this.valorReserva += ocupacaoMaximaPessoas * valorDeAdicaoPorPessoa + valorSuite;
+		} else {
+
 			ocupacaoMaximaPessoas = 1;
 		}
-		
+
 		if (andar < 0) {
 			andar = 0;
 		}
 		if (numero < 0) {
-			
-			numero*=-1;
+
+			numero *= -1;
 		}
-		
+
 		reserva = new ArrayList<>();
 		this.numero = numero;
 		this.andar = andar;
 		this.ocupacaoMaximaPessoas = ocupacaoMaximaPessoas;
-		
-		
+
 	}
 
 	public int getOcupacaoMaximaPessoas() {
@@ -90,8 +90,8 @@ public class Quarto {
 		this.valorReserva = valorReserva;
 	}
 
-	public void setPreferenciaCamas(String preferenciaCamas) { // aqui vai ter q ser implementado junto cm alguma opção
-																// de usuario, ainda n sei como
+	public void setPreferenciaCamas(String preferenciaCamas) {
+
 		this.preferenciaCamas = preferenciaCamas;
 	}
 
@@ -107,10 +107,11 @@ public class Quarto {
 		return valorReserva;
 	}
 
-
 	@Override
 	public String toString() {
-		return "Ocupação máxima de " + ocupacaoMaximaPessoas + ", no " + andar + "º andar. NumeroCamas=" + numeroCamas + ", valorReserva=" + valorReserva;
+		return "Quarto [Ocupação máxima de pessoas: " + ocupacaoMaximaPessoas + ", Andar: " + andar + ", Número: "
+				+ numero + ", reserva: " + reserva + ", Valor da suíte: " + valorSuite + ", Número de camas: "
+				+ numeroCamas + ", Valor da reserva: " + valorReserva + "]";
 	}
 
 }
