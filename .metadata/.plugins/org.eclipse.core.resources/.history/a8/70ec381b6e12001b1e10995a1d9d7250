@@ -38,9 +38,13 @@ public class ControleCadastro {
 			
 			if(verificaCadastro(usuario.getCpf())) {
 				
+				JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!", "Information", JOptionPane.INFORMATION_MESSAGE);
 				linhaDados = usuario.getLogin() + "," + usuario.getSenha() + "," + usuario.getNome() + "," + usuario.getCpf()+ "," + usuario.getSexo();			
 				escrever.write(linhaDados + "\n");
 				
+			}else{
+				
+				JOptionPane.showMessageDialog(null, "Usuário já cadastrado!", "ERRO", JOptionPane.ERROR_MESSAGE);
 			}
 			
 			escrever.close();
