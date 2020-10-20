@@ -2,43 +2,42 @@ package modelo;
 
 public class LugarProximo {
 	
-	private String nomeDoLugar;
-	private String tipoDeLugar;
-	private double distanciaLugarKM;
+	private Hotel hotel;
+	private Lugar lugar;
+	private double distancia;
 	
-	public LugarProximo() {}
-	public LugarProximo(String nomeDoLugar, String tipoDeLugar, double distanciaLugarKM) {
+	
+	
+	public LugarProximo(Hotel h, Lugar l, double dist) {
+		this.hotel = h;
+		this.lugar = l;
+		this.distancia = dist;
 		
-		this.nomeDoLugar = nomeDoLugar;
-		this.tipoDeLugar = tipoDeLugar;
-		this.distanciaLugarKM = distanciaLugarKM;
 	}
 	
-	public double calcularDistancia(double kmlugar, double kmHotel) {
-		
-		return Math.abs(kmlugar-kmHotel);
+	public Hotel getHotel() {
+		return this.hotel;
 	}
-	public String getNomeDoLugar() {
-		return nomeDoLugar;
+	
+	public void setHotel(Hotel h) {
+		this.hotel = h;
 	}
-	public void setNomeDoLugar(String nomeDoLugar) {
-		this.nomeDoLugar = nomeDoLugar;
+	
+	public Lugar getLugar() {
+		return this.lugar;
 	}
-	@Override
-	public String toString() {
-		return nomeDoLugar + "\n" + tipoDeLugar + "\n"
-				+ distanciaLugarKM;
+	
+	public void setLugar(Lugar l) {
+		this.lugar = l;
 	}
-	public String getTipoDeLugar() {
-		return tipoDeLugar;
+	
+	public double getDistancia() {
+		return this.distancia;
 	}
-	public void setTipoDeLugar(String tipoDeLugar) {
-		this.tipoDeLugar = tipoDeLugar;
+	
+	public void setDistancia(double dist) {
+		this.distancia = dist;
 	}
-	public double getDistanciaLugarKM() {
-		return distanciaLugarKM;
-	}
-	public void setDistanciaLugarKM(double distanciaLugarKM) {
-		this.distanciaLugarKM = distanciaLugarKM;
-	}
+	
+	
 }

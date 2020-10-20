@@ -1,6 +1,6 @@
 package controlador;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import modelo.Quarto;
 import modelo.Reserva;
@@ -15,14 +15,14 @@ public class ControleReserva {
 	}
 
 	// MÉTODO PARA PREENCHER RESERVAS
-	public void preencheReserva(Usuario usuario, LocalDateTime checkin, LocalDateTime checkout) {
+	public void preencheReserva(Usuario usuario, LocalDate checkin, LocalDate checkout) {
 
 		quarto.getReserva().add(new Reserva(usuario, checkin, checkout));
 
 	}
 
 	// MÉTODO CANCELAR RESERVAS
-	public void cancelaReserva(LocalDateTime checkin) {
+	public void cancelaReserva(LocalDate checkin) {
 
 		for (int i = 0; i < quarto.getReserva().size(); i++) {
 
@@ -33,7 +33,7 @@ public class ControleReserva {
 	}
 
 	// MÉTODO REMARCAR RESERVAS
-	public void remarcarReserva(LocalDateTime checkin, LocalDateTime checkout) {
+	public void remarcarReserva(LocalDate checkin, LocalDate checkout) {
 
 		for (int i = 0; i < quarto.getReserva().size(); i++) {
 
