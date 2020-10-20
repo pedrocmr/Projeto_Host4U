@@ -25,6 +25,7 @@ public class ControleHotel {
 		}
 	}
 	
+	//precisa ainda dessa função?
 	public void adicionaLugares(LugarProximo... lugar) {
 
 		if (lugar != null) {

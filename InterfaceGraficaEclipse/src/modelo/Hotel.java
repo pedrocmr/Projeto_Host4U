@@ -6,22 +6,21 @@ public class Hotel {
 	
 	private String nome;
 	private int idHotel;
-	private int qtdQuartos;
 	private Endereco endereco;
 	private ArrayList<Quarto> quartos; // a correção q o prof mandou
 	private int andares;
-	private ArrayList<LugarProximo> lugaresProximos;
+	private LugarProximo lugarProximo;
+	
 	
 		
-	public Hotel(String nome, int idHotel, int qtdQuartos, int andares) {
+	public Hotel(String nome, int idHotel, int andares, LugarProximo lugarProximo) {
 		
 		this.nome = nome;
 		this.idHotel = idHotel;
-		this.qtdQuartos = qtdQuartos;
 		this.andares = andares;
-		this.lugaresProximos = new ArrayList<>();		
 		this.endereco = new Endereco();
-		this.quartos = new ArrayList<>(qtdQuartos);
+		this.lugarProximo = lugarProximo;
+		
 	}
 
 	public String getNome() {
@@ -40,15 +39,7 @@ public class Hotel {
 		this.idHotel = idHotel;
 	}
 
-	public int getQtdQuartos() {
-		return qtdQuartos;
-	}
-
-	public void setQtdQuartos(int qtdQuartos) {
-		this.qtdQuartos = qtdQuartos;
-		
-	}
-
+	
 	public Endereco getEndereco() {
 		return endereco;
 	}
@@ -68,10 +59,16 @@ public class Hotel {
 	public void setAndares(int andares) {
 		this.andares = andares;
 	}
-
-	public ArrayList<LugarProximo> getLugaresProximos() {
-		return lugaresProximos;
+	
+	public LugarProximo getLugarProximo() {
+		return this.lugarProximo;
 	}
+	
+	public void setLugarProximo(LugarProximo lp) {
+		this.lugarProximo = lp;
+	}
+
+
 
 	
 	

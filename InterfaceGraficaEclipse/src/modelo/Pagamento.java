@@ -8,14 +8,11 @@ public class Pagamento {
 
 	// ATRIBUTOS
 	private Reserva reserva;
-	private Quarto quarto;
 	private String tipoPagamento;
 	private String numeroCartao;
 	private String titularCartao;
 	private String cvv;
-
 	LocalDate validadeCartao;
-
 	private int parcelas;
 	private double valorTotal;
 
@@ -102,58 +99,11 @@ public class Pagamento {
 		this.valorTotal = valorTotal;
 	}
 
-	// MÉTODO QUE CALCULA O TOTAL A SER PAGO
-	public double totalPagamento() {
-
-		double cont = (reserva.checkin.until(reserva.checkout, ChronoUnit.DAYS));
-		this.valorTotal = quarto.getValorReserva() * Math.abs(cont);
-		return this.valorTotal;
-	}
-
-	// MÉTODO QUE VERIFICA SE O CARTÃO É VÁLIDO
-	public boolean verificaCartao() {
-
-		LocalDate data = LocalDate.now();
-
-		if (numeroCartao.length() == 16) {
-			if (cvv.length() == 3) {
-				if (validadeCartao.getYear() > data.getYear()) {
-
-				}
-			}
-			return true;
-		}
-
-		else if (numeroCartao.length() == 16) {
-			if (cvv.length() == 3) {
-				if (validadeCartao.getYear() == data.getYear()) {
-					if (validadeCartao.until(data, ChronoUnit.MONTHS) >= 0)
-						;
-				}
-			}
-			return true;
-		}
-
-		else {
-			return false;
-		}
-	}
-
-	// MÉTODO QUE DIZ SE A RESERVA FOI APROVADA
-	public String aprovacao() {
-
-		if (verificaCartao() == true) {
-			return "Transação Aprovada!";
-		}
-
-		else {
-			return "Cartão Inválido!";
-		}
-	}
+	
 
 	@Override
 	public String toString() {
-		return "Pagamento [Reserva: " + reserva + ", Quarto: " + quarto + ", Pagamento: " + tipoPagamento
+		return "Pagamento [Reserva: " + reserva +  ", Pagamento: " + tipoPagamento
 				+ ", Número do Cartão: " + numeroCartao + ", Titular do Cartão: " + titularCartao + ", CVV: " + cvv
 				+ ", Validade do Cartão: " + validadeCartao + ", Parcelas: " + parcelas + ", Valor Total = "
 				+ valorTotal + "]";

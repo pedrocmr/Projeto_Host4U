@@ -1,16 +1,16 @@
 package modelo;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Reserva {
 
 	private Usuario usuario;
-	LocalDateTime checkin;
-	LocalDateTime checkout;
+	LocalDate checkin;
+	LocalDate checkout;
 
 	// CONSTRUTOR
-	public Reserva(Usuario usuario, LocalDateTime checkin, LocalDateTime checkout) {
+	public Reserva(Usuario usuario, LocalDate checkin, LocalDate checkout) {
 
 		this.usuario = usuario;
 		this.checkin = checkin;
@@ -27,19 +27,19 @@ public class Reserva {
 		this.usuario = usuario;
 	}
 
-	public LocalDateTime getCheckin() {
+	public LocalDate getCheckin() {
 		return checkin;
 	}
 
-	public void setCheckin(LocalDateTime checkin) {
+	public void setCheckin(LocalDate checkin) {
 		this.checkin = checkin;
 	}
 
-	public LocalDateTime getCheckout() {
+	public LocalDate getCheckout() {
 		return checkout;
 	}
 
-	public void setCheckout(LocalDateTime checkout) {
+	public void setCheckout(LocalDate checkout) {
 		this.checkout = checkout;
 	}
 
