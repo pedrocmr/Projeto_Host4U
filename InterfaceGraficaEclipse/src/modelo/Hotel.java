@@ -64,6 +64,17 @@ public class Hotel {
 	public void setLugarProximo(LugarProximo lp) {
 		this.lugarProximo = lp;
 	}
+	
+	public boolean equals(Hotel hotel) {
+		if (this == hotel)
+			return true;
+		if (hotel == null)
+			return false;
+		
+		if (idHotel != hotel.idHotel)
+			return false;
+		return true;
+	}
 
 	@Override
 	public String toString() {
