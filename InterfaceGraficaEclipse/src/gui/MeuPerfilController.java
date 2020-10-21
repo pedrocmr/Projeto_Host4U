@@ -15,7 +15,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class H4UMeuPerfilAPP extends Application {
+public class MeuPerfilController extends Application {
 
 	private TextField txLogin;
 	private PasswordField txSenha;
