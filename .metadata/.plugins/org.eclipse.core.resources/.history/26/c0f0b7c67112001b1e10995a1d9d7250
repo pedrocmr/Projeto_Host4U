@@ -1,8 +1,0 @@
-package modelo;
-
-public class Lugar {
-	
-	private String tipoDeLugar;
-	private String nomeDoLugar;
-
-}
