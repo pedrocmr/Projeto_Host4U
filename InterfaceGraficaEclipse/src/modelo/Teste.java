@@ -11,9 +11,9 @@ public class Teste {
 		LocalDate h = LocalDate.now();
 		LocalDate hora = LocalDate.of(2020, 12, 15);
 
-		Reserva r = new Reserva(u, h, hora);
+		
 
-		System.out.println(r.toString());
+		
 	}
 
 }

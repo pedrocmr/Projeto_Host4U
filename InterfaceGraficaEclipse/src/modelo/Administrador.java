@@ -1,14 +1,18 @@
 package modelo;
 
-
 public class Administrador extends Usuario{
 
-	
+	boolean tokenAdmin;
 	public Administrador() {
 		
 		super();
+		tokenAdmin = true;
 	}
 	
+	public boolean isAdmin() {
+		return tokenAdmin;
+	}
+
 	public Administrador(String login,
 			String senha,
 			String nome, 
