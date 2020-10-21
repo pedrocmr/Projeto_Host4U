@@ -1,19 +1,17 @@
 package modelo;
 
-import java.util.ArrayList;
-
 public class Quarto {
 
 	private int ocupacaoMaximaPessoas;
 	private int andar;
 	private int numero;
+	private Hotel hotel;
 	private String preferenciaCamas;
-	private ArrayList<Reserva> reserva; // ACHO QUE NÃO VAI SER MAIS NECESSÁRIO;
 	private double valorSuite;
 	private int numeroCamas;
 	private double valorReserva;
 
-	public Quarto(int numero, int andar, int ocupacaoMaximaPessoas, double valorSuite, double valorDiariaUnidade,
+	public Quarto(int numero, int andar, Hotel hotel, int ocupacaoMaximaPessoas, double valorSuite, double valorDiariaUnidade,
 			double valorDeAdicaoPorPessoa) {
 
 		this.valorSuite = valorSuite;
@@ -35,7 +33,7 @@ public class Quarto {
 			numero *= -1;
 		}
 
-		reserva = new ArrayList<>();
+		this.hotel = hotel;
 		this.numero = numero;
 		this.andar = andar;
 		this.ocupacaoMaximaPessoas = ocupacaoMaximaPessoas;
@@ -52,6 +50,14 @@ public class Quarto {
 
 	public int getAndar() {
 		return andar;
+	}
+	
+	public Hotel getHotel() {
+		return hotel;
+	}
+
+	public void setHotel(Hotel hotel) {
+		this.hotel = hotel;
 	}
 
 	public void setAndar(int andar) {
@@ -70,13 +76,6 @@ public class Quarto {
 		return preferenciaCamas;
 	}
 
-	public ArrayList<Reserva> getReserva() {
-		return reserva;
-	}
-
-	public void setReserva(ArrayList<Reserva> reserva) {
-		this.reserva = reserva;
-	}
 
 	public double getValorSuite() {
 		return valorSuite;
@@ -106,12 +105,30 @@ public class Quarto {
 	public double getValorReserva() {
 		return valorReserva;
 	}
+	
+	
+	public boolean equals(Quarto quarto) {
+		if (this == quarto)
+			return true;
+		if (quarto == null)
+			return false;
+		
+		if (this.getHotel().equals(quarto.getHotel()) == true){
+			
+			if( (this.getNumero() == quarto.getNumero())) {
+
+				
+				return true;
+			}
+		}
+		return false;
+	}
 
 	@Override
 	public String toString() {
-		return "Quarto [Ocupação máxima de pessoas: " + ocupacaoMaximaPessoas + ", Andar: " + andar + ", Número: "
-				+ numero + ", reserva: " + reserva + ", Valor da suíte: " + valorSuite + ", Número de camas: "
-				+ numeroCamas + ", Valor da reserva: " + valorReserva + "]";
+		return "Ocupação máxima de pessoas: " + ocupacaoMaximaPessoas + ", Andar: " + andar + ", Número: "
+				+ numero + ", Valor da suíte: " + valorSuite + ", Número de camas: "
+				+ numeroCamas + ", Valor da reserva: " + valorReserva;
 	}
 
 }

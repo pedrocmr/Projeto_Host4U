@@ -1,10 +1,12 @@
 package repositorio;
 
+import modelo.Reserva;
+
 public interface IRepositorioReserva {
 
-	void addReserva();
+	boolean addReserva(Reserva reserva);
 	
-	void cancelarReserva();
+	boolean cancelarReserva();
 	
 	void listarReservas();
 	

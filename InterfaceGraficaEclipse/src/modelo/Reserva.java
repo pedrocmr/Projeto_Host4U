@@ -4,14 +4,17 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 
 public class Reserva {
-
+	
+	
+	private Quarto quarto;
 	private Usuario usuario;
 	LocalDate checkin;
 	LocalDate checkout;
 
 	// CONSTRUTOR
-	public Reserva(Usuario usuario, LocalDate checkin, LocalDate checkout) {
-
+	public Reserva(Usuario usuario, Quarto quarto, LocalDate checkin, LocalDate checkout) {
+		
+		
 		this.usuario = usuario;
 		this.checkin = checkin;
 		this.checkout = checkout;
@@ -25,6 +28,14 @@ public class Reserva {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+	
+	public Quarto getQuarto() {
+		return quarto;
+	}
+
+	public void setQuarto(Quarto quarto) {
+		this.quarto = quarto;
 	}
 
 	public LocalDate getCheckin() {

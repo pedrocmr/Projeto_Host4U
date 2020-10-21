@@ -8,10 +8,10 @@ import modelo.Usuario;
 
 public class ControleReserva {
 
-	Quarto quarto; // ESSA REFERENCIA A CLASSE QUARTO NÃO DEVE EXISTIR MAIS
+	
 
-	public ControleReserva(Quarto quarto) {
-		this.quarto = quarto;
+	public ControleReserva() {
+		
 	}
 
 	// MÉTODO PARA PREENCHER RESERVAS
@@ -24,12 +24,7 @@ public class ControleReserva {
 	// MÉTODO CANCELAR RESERVAS
 	public void cancelaReserva(LocalDate checkin) {
 
-		for (int i = 0; i < quarto.getReserva().size(); i++) {
-
-			if (quarto.getReserva().get(i).getCheckin().equals(checkin)) {
-				quarto.getReserva().remove(i);
-			}
-		}
+		
 	}
 
 	// MÉTODO REMARCAR RESERVAS
