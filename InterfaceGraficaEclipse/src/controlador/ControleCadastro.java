@@ -19,8 +19,10 @@ public class ControleCadastro {
 	private static BufferedReader leitor;
 	private static BufferedWriter escrever;
 
+	Usuario usuario;
 	// CONSTRUTOR
-	public ControleCadastro() {
+	public ControleCadastro(Usuario user) {
+		this.usuario = user;
 	}
 
 	public void dadoCadastroAdiciona(Usuario usuario) {
