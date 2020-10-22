@@ -1,6 +1,7 @@
 package repositorio;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import modelo.Reserva;
 
@@ -32,8 +33,6 @@ public class RepositorioReservaArray implements IRepositorioReserva {
 						(novaReserva.getCheckout().isBefore(nova.getCheckin()) == true) ||
 						novaReserva.getCheckin().isAfter(nova.getCheckout()) == true) {
 						
-						reservas.add(novaReserva);
-						
 						}else {
 							
 							jaReservada = true;
@@ -46,13 +45,9 @@ public class RepositorioReservaArray implements IRepositorioReserva {
 						
 						reservas.add(novaReserva);
 					
-					}else {
-						
-						if(reservas.contains(novaReserva)) {
-							
-							reservas.remove(novaReserva);						}
+						resultado = true;
 					}
-				
+							
 				}
 				
 			}
@@ -65,9 +60,23 @@ public class RepositorioReservaArray implements IRepositorioReserva {
 	}
 
 	@Override
-	public boolean cancelarReserva() {
+	public boolean cancelarReserva(Reserva reservaCancela) {
 
-		return false;
+			
+		boolean resultado = false;
+		
+		for (Iterator<Reserva> iterator = reservas.iterator(); iterator.hasNext();) {
+				
+			Reserva existente = iterator.next();
+				
+				if(existente.equals(reservaCancela)) {
+					
+					iterator.remove();
+					resultado = true;
+				}
+			}
+		
+		return resultado;
 	}
 
 	@Override
