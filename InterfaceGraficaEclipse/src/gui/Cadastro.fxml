@@ -1,8 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CadastroController">
+	<children>
+		<TextField id="txtLogin" fx:id="txtLogin" layoutX="213.0" layoutY="127.0" promptText="Login" />
+		<Text id="lbLogin" fx:id="lbLogin" layoutX="159.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login :" />
+		<PasswordField id="txtSenha" fx:id="txtSenha" layoutX="213.0" layoutY="159.0" promptText="Senha" />
+		<Text id="lbSenha" fx:id="lbSenha" layoutX="156.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha : " />
+		<TextField id="txtNome" fx:id="txtNome" layoutX="213.0" layoutY="194.0" promptText="Nome " />
+		<Text id="lbNome" fx:id="lbNome" layoutX="156.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome : " />
+		<TextField id="txtCpf" fx:id="txtCpf" layoutX="213.0" layoutY="230.0" promptText="CPF" />
+		<Text id="lbCpf" fx:id="lbCpf" layoutX="170.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF :" />
+		<RadioButton id="radioMasc" fx:id="radioMasc" layoutX="213.0" layoutY="269.0" mnemonicParsing="false" text="Masculino" />
+		<RadioButton id="radioFem" fx:id="radioFem" layoutX="300.0" layoutY="269.0" mnemonicParsing="false" text="Feminino" />
+		<Text id="lbSexo" fx:id="lbSexo" layoutX="166.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sexo : " />
+		<Button id="btnCadastrar" fx:id="btnCadastrar" layoutX="245.0" layoutY="316.0" mnemonicParsing="false" onAction="#cadastrarClick" text="CADASTRAR " />
+		<Button id="btnSair" fx:id="btnSair" layoutX="518.0" layoutY="316.0" mnemonicParsing="false" text="SAIR" />
+		<ImageView id="imgLogo" fx:id="imgLogo" fitHeight="82.0" fitWidth="163.0" layoutX="205.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+			<image>
+				<Image url="@../imagens/H4ULogotipo.png" />
+			</image>
+		</ImageView>
+	</children>
 </AnchorPane>
-
