@@ -53,6 +53,41 @@ public class Reserva {
 	public void setCheckout(LocalDate checkout) {
 		this.checkout = checkout;
 	}
+	
+	
+
+	public boolean equals(Reserva reserva) {
+		if (this == reserva)
+			return true;
+		if (reserva == null)
+			return false;
+		Reserva other = reserva;
+		
+		if (!usuario.getCpf().equals(reserva.getUsuario().getCpf())) {
+		
+			return false;
+		}
+		
+		if(!quarto.equals(reserva.getQuarto())) {
+			
+			return false;
+		}
+		
+		if (checkin == null) {
+			if (other.checkin != null)
+				return false;
+			
+		} else if (!checkin.equals(other.checkin))
+			return false;
+		
+		if (checkout == null) {
+			if (other.checkout != null)
+				return false;
+			
+		} else if (!checkout.equals(other.checkout))
+			return false;
+		return true;
+	}
 
 	@Override
 	public String toString() {

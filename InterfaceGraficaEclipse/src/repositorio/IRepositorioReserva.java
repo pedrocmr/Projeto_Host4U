@@ -6,7 +6,7 @@ public interface IRepositorioReserva {
 
 	boolean addReserva(Reserva reserva);
 	
-	boolean cancelarReserva();
+	boolean cancelarReserva(Reserva reservaCancela);
 	
 	void listarReservas();
 	
