@@ -10,5 +10,5 @@ public interface IRepositorioReserva {
 	
 	void listarReservas();
 	
-	void remarcarReserva();
+	boolean remarcarReserva(Reserva reservaCancela, Reserva reservaRemarca);
 }
