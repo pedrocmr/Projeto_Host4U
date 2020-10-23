@@ -1,106 +1,72 @@
 package controlador;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-
-import javax.swing.JOptionPane;
-
 import modelo.Usuario;
+import repositorio.RepositorioUsuarioArray;
 
 public class ControleCadastro {
 
-	private static FileWriter fileWriter;
-	private static FileReader fileReader;
-	private static BufferedReader leitor;
-	private static BufferedWriter escrever;
+	private RepositorioUsuarioArray repo;
 
 	Usuario usuario;
-	// CONSTRUTOR
+	
+	
 	public ControleCadastro(Usuario user) {
 		this.usuario = user;
+		repo = new RepositorioUsuarioArray();
 	}
 
-	public void dadoCadastroAdiciona(Usuario usuario) {
+	public boolean dadoCadastroAdiciona(Usuario usuarioAdd) {
 
-		try {
-			File arquivo = new File("src/arquivo.txt");
-			String linhaDados;
-			fileWriter = new FileWriter(arquivo, true);
-			escrever = new BufferedWriter(fileWriter);
+		boolean resultado = false;
+		
+		
 
 			if (verificaCadastro(usuario.getCpf())) {
 
-				linhaDados = usuario.getLogin() + "," + usuario.getSenha() + "," + usuario.getNome() + ","
-						+ usuario.getCpf() + "," + usuario.getSexo();
-				escrever.write(linhaDados + "\n");
-
+				
+				repo.addUsuario(usuarioAdd);
+				resultado = true;
 			}
 
-			escrever.close();
-			fileWriter.close();
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		
+		return resultado;
 
 	}
 
 	public void lerDadoCadastro() {
 
-		File arquivo = new File("src/arquivo.txt");
-		try {
-			fileReader = new FileReader(arquivo);
-			leitor = new BufferedReader(fileReader);
-			String linha = leitor.readLine();
-			while (linha != null) {
-				System.out.println(linha);
-				linha = leitor.readLine();
+		
+		
+
+	}
+	
+
+	private boolean verificaCadastro(String cpf) {
+
+		
+		boolean resultado = false;
+		
+		if (cpf.equals("00000000000") || cpf.equals("11111111111") || cpf.equals("22222222222")||
+	        cpf.equals("33333333333") || cpf.equals("44444444444") ||
+	        cpf.equals("55555555555") || cpf.equals("66666666666") ||
+	        cpf.equals("77777777777") || cpf.equals("88888888888") ||
+	        cpf.equals("99999999999") || (cpf.length() != 11)){
+	             
+		
+		}else {
+			
+			for (Usuario existente : repo.getUsuarios()) {
+				
+				if(existente.getCpf().equals(cpf)) {
+					
+				}else {
+					
+					resultado = true;
+				}
 			}
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
+		
+		return resultado;
 
 	}
-
-	public boolean verificaCadastro(String cpf) {
-
-		File arquivo = new File("src/arquivo.txt");
-
-		try {
-
-			fileReader = new FileReader(arquivo);
-			leitor = new BufferedReader(fileReader);
-			String linha = leitor.readLine();
-
-			do {
-
-				String[] vamosPorPartes = linha.split(",");
-
-				if (cpf.equals(vamosPorPartes[3])) {
-
-					return false;
-				}
-
-				if (linha != null) {
-
-					linha = leitor.readLine();
-
-				}
-
-			} while (linha != null);
-
-		} catch (IOException e) {
-
-			System.out.println("erro" + e.getMessage());
-		}
-
-		return true;
-
-	}
-
 }

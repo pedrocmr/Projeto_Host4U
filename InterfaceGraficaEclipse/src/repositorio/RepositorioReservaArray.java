@@ -15,7 +15,7 @@ public class RepositorioReservaArray implements IRepositorioReserva {
 	}
 
 	@Override
-	public boolean addReserva(Reserva novaReserva) {
+	public boolean addReserva(Reserva novaReserva) {  //as implementações desse metodo devem estar em controleReserva
 		boolean resultado = false;
 		
 		if (novaReserva != null) {
@@ -60,8 +60,13 @@ public class RepositorioReservaArray implements IRepositorioReserva {
 	}
 
 	@Override
-	public boolean cancelarReserva(Reserva reservaCancela) {
-
+	public boolean cancelarReserva(Reserva reservaCancela) { // essas implementações tb 
+																//vou fazer isso depois, renan
+		
+		if(reservaCancela == null) { 
+			
+			return false;
+		}
 			
 		boolean resultado = false;
 		
@@ -88,8 +93,37 @@ public class RepositorioReservaArray implements IRepositorioReserva {
 	}
 
 	@Override
-	public void remarcarReserva() {
+	public boolean remarcarReserva(Reserva reservaCancela, Reserva reservaRemarca) {
 
+		
+		if (reservaCancela == null || reservaRemarca == null) {
+			
+			return false;
+		}
+		
+		boolean resultado = false;
+		boolean naoCadastrado = false;
+		
+		if (cancelarReserva(reservaCancela)) {
+			
+			//cadastrado
+			
+			if (addReserva(reservaRemarca)) {
+				
+				resultado = true;
+			}
+		
+		}else {
+			
+			naoCadastrado = true;
+		}
+
+		if(naoCadastrado) { //posso alterar pra tentar mostrar algum erro na tela, dizendo que nao ha cadastro
+		
+			
+		}
+		
+		return resultado;
 	}
 
 }
