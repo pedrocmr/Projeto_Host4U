@@ -2,8 +2,10 @@ package gui;
 
 import java.net.URL;
 import java.rmi.server.LoaderHandler;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import controlador.ControleCadastro;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -24,10 +26,16 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-								//extends Application
+import modelo.Usuario;
+import repositorio.RepositorioUsuarioArray;
+								
 public class CadastroController extends Application implements Initializable {
 
 	private static Stage stage;
+	private ArrayList<Usuario> users;
+	private Usuario novoUser;
+	//private ControleCadastro conUser;
+	private RepositorioUsuarioArray repUser;
 	@FXML private TextField txtLogin;
 	@FXML private Text lbLogin;
     @FXML private PasswordField txtSenha;
@@ -36,18 +44,33 @@ public class CadastroController extends Application implements Initializable {
     @FXML private Text lbNome;
     @FXML private TextField txtCpf;
     @FXML private Text lbCpf;
-    @FXML private RadioButton radioMasc;
-    @FXML private RadioButton radioFem;
     @FXML private Text lbSexo;
+    @FXML private TextField txtSexo;
     @FXML private Button btnCadastrar;
     @FXML private Button btnSair;
     @FXML private ImageView imgLogo;
     @FXML private AnchorPane rootPane;
     @FXML
     void cadastrarClick(ActionEvent event) {
-    	System.out.println("Click");
-    	lbSexo.setText("Teste");
-    } 
+    	
+    	novoUser = new Usuario();
+    	
+    	this.novoUser.setLogin(txtLogin.getText());
+    	this.novoUser.setSenha(txtSenha.getText());
+    	this.novoUser.setNome(txtNome.getText());
+    	this.novoUser.setCpf(txtCpf.getText());
+    	this.novoUser.setSexo(txtSexo.getText());
+    	
+    	System.out.println(novoUser.getCpf());
+    	users = new ArrayList<Usuario>();
+    	users.add(novoUser);
+    	repUser = new RepositorioUsuarioArray();
+    	repUser.addUsuario(novoUser);
+    	
+     }
+    
+    
+    
 
 	public void start(Stage stage) throws Exception {
 
