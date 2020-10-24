@@ -60,7 +60,7 @@ public class Lugar {
 
 	    distance = Math.pow(distance, 2);
 
-	    return Math.sqrt(distance);
+	    return Math.sqrt(distance) * 0.001;
 	}
 
 
