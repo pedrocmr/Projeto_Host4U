@@ -1,14 +1,16 @@
 package repositorio;
 
+import java.util.ArrayList;
+
 import modelo.Reserva;
 
 public interface IRepositorioReserva {
 
-	boolean addReserva(Reserva reserva);
 	
-	boolean cancelarReserva(Reserva reservaCancela);
+	ArrayList<Reserva> listarReservas(String usuarioCpf);
 	
-	void listarReservas();
+	ArrayList<Reserva> listarTodasReservas();
 	
-	boolean remarcarReserva(Reserva reservaCancela, Reserva reservaRemarca);
+	ArrayList<Reserva> listarReservas (int idHotel);
+	
 }
