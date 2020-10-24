@@ -6,10 +6,10 @@ public class LugarProximo {
 	private Lugar lugar;
 	private double distanciaEmKm;
 
-	public LugarProximo(Hotel h, Lugar l, double dist) {
+	public LugarProximo(Hotel h, Lugar l) {
 		this.hotel = h;
 		this.lugar = l;
-		this.distanciaEmKm = dist;
+		this.distanciaEmKm = h.getLugar().distance(l);
 
 	}
 
