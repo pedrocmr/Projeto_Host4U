@@ -11,6 +11,7 @@ public class ConfirmacaoReservaController extends Application {
 
 	private static Stage stage;
 
+	@Override
 	public void start(Stage stage) throws Exception {
 
 		AnchorPane root = FXMLLoader.load(getClass().getResource("/gui/ConfirmacaoReserva.fxml"));

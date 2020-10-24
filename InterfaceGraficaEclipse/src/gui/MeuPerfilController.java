@@ -5,7 +5,6 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.Initializable;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -14,6 +13,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -35,14 +37,10 @@ public class MeuPerfilController extends Application implements Initializable{
 	    @FXML private Button btVoltar;
 	    @FXML private PasswordField txSenha;
 	    @FXML private ImageView imagemHost;
-	    @FXML private Button botao3;
- 
-        @FXML
-        void funcionaBotao(ActionEvent event) {
-      
-    	 System.out.println("salvei!");
-     }
+	    @FXML private Button btReservas;
      
+	    
+	@Override
 	public void start(Stage stage) throws Exception {
 
 		// CRIANDO LAYOUT
@@ -69,10 +67,53 @@ public class MeuPerfilController extends Application implements Initializable{
 		MeuPerfilController.stage = stage;
 	}
 	
+	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
 		
+		btSalvar.setOnMouseClicked((MouseEvent mouse) -> {
+			System.out.println("salvo!");
+		});
+		
+		btSalvar.setOnKeyPressed((KeyEvent enter) -> {
+			if(enter.getCode().equals(KeyCode.ENTER)) {
+				System.out.println("salvo!");
+			}
+		});
+		
+		btReservas.setOnMouseClicked((MouseEvent mouse) -> {
+			proximaTela();
+		});
+		
+		btReservas.setOnKeyPressed((KeyEvent enter) -> {
+			if(enter.getCode().equals(KeyCode.ENTER)) {
+                 proximaTela();
+		     }
+	    });
+		
+		btVoltar.setOnMouseClicked((MouseEvent mouse) -> {
+			System.out.println("voltei!");
+		});
+		
+		btVoltar.setOnKeyPressed((KeyEvent enter) -> {
+			System.out.println("voltei!");
+		});
 	}
+	
+    public void fecharTela() {
+	MeuPerfilController.getStage().close();
+}
+
+    public void proximaTela() {
+	
+	ReservaController rc = new ReservaController();
+	fecharTela();
+	
+	try {
+		rc.start(new Stage());
+	} catch (Exception e) {
+		// TODO: handle exception
+	}
+}
 	
 	public static void main(String args[]) {
 

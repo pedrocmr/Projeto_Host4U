@@ -11,8 +11,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -20,36 +22,18 @@ public class ReservaController extends Application implements Initializable {
 
 		private static Stage stage;
 	
-	  @FXML
-	    private AnchorPane root;
-
-	    @FXML
-	    private TableView<?> tabela;
-
-	    @FXML
-	    private TableColumn<?, ?> rotuloNome;
-
-	    @FXML
-	    private TableColumn<?, ?> rotuloHotel;
-
-	    @FXML
-	    private TableColumn<?, ?> rotuloQuarto;
-
-	    @FXML
-	    private TableColumn<?, ?> rotuloCheckin;
-
-	    @FXML
-	    private TableColumn<?, ?> rotuloCheckout;
-
-	    @FXML
-	    private ImageView imagem;
-
-	    @FXML
-	    private Button BtSalvar;
-
-	    @FXML
-	    private Button btVoltar;
+	    @FXML private AnchorPane root;
+	    @FXML private TableView<?> tabela;
+	    @FXML private TableColumn<?, ?> rotuloNome;
+	    @FXML private TableColumn<?, ?> rotuloHotel;
+	    @FXML private TableColumn<?, ?> rotuloQuarto;
+        @FXML private TableColumn<?, ?> rotuloCheckin;
+	    @FXML private TableColumn<?, ?> rotuloCheckout;
+        @FXML private ImageView imagem;
+	    @FXML private Button btSalvar;
+	    @FXML private Button btVoltar;
 	
+	@Override
 	public void start(Stage stage) throws Exception {
 
 		// CRIANDO LAYOUT
@@ -76,9 +60,44 @@ public class ReservaController extends Application implements Initializable {
 		ReservaController.stage = stage;
 	}
 	
+	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
+
+		btSalvar.setOnMouseClicked((MouseEvent mouse) -> {
+			System.out.println("salvo!");
+		});
 		
+		btSalvar.setOnKeyPressed((KeyEvent enter) -> {
+			if(enter.getCode().equals(KeyCode.ENTER)) {
+				System.out.println("salvo");
+			}
+		});
+		
+		btVoltar.setOnMouseClicked((MouseEvent mouse) -> {
+			proximaTela();
+		});
+		
+		btVoltar.setOnKeyPressed((KeyEvent enter) -> {
+			if(enter.getCode().equals(KeyCode.ENTER)) {
+				proximaTela();
+			}
+		});
+	}
+	
+	public void fecharTela() {
+		ReservaController.getStage().close();
+	}
+	
+	public void proximaTela() {
+		
+		MeuPerfilController mp = new MeuPerfilController();
+		fecharTela();
+		
+		try {
+			mp.start(new Stage());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 	
 	public static void main(String args[]) {

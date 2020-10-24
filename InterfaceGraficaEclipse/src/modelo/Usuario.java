@@ -64,6 +64,7 @@ public class Usuario {
 		this.sexo = sexo;
 	}
 
+	@Override
 	public String toString() {
 		return "Login: " + getLogin() + " " + "Nome: " + getNome() + " " + "CPF:" + getCpf() + " " + "Sexo: "
 				+ getSexo();
