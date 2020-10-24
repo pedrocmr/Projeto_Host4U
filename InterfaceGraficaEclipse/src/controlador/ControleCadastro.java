@@ -7,11 +7,9 @@ public class ControleCadastro {
 
 	private RepositorioUsuarioArray repo;
 
-	Usuario usuario;
 	
 	
-	public ControleCadastro(Usuario user) {
-		this.usuario = user;
+	public ControleCadastro() {
 		repo = new RepositorioUsuarioArray();
 	}
 
@@ -19,7 +17,7 @@ public class ControleCadastro {
 
 		boolean resultado = false;
 		
-			if (verificaCadastro(usuario.getCpf())) {
+			if (verificaCadastro(usuarioAdd.getCpf())) {
 
 				repo.addUsuario(usuarioAdd);
 				resultado = true;
