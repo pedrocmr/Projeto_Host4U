@@ -1,28 +1,20 @@
 package gui;
 
 import java.net.URL;
-import java.rmi.server.LoaderHandler;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import controlador.ControleCadastro;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Group;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -72,6 +64,7 @@ public class CadastroController extends Application implements Initializable {
     
     
 
+	@Override
 	public void start(Stage stage) throws Exception {
 
 		 AnchorPane root =  FXMLLoader.load(getClass().getResource("Cadastro.fxml"));
@@ -103,6 +96,7 @@ public class CadastroController extends Application implements Initializable {
 	
 
 	
+	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		

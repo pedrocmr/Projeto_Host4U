@@ -5,7 +5,6 @@ import java.time.LocalDateTime;
 import modelo.Usuario;
 import modelo.Quarto;
 import modelo.Reserva;
-import modelo.Usuario;
 
 public class TesteControles {
 
