@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import controlador.ControleCadastro;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,8 +25,7 @@ import repositorio.RepositorioUsuarioArray;
 public class CadastroController extends Application implements Initializable {
 
 	private static Stage stage;
-	private ArrayList<Usuario> users;
-	private Usuario novoUser;
+	
 	//private ControleCadastro conUser;
 	private RepositorioUsuarioArray repUser;
 	@FXML private TextField txtLogin;
@@ -43,21 +43,22 @@ public class CadastroController extends Application implements Initializable {
     @FXML private ImageView imgLogo;
     @FXML private AnchorPane rootPane;
     @FXML
+    
     void cadastrarClick(ActionEvent event) {
     	
-    	novoUser = new Usuario();
+    	ControleCadastro controleCad = new ControleCadastro();
     	
-    	this.novoUser.setLogin(txtLogin.getText());
-    	this.novoUser.setSenha(txtSenha.getText());
-    	this.novoUser.setNome(txtNome.getText());
-    	this.novoUser.setCpf(txtCpf.getText());
-    	this.novoUser.setSexo(txtSexo.getText());
+    	Usuario novoUser = new Usuario();
+    	
+    	novoUser.setLogin(txtLogin.getText());
+    	novoUser.setSenha(txtSenha.getText());
+    	novoUser.setNome(txtNome.getText());
+    	novoUser.setCpf(txtCpf.getText());
+    	novoUser.setSexo(txtSexo.getText());
+    	
+    	controleCad.AdicionaUsuario(novoUser);
     	
     	System.out.println(novoUser.getCpf());
-    	users = new ArrayList<Usuario>();
-    	users.add(novoUser);
-    	repUser = new RepositorioUsuarioArray();
-    	repUser.addUsuario(novoUser);
     	
      }
     
