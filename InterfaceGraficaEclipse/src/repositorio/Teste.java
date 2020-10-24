@@ -33,7 +33,7 @@ public class Teste {
 		
 		Reserva r1 = new Reserva(u1, q1, dIn1, dout1);
 		
-		ctReserva.preencheReserva(u1, dIn1, dout1);
+		//ctReserva.preencheReserva(u1, dIn1, dout1);
 		
 		
 	}

@@ -105,7 +105,7 @@ public class MeuPerfilController extends Application implements Initializable{
 
     public void proximaTela() {
 	
-	ReservaController rc = new ReservaController();
+	MinhaReservaController rc = new MinhaReservaController();
 	fecharTela();
 	
 	try {
