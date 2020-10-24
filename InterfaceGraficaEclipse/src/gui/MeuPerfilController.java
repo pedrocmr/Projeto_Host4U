@@ -11,35 +11,34 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 public class MeuPerfilController extends Application implements Initializable{
 
 	private static Stage stage;
 	
-	 @FXML private Label texto6;
-	 @FXML private Label texto2;
-     @FXML private Label texto4;
-     @FXML private Label texto3;
-     @FXML private Label texto5;
-     @FXML private TextField txNome;
-	 @FXML private TextField txSenha;
-	 @FXML  private TextField txSexo;
-	 @FXML private TextField txLogin;
-     @FXML private Button btSalvar;
-     @FXML private Rectangle retangulo;
-     @FXML private Label texo1;
-     @FXML private ImageView imagem1;
-     @FXML private Button btVoltar;
-     @FXML private AnchorPane rootPane;
-     
-     
-     @FXML
-     void funcionaBotao(ActionEvent event) {
+	    @FXML private AnchorPane root;
+        @FXML private Label texto6;
+        @FXML private Label texto2;
+        @FXML private Label texto4;
+        @FXML private Label texto3;
+	    @FXML private Label texto5;
+	    @FXML private TextField txNome;
+	    @FXML private TextField txSexo;
+	    @FXML private TextField txLogin;
+	    @FXML private Button btSalvar;
+	    @FXML private ImageView imagem1;
+	    @FXML private Button btVoltar;
+	    @FXML private PasswordField txSenha;
+	    @FXML private ImageView imagemHost;
+	    @FXML private Button botao3;
+ 
+        @FXML
+        void funcionaBotao(ActionEvent event) {
       
     	 System.out.println("salvei!");
      }
