@@ -91,14 +91,4 @@ public class RepositorioReservaArray implements IRepositorioReserva {
 		return reserva;
 	}
 
-	@Override
-	public void remarcarReserva(LocalDate checkin, LocalDate checkout) { // PRECISA ADICIONAR AS CONDIÇÕES
-
-		for (Reserva r : reservas) {
-
-			r.setCheckin(checkin);
-			r.setCheckout(checkout);
-		}
-	}
-
 }

@@ -1,6 +1,5 @@
 package repositorio;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 import modelo.Reserva;
@@ -14,5 +13,4 @@ public interface IRepositorioReserva {
 
 	ArrayList<Reserva> listarReservasUsuario(Usuario usuario);
 
-	void remarcarReserva(LocalDate checkin, LocalDate checkout);
 }

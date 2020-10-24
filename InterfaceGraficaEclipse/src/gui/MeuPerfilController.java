@@ -60,7 +60,7 @@ public class MeuPerfilController extends Application implements Initializable{
 		setStage(stage);
 
 	}
-
+	
 	public static Stage getStage() {
 		return stage;
 	}
@@ -68,7 +68,7 @@ public class MeuPerfilController extends Application implements Initializable{
 	public static void setStage(Stage stage) {
 		MeuPerfilController.stage = stage;
 	}
-	
+
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		

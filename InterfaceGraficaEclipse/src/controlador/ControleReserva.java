@@ -5,10 +5,11 @@ import java.time.LocalDate;
 import modelo.Quarto;
 import modelo.Reserva;
 import modelo.Usuario;
+import repositorio.RepositorioReservaArray;
 
 public class ControleReserva {
 
-	
+	private RepositorioReservaArray repo;
 
 	public ControleReserva() {
 		
@@ -30,12 +31,14 @@ public class ControleReserva {
 	// MÉTODO REMARCAR RESERVAS
 	public void remarcarReserva(LocalDate checkin, LocalDate checkout) {
 
-		for (int i = 0; i < quarto.getReserva().size(); i++) {
+		 // PRECISA ADICIONAR AS CONDIÇÕES
 
-			quarto.getReserva().get(i).setCheckin(checkin);
-			quarto.getReserva().get(i).setCheckout(checkout);
+			for (Reserva r : reservas) {
 
-		}
+				r.setCheckin(checkin);
+				r.setCheckout(checkout);
+			}
+		
 	}
 
 }
