@@ -9,15 +9,15 @@ public class Hotel {
 	private Endereco endereco;
 	private ArrayList<Quarto> quartos;
 	private int andares;
-	private LugarProximo lugarProximo;
+	private Lugar lugar;
 
-	public Hotel(String nome, int idHotel, int andares, LugarProximo lugarProximo) {
+	public Hotel(String nome, int idHotel, int andares, Lugar lugar) {
 
 		this.nome = nome;
 		this.idHotel = idHotel;
 		this.andares = andares;
 		this.endereco = new Endereco();
-		this.lugarProximo = lugarProximo;
+		this.lugar = lugar;
 
 	}
 
@@ -57,12 +57,12 @@ public class Hotel {
 		this.andares = andares;
 	}
 
-	public LugarProximo getLugarProximo() {
-		return this.lugarProximo;
+	public Lugar getLugar() {
+		return this.lugar;
 	}
 
-	public void setLugarProximo(LugarProximo lp) {
-		this.lugarProximo = lp;
+	public void setLugarProximo(Lugar lugar) {
+		this.lugar = lugar;
 	}
 	
 	public boolean equals(Hotel hotel) {
@@ -78,8 +78,8 @@ public class Hotel {
 
 	@Override
 	public String toString() {
-		return "Hotel [Nome: " + nome + ", Id.Hotel: " + idHotel + ", Endereço: " + endereco + ", Quartos: "
-				+ quartos.size() + ", Andares: " + andares + ", Lugares Próximos: " + lugarProximo + "]";
+		return "Nome: " + nome + ", Id.Hotel: " + idHotel + ", Endereço: " + endereco + ", Quartos: "
+				+ quartos.size() + ", Andares: " + andares + ", Lugares Próximos: " + lugar;
 	}
 
 }
