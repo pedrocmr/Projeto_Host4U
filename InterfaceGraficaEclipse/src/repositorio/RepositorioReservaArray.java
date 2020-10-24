@@ -1,8 +1,6 @@
 package repositorio;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-
 import modelo.Reserva;
 
 public class RepositorioReservaArray implements IRepositorioReserva {
@@ -14,116 +12,63 @@ public class RepositorioReservaArray implements IRepositorioReserva {
 		this.reservas = new ArrayList<Reserva>();
 	}
 
-	@Override
-	public boolean addReserva(Reserva novaReserva) {  //as implementações desse metodo devem estar em controleReserva
-		boolean resultado = false;
-		
-		if (novaReserva != null) {
-			
-			boolean jaReservada = false;
-			
-			for (Reserva nova : reservas) {
 
-				if (nova.getQuarto().getHotel().equals(novaReserva.getQuarto().getHotel()) == true) {
-					
+	public ArrayList<Reserva> getReservas() {
+		return reservas;
+	}
+
+	@Override
+	public ArrayList<Reserva> listarTodasReservas() {
+		
+		
+		return reservas;
+
+	}
+
+	@Override
+	public ArrayList<Reserva> listarReservas(String cpf) {
+		
+		
+		if (cpf.equals("00000000000") || cpf.equals("11111111111") || cpf.equals("22222222222")||
+		        cpf.equals("33333333333") || cpf.equals("44444444444") ||
+		        cpf.equals("55555555555") || cpf.equals("66666666666") ||
+		        cpf.equals("77777777777") || cpf.equals("88888888888") ||
+		        cpf.equals("99999999999") || (cpf.length() != 11)){
+		             
+				return null;
+			}
+		
+		ArrayList<Reserva> reservasPorUsuario = new ArrayList<>();
+		
+		for (Reserva existente : reservas) {
+			
+			if(existente.getUsuario().getCpf().equals(cpf)) {
 				
-					if(nova.getQuarto().getNumero() == novaReserva.getQuarto().getNumero()){
-					
-					if((novaReserva.getCheckin().isBefore(nova.getCheckin()) == true) &&
-						(novaReserva.getCheckout().isBefore(nova.getCheckin()) == true) ||
-						novaReserva.getCheckin().isAfter(nova.getCheckout()) == true) {
-						
-						}else {
-							
-							jaReservada = true;
-						}
-					
-					}
-					
-					
-					if(jaReservada == false) {
-						
-						reservas.add(novaReserva);
-					
-						resultado = true;
-					}
-							
-				}
-				
+				reservasPorUsuario.add(existente);
 			}
 		}
 		
-		
-		
-		return resultado;
-		
+		return reservasPorUsuario;
 	}
 
 	@Override
-	public boolean cancelarReserva(Reserva reservaCancela) { // essas implementações tb 
-																//vou fazer isso depois, renan
+	public ArrayList<Reserva> listarReservas(int idHotel) {
 		
-		if(reservaCancela == null) { 
+		if(idHotel < 0) {
 			
-			return false;
+			idHotel *= -1;
 		}
-			
-		boolean resultado = false;
 		
-		for (Iterator<Reserva> iterator = reservas.iterator(); iterator.hasNext();) {
+		ArrayList<Reserva> reservasPorHotel = new ArrayList<>();
+		
+		for (Reserva existente : reservas) {
+			
+			if(existente.getQuarto().getHotel().getIdHotel() == idHotel) {
 				
-			Reserva existente = iterator.next();
-				
-				if(existente.equals(reservaCancela)) {
-					
-					iterator.remove();
-					resultado = true;
-				}
+				reservasPorHotel.add(existente);
 			}
+		}
 		
-		return resultado;
+		return reservasPorHotel;		
 	}
-
-	@Override
-	public void listarReservas() {
-		for (Reserva r : reservas) {
-			System.out.println(r);
-		}
-
-	}
-
-	@Override
-	public boolean remarcarReserva(Reserva reservaCancela, Reserva reservaRemarca) {
-
-		
-		if (reservaCancela == null || reservaRemarca == null) {
-			
-			return false;
-		}
-		
-		boolean resultado = false;
-		boolean naoCadastrado = false;
-		
-		if (cancelarReserva(reservaCancela)) {
-			
-			//cadastrado
-			
-			if (addReserva(reservaRemarca)) {
-				
-				resultado = true;
-			}
-		
-		}else {
-			
-			naoCadastrado = true;
-		}
-
-		if(naoCadastrado) { //posso alterar pra tentar mostrar algum erro na tela, dizendo que nao ha cadastro
-		
-			
-		}
-		
-		return resultado;
-	}
-
 }
