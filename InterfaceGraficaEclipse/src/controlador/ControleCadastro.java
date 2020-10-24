@@ -15,19 +15,31 @@ public class ControleCadastro {
 		repo = new RepositorioUsuarioArray();
 	}
 
-	public boolean AdicionaUsuario(Usuario usuarioAdd) {
+	public boolean dadoCadastroAdiciona(Usuario usuarioAdd) {
 
 		boolean resultado = false;
 		
+		
+
 			if (verificaCadastro(usuario.getCpf())) {
 
+				
 				repo.addUsuario(usuarioAdd);
 				resultado = true;
 			}
+
 		
 		return resultado;
 
-	}	
+	}
+
+	public void lerDadoCadastro() {
+
+		
+		
+
+	}
+	
 
 	private boolean verificaCadastro(String cpf) {
 

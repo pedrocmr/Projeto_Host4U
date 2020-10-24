@@ -35,6 +35,18 @@ public class ControleReserva {
 			quarto.getReserva().get(i).setCheckin(checkin);
 			quarto.getReserva().get(i).setCheckout(checkout);
 
+<<<<<<< HEAD
+=======
+		}
+	}
+
+	// MÉTODO LISTAR RESERVAS
+	public void listaReservas() {
+
+		for (int i = 0; i < quarto.getReserva().size(); i++) {
+
+			System.out.println(quarto.getReserva().get(i));
+>>>>>>> parent of fd150d3... Merge branch 'DEV-Telas_Renan'
 		}
 	}
 
