@@ -20,10 +20,10 @@
       </TableView>
       <ImageView fx:id="imagem" fitHeight="72.0" fitWidth="130.0" layoutX="274.0" layoutY="7.0">
          <image>
-            <Image url="imagens/H4ULogotipo.png" />
+            <Image url="@../../../../../../imagens/H4ULogotipo.png" />
          </image>
       </ImageView>
-      <Button fx:id="BtSalvar" layoutX="404.0" layoutY="424.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="130.0" text="Salvar Alterações" />
+      <Button fx:id="btSalvar" layoutX="404.0" layoutY="424.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="130.0" text="Salvar Alterações" />
       <Button fx:id="btVoltar" layoutX="174.0" layoutY="424.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="107.0" text="Voltar" />
    </children>
 </AnchorPane>

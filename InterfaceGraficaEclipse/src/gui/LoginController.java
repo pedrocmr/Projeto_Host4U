@@ -25,6 +25,7 @@ public class LoginController extends Application {
 	private PasswordField txSenha;
 	private Image iconeTitulo;
 
+	@Override
 	public void start(Stage stage) throws Exception {
 
 		initComponentes();
