@@ -37,7 +37,7 @@ public class MinhaReservaController extends Application implements Initializable
 	public void start(Stage stage) throws Exception {
 
 		// CRIANDO LAYOUT
-		AnchorPane root = FXMLLoader.load(getClass().getResource("Reserva.fxml"));
+		AnchorPane root = FXMLLoader.load(getClass().getResource("MinhaReserva.fxml"));
 		Scene scene = new Scene(root, 700, 500);
 
 		// COLOCANDO TÍTULO

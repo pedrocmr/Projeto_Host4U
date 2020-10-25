@@ -21,7 +21,7 @@ import javafx.stage.Stage;
 
 public class MeuPerfilController extends Application implements Initializable{
 
-	private static Stage stage;
+		static Stage stage;
 	
 	    @FXML private AnchorPane root;
         @FXML private Label texto6;
