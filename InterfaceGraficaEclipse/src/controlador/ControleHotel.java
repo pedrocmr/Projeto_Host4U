@@ -30,7 +30,7 @@ public class ControleHotel {
 		if (lugar != null) {
 			for (LugarProximo l : lugar) {
 
-				hotel.getLugarProximo().add(l);// NECESSITA DE IMPLEMENTAÇÃO
+				// NECESSITA DE IMPLEMENTAÇÃO
 			}
 
 		}

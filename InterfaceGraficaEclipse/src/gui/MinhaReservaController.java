@@ -18,7 +18,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class ReservaController extends Application implements Initializable {
+public class MinhaReservaController extends Application implements Initializable {
 
 		private static Stage stage;
 	
@@ -37,7 +37,7 @@ public class ReservaController extends Application implements Initializable {
 	public void start(Stage stage) throws Exception {
 
 		// CRIANDO LAYOUT
-		AnchorPane root = FXMLLoader.load(getClass().getResource("Reserva.fxml"));
+		AnchorPane root = FXMLLoader.load(getClass().getResource("MinhaReserva.fxml"));
 		Scene scene = new Scene(root, 700, 500);
 
 		// COLOCANDO TÍTULO
@@ -57,7 +57,7 @@ public class ReservaController extends Application implements Initializable {
 	}
 
 	public static void setStage(Stage stage) {
-		ReservaController.stage = stage;
+		MinhaReservaController.stage = stage;
 	}
 	
 	@Override
@@ -85,7 +85,7 @@ public class ReservaController extends Application implements Initializable {
 	}
 	
 	public void fecharTela() {
-		ReservaController.getStage().close();
+		MinhaReservaController.getStage().close();
 	}
 	
 	public void proximaTela() {

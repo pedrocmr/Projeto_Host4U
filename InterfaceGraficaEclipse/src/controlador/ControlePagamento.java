@@ -18,8 +18,8 @@ public class ControlePagamento {
 
 		double cont = (pagamento.getReserva().getCheckin().until(pagamento.getReserva().getCheckout(),
 				ChronoUnit.DAYS));
-		pagamento.setValorTotal(pagamento.getReserva().getValorReserva() * Math.abs(cont)); // PRECISA PEGAR O VALOR DA
-																							// RESERVA DO QUARTO
+		pagamento.setValorTotal(pagamento.getReserva().getQuarto().getValorReserva() * Math.abs(cont));
+
 		return pagamento.getValorTotal();
 	}
 
@@ -28,7 +28,17 @@ public class ControlePagamento {
 
 		LocalDate data = LocalDate.now();
 
-		if (pagamento.getNumeroCartao().length() == 16) {
+		if (pagamento.getNumeroCartao().length() == 16 
+				&& !pagamento.getNumeroCartao().equals("0000000000000000")
+				&& !pagamento.getNumeroCartao().equals("1111111111111111")
+				&& !pagamento.getNumeroCartao().equals("2222222222222222")
+				&& !pagamento.getNumeroCartao().equals("3333333333333333")
+				&& !pagamento.getNumeroCartao().equals("4444444444444444")
+				&& !pagamento.getNumeroCartao().equals("5555555555555555")
+				&& !pagamento.getNumeroCartao().equals("6666666666666666")
+				&& !pagamento.getNumeroCartao().equals("7777777777777777")
+				&& !pagamento.getNumeroCartao().equals("8888888888888888")
+				&& !pagamento.getNumeroCartao().equals("9999999999999999")) {
 			if (pagamento.getCvv().length() == 3) {
 				if (pagamento.getValidadeCartao().getYear() > data.getYear()) {
 
@@ -37,7 +47,17 @@ public class ControlePagamento {
 			return true;
 		}
 
-		else if (pagamento.getNumeroCartao().length() == 16) {
+		else if (pagamento.getNumeroCartao().length() == 16 
+				&& !pagamento.getNumeroCartao().equals("0000000000000000")
+				&& !pagamento.getNumeroCartao().equals("1111111111111111")
+				&& !pagamento.getNumeroCartao().equals("2222222222222222")
+				&& !pagamento.getNumeroCartao().equals("3333333333333333")
+				&& !pagamento.getNumeroCartao().equals("4444444444444444")
+				&& !pagamento.getNumeroCartao().equals("5555555555555555")
+				&& !pagamento.getNumeroCartao().equals("6666666666666666")
+				&& !pagamento.getNumeroCartao().equals("7777777777777777")
+				&& !pagamento.getNumeroCartao().equals("8888888888888888")
+				&& !pagamento.getNumeroCartao().equals("9999999999999999")) {
 			if (pagamento.getCvv().length() == 3) {
 				if (pagamento.getValidadeCartao().getYear() == data.getYear()) {
 					if (pagamento.getValidadeCartao().until(data, ChronoUnit.MONTHS) >= 0)
@@ -49,18 +69,6 @@ public class ControlePagamento {
 
 		else {
 			return false;
-		}
-	}
-
-	// MÉTODO QUE DIZ SE A RESERVA FOI APROVADA
-	public String aprovacao() {
-
-		if (verificaCartao() == true) {
-			return "Transação Aprovada!";
-		}
-
-		else {
-			return "Cartão Inválido!";
 		}
 	}
 }
