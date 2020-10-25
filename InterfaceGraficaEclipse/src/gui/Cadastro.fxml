@@ -8,21 +8,21 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CadastroController">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CadastroController">
 	<children>
-		<TextField id="txtLogin" fx:id="txtLogin" layoutX="213.0" layoutY="127.0" promptText="Login" />
-		<Text id="lbLogin" fx:id="lbLogin" layoutX="159.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login :" />
-		<PasswordField id="txtSenha" fx:id="txtSenha" layoutX="213.0" layoutY="159.0" promptText="Senha" />
-		<Text id="lbSenha" fx:id="lbSenha" layoutX="156.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha : " />
-		<TextField id="txtNome" fx:id="txtNome" layoutX="213.0" layoutY="194.0" promptText="Nome " />
-		<Text id="lbNome" fx:id="lbNome" layoutX="156.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome : " />
-		<TextField id="txtCpf" fx:id="txtCpf" layoutX="213.0" layoutY="230.0" promptText="CPF" />
-		<Text id="lbCpf" fx:id="lbCpf" layoutX="170.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF :" />
-		<Text id="lbSexo" fx:id="lbSexo" layoutX="166.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sexo : " />
-		<TextField fx:id="txtSexo" layoutX="214.0" layoutY="265.0" promptText="Sexo ex; M ou F" />
-		<Button id="btnCadastrar" fx:id="btnCadastrar" layoutX="245.0" layoutY="316.0" mnemonicParsing="false" onAction="#cadastrarClick" text="CADASTRAR " />
-		<Button id="btnSair" fx:id="btnSair" layoutX="518.0" layoutY="316.0" mnemonicParsing="false" text="SAIR" />
-		<ImageView id="imgLogo" fx:id="imgLogo" fitHeight="82.0" fitWidth="163.0" layoutX="208.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+		<TextField id="txtLogin" fx:id="txtLogin" layoutX="276.0" layoutY="127.0" promptText="Login" />
+		<Text id="lbLogin" fx:id="lbLogin" layoutX="213.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login :" />
+		<PasswordField id="txtSenha" fx:id="txtSenha" layoutX="276.0" layoutY="159.0" promptText="Senha" />
+		<Text id="lbSenha" fx:id="lbSenha" layoutX="210.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha : " />
+		<TextField id="txtNome" fx:id="txtNome" layoutX="276.0" layoutY="194.0" promptText="Nome " />
+		<Text id="lbNome" fx:id="lbNome" layoutX="210.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome : " />
+		<TextField id="txtCpf" fx:id="txtCpf" layoutX="276.0" layoutY="230.0" promptText="CPF" />
+		<Text id="lbCpf" fx:id="lbCpf" layoutX="218.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF :" />
+		<Text id="lbSexo" fx:id="lbSexo" layoutX="214.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sexo : " />
+		<TextField fx:id="txtSexo" layoutX="276.0" layoutY="265.0" promptText="Sexo ex; M ou F" />
+		<Button id="btnCadastrar" fx:id="btnCadastrar" layoutX="307.0" layoutY="316.0" mnemonicParsing="false" onAction="#cadastrarClick" text="CADASTRAR " />
+		<Button id="btnSair" fx:id="btnSair" layoutX="613.0" layoutY="442.0" mnemonicParsing="false" text="SAIR" />
+		<ImageView id="imgLogo" fx:id="imgLogo" fitHeight="82.0" fitWidth="163.0" layoutX="270.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
 			<image>
 				<Image url="@../imagens/H4ULogotipo.png" />
 			</image>

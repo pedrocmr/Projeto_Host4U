@@ -16,6 +16,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -26,8 +27,6 @@ public class CadastroController extends Application implements Initializable {
 
 	private static Stage stage;
 	
-	//private ControleCadastro conUser;
-	private RepositorioUsuarioArray repUser;
 	@FXML private TextField txtLogin;
 	@FXML private Text lbLogin;
     @FXML private PasswordField txtSenha;
@@ -56,12 +55,19 @@ public class CadastroController extends Application implements Initializable {
     	novoUser.setCpf(txtCpf.getText());
     	novoUser.setSexo(txtSexo.getText());
     	
-    	controleCad.AdicionaUsuario(novoUser);
     	
-    	System.out.println(novoUser.getCpf());
+    	
+    	System.out.println(controleCad.AdicionaUsuario(novoUser));
+    	
+    	//System.out.println(novoUser.getCpf());
+    	
     	
      }
     
+    
+    void fecharTela() {
+    	CadastroController.getStage().close();
+    }
     
     
 
@@ -100,6 +106,10 @@ public class CadastroController extends Application implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		
+		btnSair.setOnMouseClicked((MouseEvent mouse) -> {
+			fecharTela();
+		});
 		
 			 
 	}

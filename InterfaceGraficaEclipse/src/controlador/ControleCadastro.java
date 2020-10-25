@@ -1,5 +1,7 @@
 package controlador;
 
+import java.util.ArrayList;
+
 import modelo.Usuario;
 import repositorio.RepositorioUsuarioArray;
 
@@ -13,11 +15,12 @@ public class ControleCadastro {
 		repo = new RepositorioUsuarioArray();
 	}
 
+		
 	public boolean AdicionaUsuario(Usuario usuarioAdd) {
 
 		boolean resultado = false;
 		
-			if (verificaCadastro(usuarioAdd.getCpf())) {
+			if (verificaCadastro(usuarioAdd.getCpf()) == true ) {
 
 				repo.addUsuario(usuarioAdd);
 				resultado = true;
@@ -37,14 +40,16 @@ public class ControleCadastro {
 	        cpf.equals("55555555555") || cpf.equals("66666666666") ||
 	        cpf.equals("77777777777") || cpf.equals("88888888888") ||
 	        cpf.equals("99999999999") || (cpf.length() != 11)){
-	             
+	             resultado = false;
 		
-		}else {
+		}
+		else if(cpf.length() == 11) {
 			
 			for (Usuario existente : repo.getUsuarios()) {
 				
 				if(existente.getCpf().equals(cpf)) {
-					
+					resultado = false;
+				
 				}else {
 					
 					resultado = true;
@@ -54,5 +59,14 @@ public class ControleCadastro {
 		
 		return resultado;
 
+	}
+	
+	public static void main(String[] args) {
+		Usuario user1 = new Usuario("login", "senha", "nome", "01010101010", "sexo");
+		RepositorioUsuarioArray rArray = new RepositorioUsuarioArray();
+		ControleCadastro cCad = new ControleCadastro();
+		System.out.println(cCad.AdicionaUsuario(user1));  
+		System.out.println(cCad.verificaCadastro(user1.getCpf()));
+		
 	}
 }
