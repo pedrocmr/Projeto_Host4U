@@ -62,8 +62,7 @@ public class Lugar {
 
 	    return Math.sqrt(distance) * 0.001;
 	}
-
-
+	
 	@Override
 	public String toString() {
 		return "Lugar: " + tipoDeLugar + ", Nome: " + nomeDoLugar + ", Longitude: " + longitude + ", Latitude: "

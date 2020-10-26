@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -49,6 +50,8 @@ public class MeuPerfilController extends Application implements Initializable{
 
 		// COLOCANDO TÍTULO
 		stage.setTitle("HOST4U - Meu Perfil");
+		Image imagem = new Image("imagens/iconehotel.png");
+		stage.getIcons().add(imagem);
 
 		// GERANDO TELA
 		stage.setResizable(false);
