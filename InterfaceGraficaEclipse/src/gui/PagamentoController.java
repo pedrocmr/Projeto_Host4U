@@ -1,8 +1,12 @@
 package gui;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -10,10 +14,13 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class PagamentoController extends Application {
+public class PagamentoController extends Application implements Initializable {
 
 	private static Stage stage;
 
@@ -60,6 +67,46 @@ public class PagamentoController extends Application {
 		PagamentoController.stage = stage;
 	}
 
+	public void initialize(URL location, ResourceBundle resources) {
+     
+		btFinalizar.setOnMouseClicked((MouseEvent mouse) -> {
+			System.out.println("Aprovado!");
+		});
+		
+		btFinalizar.setOnKeyPressed((KeyEvent enter) -> {
+			if(enter.getCode().equals(KeyCode.ENTER)) {
+				System.out.println("Aprovado!");
+			}
+		});
+		
+		btVoltar.setOnMouseClicked((MouseEvent mouse) -> {
+			proximaTela();
+		});
+		
+		btVoltar.setOnKeyPressed((KeyEvent enter) -> {
+			if(enter.getCode().equals(KeyCode.ENTER)) {
+				proximaTela();
+			}
+		});
+	}
+
+	public void fecharTela() {
+		PagamentoController.getStage().close();
+	}
+	
+	public void proximaTela() {
+		
+		ReservaController r = new ReservaController();
+		fecharTela();
+		
+		try {
+			r.start(new Stage());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+
+	
 	public static void main(String[] args) {
 
 		launch(args);
