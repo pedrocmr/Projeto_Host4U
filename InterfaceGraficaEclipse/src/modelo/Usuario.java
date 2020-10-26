@@ -66,7 +66,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Login: " + getLogin() + " " + "Nome: " + getNome() + " " + "CPF:" + getCpf() + " " + "Sexo: "
+		return "Login: " + getLogin() + " " + "Senha: " + getSenha() + " Nome: " + getNome() + " " + "CPF:" + getCpf() + " " + "Sexo: "
 				+ getSexo();
 	}
 

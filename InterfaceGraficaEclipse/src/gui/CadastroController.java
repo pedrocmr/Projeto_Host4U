@@ -12,7 +12,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -36,10 +38,12 @@ public class CadastroController extends Application implements Initializable {
     @FXML private TextField txtCpf;
     @FXML private Text lbCpf;
     @FXML private Text lbSexo;
-    @FXML private TextField txtSexo;
     @FXML private Button btnCadastrar;
     @FXML private Button btnSair;
     @FXML private ImageView imgLogo;
+    @FXML private RadioButton radioMasc;
+    @FXML private RadioButton radioFem;
+    private String sexo;
     @FXML private AnchorPane rootPane;
     @FXML
     
@@ -53,11 +57,18 @@ public class CadastroController extends Application implements Initializable {
     	novoUser.setSenha(txtSenha.getText());
     	novoUser.setNome(txtNome.getText());
     	novoUser.setCpf(txtCpf.getText());
-    	novoUser.setSexo(txtSexo.getText());
     	
-    	
+    	if(radioMasc.isSelected()) {
+    		sexo = "M";
+    		
+    		
+    	} else if(radioFem.isSelected()) {
+    		sexo = "F";
+    	}
+    	novoUser.setSexo(sexo);
     	
     	System.out.println(controleCad.AdicionaUsuario(novoUser));
+    	System.out.println(novoUser);
     	
     	//System.out.println(novoUser.getCpf());
     	
@@ -77,7 +88,8 @@ public class CadastroController extends Application implements Initializable {
 		 AnchorPane root =  FXMLLoader.load(getClass().getResource("Cadastro.fxml"));
 		 Scene scene = new Scene(root, 700, 500);
 		
-		
+		//radioMasc.isSelected();
+		 
 		stage.setTitle("HOST4U - Cadastro");
 		Image imagem = new Image("imagens/iconehotel.png");
 		stage.getIcons().add(imagem);

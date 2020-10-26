@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -19,7 +20,6 @@
 		<TextField id="txtCpf" fx:id="txtCpf" layoutX="276.0" layoutY="230.0" promptText="CPF" />
 		<Text id="lbCpf" fx:id="lbCpf" layoutX="218.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF :" />
 		<Text id="lbSexo" fx:id="lbSexo" layoutX="214.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sexo : " />
-		<TextField fx:id="txtSexo" layoutX="276.0" layoutY="265.0" promptText="Sexo ex; M ou F" />
 		<Button id="btnCadastrar" fx:id="btnCadastrar" layoutX="307.0" layoutY="316.0" mnemonicParsing="false" onAction="#cadastrarClick" text="CADASTRAR " />
 		<Button id="btnSair" fx:id="btnSair" layoutX="613.0" layoutY="442.0" mnemonicParsing="false" text="SAIR" />
 		<ImageView id="imgLogo" fx:id="imgLogo" fitHeight="82.0" fitWidth="163.0" layoutX="270.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
@@ -27,6 +27,9 @@
 				<Image url="@../imagens/H4ULogotipo.png" />
 			</image>
 		</ImageView>
+      
+      <RadioButton fx:id="radioMasc" layoutX="276.0" layoutY="269.0" mnemonicParsing="false" text="Masc" />
+      <RadioButton fx:id="radioFem" layoutX="338.0" layoutY="269.0" mnemonicParsing="false" text="Fem" />
       
 	</children>
 </AnchorPane>
