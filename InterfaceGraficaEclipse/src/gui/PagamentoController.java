@@ -3,6 +3,8 @@ package gui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import controlador.ControleCadastro;
+import controlador.ControlePagamento;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +24,7 @@ import javafx.stage.Stage;
 
 public class PagamentoController extends Application implements Initializable {
 
+	ControlePagamento cp;
 	private static Stage stage;
 
 	@FXML private AnchorPane root;
@@ -70,7 +73,7 @@ public class PagamentoController extends Application implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
      
 		btFinalizar.setOnMouseClicked((MouseEvent mouse) -> {
-			System.out.println("Aprovado!");
+				System.out.println("Aprovado!");
 		});
 		
 		btFinalizar.setOnKeyPressed((KeyEvent enter) -> {

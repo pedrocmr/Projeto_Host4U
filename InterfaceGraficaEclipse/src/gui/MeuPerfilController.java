@@ -94,11 +94,27 @@ public class MeuPerfilController extends Application implements Initializable{
 	    });
 		
 		btVoltar.setOnMouseClicked((MouseEvent mouse) -> {
-			System.out.println("voltei!");
+			HomeController hc = new HomeController();
+			fecharTela();
+			
+			try {
+				hc.start(new Stage());
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
 		});
 		
 		btVoltar.setOnKeyPressed((KeyEvent enter) -> {
-			System.out.println("voltei!");
+			if(enter.getCode().equals(KeyCode.ENTER)) {
+				HomeController hc = new HomeController();
+				fecharTela();
+				
+				try {
+					hc.start(new Stage());
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+			}
 		});
 	}
 	

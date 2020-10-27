@@ -87,17 +87,6 @@ public class CadastroController extends Application implements Initializable {
     			erro.showAndWait();
     		}
     	}
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	//System.out.println(controleCad.AdicionaUsuario(novoUser));
-    	//controleCad.AdicionaUsuario(novoUser);
-    	//System.out.println(novoUser);
     	  	
      }
     
@@ -105,7 +94,6 @@ public class CadastroController extends Application implements Initializable {
     void fecharTela() {
     	CadastroController.getStage().close();
     }
-    
     
 
 	@Override
