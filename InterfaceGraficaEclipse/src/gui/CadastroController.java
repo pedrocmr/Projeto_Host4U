@@ -80,7 +80,8 @@ public class CadastroController extends Application implements Initializable {
     		{
     			//abrir a tela Home 
     			System.out.println("Cadastrado com sucesso");
-    			
+    			proximaHome();
+    		
     		} else {
     			Alert erro = new Alert(AlertType.INFORMATION);
     			erro.setTitle("Erro!");
@@ -98,6 +99,17 @@ public class CadastroController extends Application implements Initializable {
     void fecharTela() {
     	CadastroController.getStage().close();
     }
+    
+    public void proximaHome() {
+		HomeController hC = new HomeController();
+		fecharTela();
+		
+		try {
+			hC.start(new Stage());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
     
     
 
