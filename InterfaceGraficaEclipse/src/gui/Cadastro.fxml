@@ -4,12 +4,14 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CadastroController">
+<AnchorPane fx:id="rootPane" cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CadastroController">
 	<children>
 		<TextField id="txtLogin" fx:id="txtLogin" layoutX="276.0" layoutY="127.0" promptText="Login" />
 		<Text id="lbLogin" fx:id="lbLogin" layoutX="213.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login :" />
@@ -27,9 +29,17 @@
 				<Image url="@../imagens/H4ULogotipo.png" />
 			</image>
 		</ImageView>
-      
-      <RadioButton fx:id="radioMasc" layoutX="276.0" layoutY="269.0" mnemonicParsing="false" text="Masc" />
-      <RadioButton fx:id="radioFem" layoutX="338.0" layoutY="269.0" mnemonicParsing="false" text="Fem" />
+      <HBox layoutX="287.0" layoutY="269.0" pickOnBounds="false" spacing="34.0">
+         <children>
+            
+            <RadioButton fx:id="radioMasc" pickOnBounds="false" text="Masc">
+               <toggleGroup>
+                  <ToggleGroup fx:id="GpSexo" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="radioFem" mnemonicParsing="false" text="Fem" toggleGroup="$GpSexo" />
+         </children>
+      </HBox>
       
 	</children>
 </AnchorPane>

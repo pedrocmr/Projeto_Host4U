@@ -71,12 +71,26 @@ public class LoginController extends Application{
 		CadastroController cadastro = new CadastroController();
 		fechaTela();
 		
+		try {
+			cadastro.start(new Stage());
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		
 	}
 
 	private void proximaTelaHomeLogado(Usuario usuario) {
 		
 		HomeController home = new HomeController();
 		fechaTela();
+		
+		try {
+			home.start(new Stage());
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
 	}
 
 	private void fechaTela() {
@@ -126,6 +140,13 @@ public class LoginController extends Application{
 		
 		HomeController home = new HomeController();
 		fechaTela();
+		
+		try {
+			home.start(new Stage());
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
 		
 	}
 	
