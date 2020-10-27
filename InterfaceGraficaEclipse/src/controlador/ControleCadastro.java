@@ -10,7 +10,7 @@ public class ControleCadastro {
 	private RepositorioUsuarioArray repo;
 
 	
-	
+	//construtor
 	public ControleCadastro() {
 		repo = new RepositorioUsuarioArray();
 	}
@@ -22,7 +22,7 @@ public class ControleCadastro {
 		
 			if (verificaCadastro(usuarioAdd.getCpf()) == true ) { //Se pode adicionar o cpf
 
-				repo.addUsuario(usuarioAdd);
+				repo.addUsuario(usuarioAdd); 
 				resultado = true;
 			} else {
 				resultado = false;
@@ -45,15 +45,16 @@ public class ControleCadastro {
 			resultado = false;
 		
 		}
+		
 		if(cpf.length() == 11) {
 			
 			for (Usuario existente : repo.getUsuarios()) {
 				
-				if( existente.getCpf().equals(cpf) == false) { // se não existe esse cpf no Array
+				if(existente.getCpf().equals(cpf) == false) { // se não existe esse cpf no Array
 					
 					resultado = true;
 				}
-				if( existente.getCpf().equals(cpf)==true) {
+				if(existente.getCpf().equals(cpf)==true) {
 					resultado = false; //Already exists the id 
 				
 				}

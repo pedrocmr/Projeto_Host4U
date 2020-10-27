@@ -3,6 +3,8 @@ package gui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.sun.javafx.image.impl.ByteIndexed.Getter;
+
 import controlador.ControleCadastro;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -11,12 +13,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -45,13 +46,14 @@ public class CadastroController extends Application implements Initializable {
     @FXML private RadioButton radioMasc;
     @FXML private RadioButton radioFem;
     private String sexo;
+    
     @FXML private AnchorPane rootPane;
+    
+    public  CadastroController() {
+		// TODO Auto-generated constructor stub
+	}
     @FXML
-    private ToggleGroup GpSexo;
     
-    
-    
-    @FXML
     void cadastrarClick(ActionEvent event) {
     	
     	ControleCadastro controleCad = new ControleCadastro();
@@ -76,9 +78,10 @@ public class CadastroController extends Application implements Initializable {
     		
     		if(controleCad.AdicionaUsuario(new Usuario(txtLogin.getText(), txtSenha.getText(), txtNome.getText(), txtCpf.getText(), sexo)) == true) 
     		{
-    			//abrir a tela Home
+    			//abrir a tela Home 
     			System.out.println("Cadastrado com sucesso");
-    			
+    			proximaHome();
+    		
     		} else {
     			Alert erro = new Alert(AlertType.INFORMATION);
     			erro.setTitle("Erro!");
@@ -87,6 +90,8 @@ public class CadastroController extends Application implements Initializable {
     			erro.showAndWait();
     		}
     	}
+    	
+    	
     	  	
      }
     
@@ -95,15 +100,25 @@ public class CadastroController extends Application implements Initializable {
     	CadastroController.getStage().close();
     }
     
+    public void proximaHome() {
+		HomeController hC = new HomeController();
+		fecharTela();
+		
+		try {
+			hC.start(new Stage());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+    
+    
 
 	@Override
 	public void start(Stage stage) throws Exception {
 
 		 AnchorPane root =  FXMLLoader.load(getClass().getResource("Cadastro.fxml"));
 		 Scene scene = new Scene(root, 700, 500);
-		
-		//radioMasc.isSelected();
-		 
+				 
 		stage.setTitle("HOST4U - Cadastro");
 		Image imagem = new Image("imagens/iconehotel.png");
 		stage.getIcons().add(imagem);

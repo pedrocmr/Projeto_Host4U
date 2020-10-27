@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: turquoise;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ReservaController">
+<AnchorPane fx:id="root" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ReservaController">
    <children>
       <ImageView fx:id="imagem" fitHeight="79.0" fitWidth="134.0" layoutX="233.0" layoutY="14.0">
          <image>
@@ -24,19 +24,7 @@
          </font>
       </Label>
       <Label fx:id="lbEntrada" layoutX="32.0" layoutY="170.0" text="Data de entrada:" />
-      <SplitMenuButton fx:id="menuCheckin" layoutX="32.0" layoutY="187.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="221.0" text="Data de check-in">
-        <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
-        </items>
-      </SplitMenuButton>
       <Label fx:id="lbSaida" layoutX="331.0" layoutY="170.0" text="Data de saída:" />
-      <SplitMenuButton fx:id="menuCheckout" layoutX="331.0" layoutY="187.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="221.0" text="Data de check-out">
-        <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
-        </items>
-      </SplitMenuButton>
       <Label fx:id="lbPessoas" layoutX="32.0" layoutY="250.0" text="Quantidade de pessoas:" />
       <Label fx:id="lbQuartos" layoutX="329.0" layoutY="250.0" text="Numero de quartos:" />
       <MenuButton fx:id="menuPessoas" layoutX="32.0" layoutY="267.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="221.0" text="Pessoas">
@@ -62,5 +50,7 @@
          </font>
       </Button>
       <Button fx:id="btVoltar" layoutX="14.0" layoutY="461.0" mnemonicParsing="false" text="Voltar" />
+      <DatePicker fx:id="dtCheckIn" layoutX="33.0" layoutY="187.0" prefHeight="25.0" prefWidth="221.0" promptText="Check-in" />
+      <DatePicker fx:id="dtCheckOut" layoutX="328.0" layoutY="187.0" prefHeight="25.0" prefWidth="221.0" promptText="Check-out" />
    </children>
 </AnchorPane>
