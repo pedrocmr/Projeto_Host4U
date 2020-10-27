@@ -12,6 +12,7 @@ public class RepositorioUsuarioArray implements IRepositorioUsuario {
 	public RepositorioUsuarioArray() {
 		
 		usuarios = new ArrayList<>();
+		usuarios.add(new Usuario ("renan", "12345678", "paixao", "12345678910","masculino"));
 	}
 	@Override
 	public void listarUsuarios() {

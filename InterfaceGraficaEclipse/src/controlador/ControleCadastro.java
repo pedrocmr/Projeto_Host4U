@@ -45,6 +45,7 @@ public class ControleCadastro {
 				
 				if(existente.getCpf().equals(cpf)) {
 					
+				
 				}else {
 					
 					resultado = true;
