@@ -13,7 +13,7 @@
 
 <AnchorPane prefHeight="450.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.LoginController">
    <children>
-      <VBox layoutX="248.0" layoutY="155.0" prefHeight="81.0" prefWidth="243.0" spacing="30.0">
+      <VBox layoutX="217.0" layoutY="163.0" prefHeight="81.0" prefWidth="243.0" spacing="30.0">
          <children>
             <TextField fx:id="txtLogin" promptText="Login">
                <cursor>
@@ -25,31 +25,31 @@
                </cursor></TextField>
          </children>
       </VBox>
-      <HBox layoutX="295.0" layoutY="271.0" spacing="30.0">
+      <HBox layoutX="264.0" layoutY="271.0" spacing="30.0" AnchorPane.bottomAnchor="154.0" AnchorPane.topAnchor="271.0">
          <children>
-            <Button fx:id="btEntrar" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" text="Entrar">
+            <Button fx:id="btEntrar" mnemonicParsing="false" onKeyPressed="#KeyEntrar" onMouseClicked="#clickEntrar" prefHeight="25.0" prefWidth="59.0" text="Entrar">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button fx:id="btSair" mnemonicParsing="false" onKeyPressed="#KeyEntrar" prefHeight="25.0" prefWidth="60.0" text="Sair" wrapText="true">
+            <Button fx:id="btSair" mnemonicParsing="false" onAction="#ActionSair" onKeyPressed="#keySair" prefHeight="25.0" prefWidth="60.0" text="Sair" wrapText="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
          </children>
       </HBox>
-      <ImageView fitHeight="69.0" fitWidth="138.0" layoutX="302.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="69.0" fitWidth="138.0" layoutX="278.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="278.0" AnchorPane.rightAnchor="237.2857208251953" AnchorPane.topAnchor="51.0">
          <image>
             <Image url="@../imagens/H4ULogotipo.png" />
          </image>
       </ImageView>
-      <HBox layoutX="256.0" layoutY="386.0" prefHeight="24.0" prefWidth="228.0" spacing="10.0">
+      <HBox layoutX="211.0" layoutY="376.0" prefHeight="24.0" prefWidth="228.0" spacing="10.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="211.0" AnchorPane.rightAnchor="211.0" AnchorPane.topAnchor="376.0">
          <children>
             <Label text="Ainda não tem cadastro?">
                <font>
                   <Font size="13.0" />
                </font>
             </Label>
-            <Button fx:id="btCadastro" mnemonicParsing="false" text="Cadastre-se">
+            <Button fx:id="btCadastro" mnemonicParsing="false" onKeyPressed="#keyCadastro" onMouseClicked="#clickCadastro" text="Cadastre-se">
                <font>
                   <Font size="11.0" />
                </font>
