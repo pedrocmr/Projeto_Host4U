@@ -46,7 +46,12 @@ public class CadastroController extends Application implements Initializable {
     @FXML private RadioButton radioMasc;
     @FXML private RadioButton radioFem;
     private String sexo;
+    
     @FXML private AnchorPane rootPane;
+    
+    public  CadastroController() {
+		// TODO Auto-generated constructor stub
+	}
     @FXML
     
     void cadastrarClick(ActionEvent event) {
@@ -73,7 +78,7 @@ public class CadastroController extends Application implements Initializable {
     		
     		if(controleCad.AdicionaUsuario(new Usuario(txtLogin.getText(), txtSenha.getText(), txtNome.getText(), txtCpf.getText(), sexo)) == true) 
     		{
-    			//abrir a tela Home
+    			//abrir a tela Home 
     			System.out.println("Cadastrado com sucesso");
     			
     		} else {
@@ -86,15 +91,6 @@ public class CadastroController extends Application implements Initializable {
     	}
     	
     	
-    	
-    	
-    	
-    	
-    	
-    	
-    	//System.out.println(controleCad.AdicionaUsuario(novoUser));
-    	//controleCad.AdicionaUsuario(novoUser);
-    	//System.out.println(novoUser);
     	  	
      }
     
@@ -110,9 +106,7 @@ public class CadastroController extends Application implements Initializable {
 
 		 AnchorPane root =  FXMLLoader.load(getClass().getResource("Cadastro.fxml"));
 		 Scene scene = new Scene(root, 700, 500);
-		
-		//radioMasc.isSelected();
-		 
+				 
 		stage.setTitle("HOST4U - Cadastro");
 		Image imagem = new Image("imagens/iconehotel.png");
 		stage.getIcons().add(imagem);
