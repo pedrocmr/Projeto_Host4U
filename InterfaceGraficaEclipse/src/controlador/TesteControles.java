@@ -1,6 +1,7 @@
 package controlador;
 
 import modelo.Usuario;
+import repositorio.RepositorioUsuarioArray;
 import modelo.Quarto;
 import modelo.Reserva;
 
@@ -14,7 +15,11 @@ public class TesteControles {
 		Usuario cad3 = new Usuario("Rafão", "9", "Lindão", "1", "Macho");
 		Usuario cad4 = new Usuario("Pipico", "9", "Pipicão", "12312312309", "Melhor do mundo");
 
+		RepositorioUsuarioArray rapArray =  new RepositorioUsuarioArray();
 		ControleCadastro ccad = new ControleCadastro();
+		System.out.println(ccad.AdicionaUsuario(cad4));
+		
+		System.out.println(rapArray.getUsuarios());
 
 	}
 

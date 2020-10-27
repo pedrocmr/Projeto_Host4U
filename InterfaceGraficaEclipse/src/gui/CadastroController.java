@@ -1,8 +1,9 @@
 package gui;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import com.sun.javafx.image.impl.ByteIndexed.Getter;
 
 import controlador.ControleCadastro;
 import javafx.application.Application;
@@ -11,11 +12,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -50,13 +52,7 @@ public class CadastroController extends Application implements Initializable {
     void cadastrarClick(ActionEvent event) {
     	
     	ControleCadastro controleCad = new ControleCadastro();
-    	
-    	Usuario novoUser = new Usuario();
-    	
-    	novoUser.setLogin(txtLogin.getText());
-    	novoUser.setSenha(txtSenha.getText());
-    	novoUser.setNome(txtNome.getText());
-    	novoUser.setCpf(txtCpf.getText());
+    	RepositorioUsuarioArray repArray = new RepositorioUsuarioArray();
     	
     	if(radioMasc.isSelected()) {
     		sexo = "M";
@@ -65,14 +61,41 @@ public class CadastroController extends Application implements Initializable {
     	} else if(radioFem.isSelected()) {
     		sexo = "F";
     	}
-    	novoUser.setSexo(sexo);
     	
-    	System.out.println(controleCad.AdicionaUsuario(novoUser));
-    	System.out.println(novoUser);
+    	if(txtLogin.getText().length() < 5 || txtNome.getText().length() < 3 || txtSenha.getText().length() < 8 || txtCpf.getText().length() < 11) {
+    		Alert erro = new Alert(AlertType.ERROR);
+			erro.setTitle("Erro!");
+			erro.setHeaderText("Por favor, tente novamente.");
+			erro.setContentText("Algum campo com tamanho inferior ao permitido!");
+			erro.showAndWait();
+    	}
+    	else {
+    		
+    		if(controleCad.AdicionaUsuario(new Usuario(txtLogin.getText(), txtSenha.getText(), txtNome.getText(), txtCpf.getText(), sexo)) == true) 
+    		{
+    			//abrir a tela Home
+    			System.out.println("Cadastrado com sucesso");
+    			
+    		} else {
+    			Alert erro = new Alert(AlertType.INFORMATION);
+    			erro.setTitle("Erro!");
+    			erro.setHeaderText("Por favor, tente novamente.");
+    			erro.setContentText("Usuário já existe!");
+    			erro.showAndWait();
+    		}
+    	}
     	
-    	//System.out.println(novoUser.getCpf());
     	
     	
+    	
+    	
+    	
+    	
+    	
+    	//System.out.println(controleCad.AdicionaUsuario(novoUser));
+    	//controleCad.AdicionaUsuario(novoUser);
+    	//System.out.println(novoUser);
+    	  	
      }
     
     
