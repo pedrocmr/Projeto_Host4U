@@ -81,12 +81,13 @@ public class ReservaController extends Application implements Initializable {
 		});
 		
 		btVoltar.setOnMouseClicked((MouseEvent mouse) -> {
-			System.out.println("voltar");
+			proximaHome();
 		});
 		
 		btVoltar.setOnKeyPressed((KeyEvent enter) -> {
 			if(enter.getCode().equals(KeyCode.ENTER)) {
-			System.out.println("voltar");
+				proximaHome();
+				
 			}
 		});
 	}
@@ -102,6 +103,17 @@ public class ReservaController extends Application implements Initializable {
 		
 		try {
 			p.start(new Stage());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	
+	public void proximaHome() {
+		HomeController hc = new HomeController();
+		fecharTela();
+		
+		try {
+			hc.start(new Stage());
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
