@@ -1,8 +1,9 @@
 package gui;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import com.sun.javafx.image.impl.ByteIndexed.Getter;
 
 import controlador.ControleCadastro;
 import javafx.application.Application;
@@ -11,11 +12,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -26,8 +31,6 @@ public class CadastroController extends Application implements Initializable {
 
 	private static Stage stage;
 	
-	//private ControleCadastro conUser;
-	private RepositorioUsuarioArray repUser;
 	@FXML private TextField txtLogin;
 	@FXML private Text lbLogin;
     @FXML private PasswordField txtSenha;
@@ -37,31 +40,68 @@ public class CadastroController extends Application implements Initializable {
     @FXML private TextField txtCpf;
     @FXML private Text lbCpf;
     @FXML private Text lbSexo;
-    @FXML private TextField txtSexo;
     @FXML private Button btnCadastrar;
     @FXML private Button btnSair;
     @FXML private ImageView imgLogo;
+    @FXML private RadioButton radioMasc;
+    @FXML private RadioButton radioFem;
+    private String sexo;
     @FXML private AnchorPane rootPane;
     @FXML
     
     void cadastrarClick(ActionEvent event) {
     	
     	ControleCadastro controleCad = new ControleCadastro();
+    	RepositorioUsuarioArray repArray = new RepositorioUsuarioArray();
     	
-    	Usuario novoUser = new Usuario();
+    	if(radioMasc.isSelected()) {
+    		sexo = "M";
+    		
+    		
+    	} else if(radioFem.isSelected()) {
+    		sexo = "F";
+    	}
     	
-    	novoUser.setLogin(txtLogin.getText());
-    	novoUser.setSenha(txtSenha.getText());
-    	novoUser.setNome(txtNome.getText());
-    	novoUser.setCpf(txtCpf.getText());
-    	novoUser.setSexo(txtSexo.getText());
+    	if(txtLogin.getText().length() < 5 || txtNome.getText().length() < 3 || txtSenha.getText().length() < 8 || txtCpf.getText().length() < 11) {
+    		Alert erro = new Alert(AlertType.ERROR);
+			erro.setTitle("Erro!");
+			erro.setHeaderText("Por favor, tente novamente.");
+			erro.setContentText("Algum campo com tamanho inferior ao permitido!");
+			erro.showAndWait();
+    	}
+    	else {
+    		
+    		if(controleCad.AdicionaUsuario(new Usuario(txtLogin.getText(), txtSenha.getText(), txtNome.getText(), txtCpf.getText(), sexo)) == true) 
+    		{
+    			//abrir a tela Home
+    			System.out.println("Cadastrado com sucesso");
+    			
+    		} else {
+    			Alert erro = new Alert(AlertType.INFORMATION);
+    			erro.setTitle("Erro!");
+    			erro.setHeaderText("Por favor, tente novamente.");
+    			erro.setContentText("Usuário já existe!");
+    			erro.showAndWait();
+    		}
+    	}
     	
-    	controleCad.AdicionaUsuario(novoUser);
     	
-    	System.out.println(novoUser.getCpf());
     	
+    	
+    	
+    	
+    	
+    	
+    	//System.out.println(controleCad.AdicionaUsuario(novoUser));
+    	//controleCad.AdicionaUsuario(novoUser);
+    	//System.out.println(novoUser);
+    	  	
      }
     
+    
+    void fecharTela() {
+    	CadastroController.getStage().close();
+    }
     
     
 
@@ -71,7 +111,8 @@ public class CadastroController extends Application implements Initializable {
 		 AnchorPane root =  FXMLLoader.load(getClass().getResource("Cadastro.fxml"));
 		 Scene scene = new Scene(root, 700, 500);
 		
-		
+		//radioMasc.isSelected();
+		 
 		stage.setTitle("HOST4U - Cadastro");
 		Image imagem = new Image("imagens/iconehotel.png");
 		stage.getIcons().add(imagem);
@@ -100,6 +141,10 @@ public class CadastroController extends Application implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		
+		btnSair.setOnMouseClicked((MouseEvent mouse) -> {
+			fecharTela();
+		});
 		
 			 
 	}

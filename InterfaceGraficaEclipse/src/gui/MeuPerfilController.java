@@ -76,7 +76,7 @@ public class MeuPerfilController extends Application implements Initializable{
 		btSalvar.setOnMouseClicked((MouseEvent mouse) -> {
 			System.out.println("salvo!");
 		});
-		
+		 
 		btSalvar.setOnKeyPressed((KeyEvent enter) -> {
 			if(enter.getCode().equals(KeyCode.ENTER)) {
 				System.out.println("salvo!");

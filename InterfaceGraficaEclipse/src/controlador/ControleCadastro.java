@@ -1,5 +1,7 @@
 package controlador;
 
+import java.util.ArrayList;
+
 import modelo.Usuario;
 import repositorio.RepositorioUsuarioArray;
 
@@ -13,14 +15,17 @@ public class ControleCadastro {
 		repo = new RepositorioUsuarioArray();
 	}
 
+		
 	public boolean AdicionaUsuario(Usuario usuarioAdd) {
 
 		boolean resultado = false;
 		
-			if (verificaCadastro(usuarioAdd.getCpf())) {
+			if (verificaCadastro(usuarioAdd.getCpf()) == true ) { //Se pode adicionar o cpf
 
 				repo.addUsuario(usuarioAdd);
 				resultado = true;
+			} else {
+				resultado = false;
 			}
 		
 		return resultado;
@@ -29,8 +34,7 @@ public class ControleCadastro {
 
 	private boolean verificaCadastro(String cpf) {
 
-		
-		boolean resultado = false;
+		 boolean resultado = false;
 		
 		if (cpf.equals("00000000000") || cpf.equals("11111111111") || cpf.equals("22222222222")||
 	        cpf.equals("33333333333") || cpf.equals("44444444444") ||
@@ -38,21 +42,28 @@ public class ControleCadastro {
 	        cpf.equals("77777777777") || cpf.equals("88888888888") ||
 	        cpf.equals("99999999999") || (cpf.length() != 11)){
 	             
+			resultado = false;
 		
-		}else {
+		}
+		if(cpf.length() == 11) {
 			
 			for (Usuario existente : repo.getUsuarios()) {
 				
-				if(existente.getCpf().equals(cpf)) {
-					
-				}else {
+				if( existente.getCpf().equals(cpf) == false) { // se não existe esse cpf no Array
 					
 					resultado = true;
 				}
+				if( existente.getCpf().equals(cpf)==true) {
+					resultado = false; //Already exists the id 
+				
+				}
+			    
 			}
 		}
 		
 		return resultado;
 
 	}
+	
+	
 }
