@@ -157,7 +157,6 @@ public class LoginController extends Application{
     void ActionSair(ActionEvent event) {
 		
 		proximaTelaHome();
-		System.out.println("Home Deslogado");
 		fechaTela();
 				
     }
@@ -168,7 +167,6 @@ public class LoginController extends Application{
 		if(event.getCode().equals(KeyCode.ENTER)) {
 			
 			proximaTelaHome();
-			System.out.println("Home Deslogado");
 			fechaTela();	
 		}
     }
