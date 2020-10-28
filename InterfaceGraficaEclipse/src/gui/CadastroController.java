@@ -76,7 +76,7 @@ public class CadastroController extends Application implements Initializable {
     	}
     	else {
     		
-    		if(controleCad.AdicionaUsuario(new Usuario(txtLogin.getText(), txtSenha.getText(), txtNome.getText(), txtCpf.getText(), sexo)) == true) 
+    		if(controleCad.adicionaUsuario(new Usuario(txtLogin.getText(), txtSenha.getText(), txtNome.getText(), txtCpf.getText(), sexo)) == true) 
     		{
     			//abrir a tela Home 
     			System.out.println("Cadastrado com sucesso");
