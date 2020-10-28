@@ -17,6 +17,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class HomeController extends Application implements Initializable {
@@ -27,18 +28,15 @@ public class HomeController extends Application implements Initializable {
 	    @FXML private ImageView imagem;
 	    @FXML private Label lbTitulo;
 	    @FXML private Label lbSlogan;
-	    @FXML private Label lbFone1;
-	    @FXML private Label lbNum1;
-	    @FXML private Label lbFone2;
-	    @FXML private Label lbNum2;
-	    @FXML private Button btHotel1;
-	    @FXML private Button btHotel2;
-	    @FXML private Button btHotel3;
-	    @FXML private Button btHotel4;
 	    @FXML private Label lbPesquisa;
 	    @FXML private TextField txHotel;
-	    @FXML private Label lbAviso;
-	    @FXML private Button btPerfil;
+	    @FXML private ImageView imagemBv;
+	    @FXML private ImageView imagemPg;
+	    @FXML private ImageView imagemTm;
+	    @FXML private Button btCadastrar;
+	    @FXML private Button btLogin;
+	    @FXML private Text txtNome;
+	    @FXML private Text txtAviso;
 	    
 	@Override
 	public void start(Stage stage) throws Exception {
@@ -68,54 +66,24 @@ public class HomeController extends Application implements Initializable {
 	}
 
 	public void initialize(URL location, ResourceBundle resources) {
-
-		btPerfil.setOnMouseClicked((MouseEvent mouse) -> {
+		
+		btLogin.setOnMouseClicked((MouseEvent mouse) -> {
+			proximaLogin();
+		});
+		
+		btLogin.setOnKeyPressed((KeyEvent enter) -> {
+			if(enter.getCode().equals(KeyCode.ENTER)) {
+				proximaLogin();
+			}
+		});
+		
+		btCadastrar.setOnMouseClicked((MouseEvent mouse) -> {
 			proximaTela();
 		});
-		 
-		btPerfil.setOnKeyPressed((KeyEvent enter) -> {
+		
+		btCadastrar.setOnKeyPressed((KeyEvent enter) -> {
 			if(enter.getCode().equals(KeyCode.ENTER)) {
 				proximaTela();
-			}
-		});
-		
-		btHotel1.setOnMouseClicked((MouseEvent mouse) -> {
-             proximaLogin();
-		});
-		 
-		btHotel1.setOnKeyPressed((KeyEvent enter) -> {
-			if(enter.getCode().equals(KeyCode.ENTER)) {
-				proximaLogin();
-			}
-		});
-		
-		btHotel2.setOnMouseClicked((MouseEvent mouse) -> {
-            proximaLogin();
-		});
-		 
-		btHotel2.setOnKeyPressed((KeyEvent enter) -> {
-			if(enter.getCode().equals(KeyCode.ENTER)) {
-				proximaLogin();
-			}
-		});
-		
-		btHotel3.setOnMouseClicked((MouseEvent mouse) -> {
-            proximaLogin();
-		});
-		 
-		btHotel3.setOnKeyPressed((KeyEvent enter) -> {
-			if(enter.getCode().equals(KeyCode.ENTER)) {
-				proximaLogin();
-			}
-		});
-		
-		btHotel4.setOnMouseClicked((MouseEvent mouse) -> {
-            proximaLogin();
-		});
-		 
-		btHotel4.setOnKeyPressed((KeyEvent enter) -> {
-			if(enter.getCode().equals(KeyCode.ENTER)) {
-				proximaLogin();
 			}
 		});
 		
@@ -127,11 +95,11 @@ public class HomeController extends Application implements Initializable {
 	
 	public void proximaTela() {
 		
-		MeuPerfilController mp = new MeuPerfilController();
+		CadastroController cc = new CadastroController();
 		fecharTela();
 		
 		try {
-			mp.start(new Stage());
+			cc.start(new Stage());
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
