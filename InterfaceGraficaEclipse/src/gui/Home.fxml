@@ -7,60 +7,79 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane fx:id="root" prefHeight="500.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="gui.HomeController">
+<AnchorPane fx:id="root" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.HomeController">
    <children>
-      <ImageView fx:id="imagem" layoutX="14.0" layoutY="14.0">
+      <ImageView fx:id="imagem" fitHeight="73.0" fitWidth="130.0" layoutX="14.0" layoutY="14.0">
          <image>
-            <Image url="imagens/H4ULogotipo.png" />
+            <Image url="@../../../../../../Imagens/H4ULogotipo.png" />
          </image>
       </ImageView>
-      <Label fx:id="lbTitulo" layoutX="151.0" layoutY="21.0" prefHeight="25.0" prefWidth="94.0" text="HOST4U ">
+      <Label fx:id="lbTitulo" layoutX="151.0" layoutY="21.0" prefHeight="29.0" prefWidth="105.0" text="HOST4U ">
          <font>
-            <Font name="Bodoni MT" size="20.0" />
+            <Font name="Bodoni MT" size="23.0" />
          </font>
       </Label>
-      <Label fx:id="lbSlogan" layoutX="151.0" layoutY="46.0" text="O seu motivo de viajar!">
+      <Label fx:id="lbSlogan" layoutX="151.0" layoutY="55.0" text="O seu motivo de viajar!">
          <font>
-            <Font name="System Italic" size="14.0" />
+            <Font name="System Italic" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="lbFone1" layoutX="522.0" layoutY="16.0" text="Fone: ">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <Label fx:id="lbNum1" layoutX="556.0" layoutY="16.0" prefHeight="19.0" prefWidth="68.0" text="3524-0000">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <Label fx:id="lbFone2" layoutX="522.0" layoutY="36.0" text="Fone:">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <Label fx:id="lbNum2" layoutX="556.0" layoutY="36.0" text="3524-1289">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <Button fx:id="btHotel1" layoutX="67.0" layoutY="146.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="HOTEL 1" />
-      <Button fx:id="btHotel2" layoutX="438.0" layoutY="146.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="HOTEL 2" />
-      <Button fx:id="btHotel3" layoutX="67.0" layoutY="281.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="HOTEL 3" />
-      <Button fx:id="btHotel4" layoutX="438.0" layoutY="281.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="HOTEL 4" />
       <Label fx:id="lbPesquisa" layoutX="324.0" layoutY="99.0" text="Pesquise seu hotel:">
          <font>
             <Font name="System Italic" size="13.0" />
          </font>
       </Label>
       <TextField fx:id="txHotel" layoutX="438.0" layoutY="96.0" prefHeight="25.0" prefWidth="200.0" promptText="Hotel..." />
-      <Label fx:id="lbAviso" layoutX="14.0" layoutY="469.0" text="*Telefones meramente ilustrativos">
+      <ImageView fx:id="imagemBv" fitHeight="170.0" fitWidth="225.0" layoutX="7.0" layoutY="210.0">
+         <image>
+            <Image url="@../../../../../../Imagens/boa%20viagem.jpeg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imagemPg" fitHeight="170.0" fitWidth="225.0" layoutX="469.0" layoutY="210.0">
+         <image>
+            <Image url="@../../../../../../Imagens/foto-abre-pgalinhas01.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imagemTm" fitHeight="170.0" fitWidth="225.0" layoutX="238.0" layoutY="210.0">
+         <image>
+            <Image url="@../../../../../../Imagens/carneiros.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="308.0" layoutY="377.0" prefHeight="25.0" prefWidth="85.0" text="Tamandaré">
          <font>
-            <Font name="System Italic" size="12.0" />
+            <Font name="Sitka Subheading Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Button fx:id="btPerfil" layoutX="571.0" layoutY="465.0" mnemonicParsing="false" text="Ir para Meu Perfil" />
+      <Label layoutX="530.0" layoutY="380.0" text="Porto de Galinhas">
+         <font>
+            <Font name="Sitka Subheading Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="btCadastrar" layoutX="486.0" layoutY="14.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="105.0" style="-fx-background-color: yellow;" text="Cadastre-se">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btLogin" layoutX="602.0" layoutY="14.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="79.0" style="-fx-background-color: yellow;" text="Login">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="87.0" layoutY="380.0" text="Boa Viagem">
+         <font>
+            <Font name="Sitka Subheading Bold Italic" size="15.0" />
+         </font></Label>
+      <Text fx:id="txtNome" layoutX="22.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nossos destinos ofertados:">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtAviso" layoutX="22.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Para você escolher o que mais combina com você e sua família!  ">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

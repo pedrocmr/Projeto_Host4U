@@ -5,9 +5,8 @@ import java.time.LocalDate;
 
 public class Reserva {
 	
-	
-	private Quarto quarto;
-	private Usuario usuario;
+    Quarto quarto;
+	Usuario usuario;
 	LocalDate checkin;
 	LocalDate checkout;
 
