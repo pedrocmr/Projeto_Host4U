@@ -67,12 +67,15 @@ public class CadastroController extends Application implements Initializable {
     		sexo = "F";
     	}
     	
-    	if(txtLogin.getText().length() < 5 || txtNome.getText().length() < 3 || txtSenha.getText().length() < 8 || txtCpf.getText().length() < 11) {
+    	if(txtLogin.getText().length() < 5 || txtNome.getText().length() < 3 || txtSenha.getText().length() < 8 || txtCpf.getText().length() < 11 ) {
     		Alert erro = new Alert(AlertType.ERROR);
 			erro.setTitle("Erro!");
-			erro.setHeaderText("Por favor, tente novamente.");
-			erro.setContentText("Algum campo com tamanho inferior ao permitido!");
+			erro.setHeaderText("Por favor, verifique se podem ser essas opções: ");
+			erro.setContentText("Algum campo com tamanho inferior ao permitido! "
+					+ "Letras no campo do CPF!");
 			erro.showAndWait();
+			fecharTela();
+			abrirMesmaTela();
     	}
     	else {
     		
@@ -85,9 +88,12 @@ public class CadastroController extends Application implements Initializable {
     		} else {
     			Alert erro = new Alert(AlertType.INFORMATION);
     			erro.setTitle("Erro!");
-    			erro.setHeaderText("Por favor, tente novamente.");
-    			erro.setContentText("Usuário já existe!");
+    			erro.setHeaderText("Por favor, verifique se há ocorre algum destes casos: ");
+    			erro.setContentText("Usuário já existe! "
+    					+ "O campo CPF não pode conter letras.");
     			erro.showAndWait();
+    			fecharTela();
+    			abrirMesmaTela();
     		}
     	}
     	
@@ -110,6 +116,30 @@ public class CadastroController extends Application implements Initializable {
 			// TODO: handle exception
 		}
 	}
+    
+    public void abrirMesmaTela() {
+    	CadastroController cC = new CadastroController();
+    	try {
+    		
+    		AnchorPane root =  FXMLLoader.load(getClass().getResource("Cadastro.fxml"));
+	   		Scene scene = new Scene(root, 700, 500);
+	   				 
+	   		stage.setTitle("HOST4U - Cadastro");
+	   		Image imagem = new Image("imagens/iconehotel.png");
+	   		stage.getIcons().add(imagem);
+	   		
+	   		stage.setResizable(false);
+	   		stage.setScene(scene);
+	   		stage.show();
+	
+	   		setStage(stage);// SETTANDO CENA
+
+    		
+    	} catch(Exception e) {
+    		
+    	}
+    	
+    }
     
     
 
