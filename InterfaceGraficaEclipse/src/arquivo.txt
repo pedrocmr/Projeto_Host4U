@@ -1,5 +1,2 @@
 renan2134,renan1234,renan,123456788,masculino
-Edu,9,Eduardo,123,Macho
-Pipico,9,Pipicão,12312312309,Melhor do mundo
-Renan,9,paixão,1212309,Macho
-Rafão,9,Lindão,1,Macho
+

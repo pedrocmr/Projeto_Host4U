@@ -16,8 +16,8 @@ public class TesteControles {
 		Usuario cad4 = new Usuario("Pipico", "9", "Pipicão", "12312312309", "Melhor do mundo");
 
 		RepositorioUsuarioArray rapArray =  new RepositorioUsuarioArray();
-		ControleCadastro ccad = new ControleCadastro();
-		System.out.println(ccad.AdicionaUsuario(cad4)); 
+		//ControleCadastro ccad = new ControleCadastro();
+		//System.out.println(ccad.AdicionaUsuario(cad4)); 
 		
 		System.out.println(rapArray.getUsuarios());
 
