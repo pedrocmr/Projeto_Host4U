@@ -45,9 +45,15 @@ public class RepositorioLugarArray implements IRepositorioLugar {
 	}
 
 	@Override
-	public void listarLugares() {
+	public ArrayList<Lugar> listarLugares() {
 	
+		ArrayList<Lugar> lug = new ArrayList<>();
 		
+		for(Lugar l : lugares) {
+			lug.add(l);
+		}
+		
+		return lug;
 	}
 
 	@Override

@@ -1,7 +1,6 @@
 package gui;
 
 import javafx.application.Application;
-import javafx.scene.control.Toggle;
 import javafx.stage.Stage;
 
 public class MainApp extends Application {

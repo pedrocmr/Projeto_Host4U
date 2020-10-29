@@ -3,8 +3,6 @@ package gui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import com.sun.javafx.image.impl.ByteIndexed.Getter;
-
 import controlador.ControleCadastro;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
