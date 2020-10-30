@@ -1,5 +1,6 @@
 package gui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -74,10 +75,10 @@ public class CadastroController extends Application implements Initializable {
 			erro.setContentText("Algum campo com tamanho inferior ao permitido! "
 					+ "Letras no campo do CPF!");
 			erro.showAndWait();
-			fecharTela();
-			abrirMesmaTela();
+			
     	}
     	else {
+    		
     		
     		if(controleCad.adicionaUsuario(new Usuario(txtLogin.getText(), txtSenha.getText(), txtNome.getText(), txtCpf.getText(), sexo)) == true) 
     		{
@@ -85,16 +86,17 @@ public class CadastroController extends Application implements Initializable {
     			System.out.println("Cadastrado com sucesso");
     			proximaHome();
     		
-    		} else {
+    		}
+    		else {
     			Alert erro = new Alert(AlertType.INFORMATION);
     			erro.setTitle("Erro!");
     			erro.setHeaderText("Por favor, verifique se há ocorre algum destes casos: ");
     			erro.setContentText("Usuário já existe! "
     					+ "O campo CPF não pode conter letras.");
     			erro.showAndWait();
-    			fecharTela();
-    			abrirMesmaTela();
+    			
     		}
+    		
     	}
     	
     	
@@ -117,29 +119,7 @@ public class CadastroController extends Application implements Initializable {
 		}
 	}
     
-    public void abrirMesmaTela() {
-    	CadastroController cC = new CadastroController();
-    	try {
-    		
-    		AnchorPane root =  FXMLLoader.load(getClass().getResource("Cadastro.fxml"));
-	   		Scene scene = new Scene(root, 700, 500);
-	   				 
-	   		stage.setTitle("HOST4U - Cadastro");
-	   		Image imagem = new Image("imagens/iconehotel.png");
-	   		stage.getIcons().add(imagem);
-	   		
-	   		stage.setResizable(false);
-	   		stage.setScene(scene);
-	   		stage.show();
-	
-	   		setStage(stage);// SETTANDO CENA
-
-    		
-    	} catch(Exception e) {
-    		
-    	}
-    	
-    }
+   
     
     
 
@@ -171,6 +151,16 @@ public class CadastroController extends Application implements Initializable {
 		CadastroController.stage = stage;
 	}
 
+	public void anteriorLogin() {
+		LoginController loginC = new LoginController();
+		fecharTela();
+		
+		try {
+			loginC.start(new Stage());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
 	
 
 	
@@ -180,6 +170,7 @@ public class CadastroController extends Application implements Initializable {
 		
 		btnSair.setOnMouseClicked((MouseEvent mouse) -> {
 			fecharTela();
+			anteriorLogin();
 		});
 		
 			 

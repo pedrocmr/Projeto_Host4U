@@ -117,10 +117,10 @@ public class ControleCadastro {
 				}
 			
 			try {
-			    intCpf = Double.parseDouble(cpf);
+			//	intCpf = Double.parseDouble(cpf);
 			     return cpf;
 			} catch (NumberFormatException e) {
-			    System.out.println("Cpf não pode conter letras!");
+			//	System.out.println("Cpf não pode conter letras!");
 			}
 			
 			
