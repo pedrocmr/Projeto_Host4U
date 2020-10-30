@@ -9,16 +9,17 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: turquoise;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ReservaController">
+<AnchorPane fx:id="root" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: turquoise;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ReservaController">
    <children>
       <ImageView fx:id="imagem" fitHeight="79.0" fitWidth="134.0" layoutX="233.0" layoutY="14.0">
          <image>
-            <Image url="@../../../../../../Imagens/H4ULogotipo.png" />
+            <Image url="@../imagens/H4ULogotipo.png" />
          </image>
       </ImageView>
-      <Label fx:id="lbTitulo" layoutX="96.0" layoutY="100.0" text="Preencha os dados para prosseguir com a reserva:">
+      <Label fx:id="lbTitulo" layoutX="32.0" layoutY="108.0" text="Preencha os dados para prosseguir com a reserva:">
          <font>
             <Font name="Agency FB" size="24.0" />
          </font>
@@ -52,5 +53,20 @@
       <Button fx:id="btVoltar" layoutX="14.0" layoutY="461.0" mnemonicParsing="false" text="Voltar" />
       <DatePicker fx:id="dtCheckIn" layoutX="33.0" layoutY="187.0" prefHeight="25.0" prefWidth="221.0" promptText="Check-in" />
       <DatePicker fx:id="dtCheckOut" layoutX="328.0" layoutY="187.0" prefHeight="25.0" prefWidth="221.0" promptText="Check-out" />
+      <Pane layoutX="120.0" layoutY="141.0" prefHeight="277.0" prefWidth="391.0" style="-fx-background-color: Gold;" visible="false">
+         <children>
+            <Button layoutX="308.0" layoutY="238.0" mnemonicParsing="false" text="Confirmar" textFill="#1b1414" />
+            <Label layoutX="82.0" layoutY="14.0" text="Informações sobre a Reserva" textFill="#fffefe">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="241.0" text="Este é o último passo. Deseja confirmar a Reserva?" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

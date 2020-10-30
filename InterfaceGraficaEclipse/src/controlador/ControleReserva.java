@@ -1,6 +1,5 @@
 package controlador;
 
-import java.time.LocalDate;
 import java.util.Iterator;
 
 import modelo.Reserva;
@@ -102,18 +101,7 @@ public class ControleReserva {
 				
 				resultado = true;
 			}
-		
-		}/*else {
-			
-			naoCadastrado = true;
 		}
-		
-		boolean naoCadastrado = false;
-		
-		if(naoCadastrado) { 
-		 * 
-		 * //posso alterar pra tentar mostrar algum erro na tela, dizendo que nao ha cadastro
-		}*/
 		
 		return resultado;
 	}
