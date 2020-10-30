@@ -48,7 +48,7 @@ public class ControleCadastro {
 					
 					String [] vamosPorPartes = linha.split(",");
 					
-					if (cpf.equals(vamosPorPartes[3])) {
+					if (cpf.equals(vamosPorPartes[3])) { //se houver outro cpf igual no arquivo
 						
 						resultado = false;
 						return false;
@@ -60,7 +60,8 @@ public class ControleCadastro {
 					
 					}
 					
-				}while(linha != null);
+				}while(linha != null); 
+			
 			
 			} catch (IOException e) {
 				
@@ -117,10 +118,10 @@ public class ControleCadastro {
 				}
 			
 			try {
-			//	intCpf = Double.parseDouble(cpf);
+				 intCpf = Double.parseDouble(cpf);
 			     return cpf;
 			} catch (NumberFormatException e) {
-			//	System.out.println("Cpf não pode conter letras!");
+				System.out.println("Cpf não pode conter letras!");
 			}
 			
 			
