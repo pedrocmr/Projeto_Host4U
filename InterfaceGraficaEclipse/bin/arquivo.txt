@@ -1,2 +1,10 @@
+<<<<<<< Updated upstream
 renan2134,renan1234,renan,123456788,masculino
 
+=======
+renan2134,renan1234,renan,12345678878,masculino
+Cristiano Ronaldo,12345678,Lionel Messi da Silva,23432343234,M
+Euuuuuuuuuuu,Euuuuuuuuuuuuu,Euuuuuuuuuuu,56656655665,M
+Tuuuuuuuuuuuuuu,xkjcnlkcjnx,7777777777,78787878787,F
+dfvdfvdfvv,dfvdfvdfv,dfvdfvdfv,00998877665,M
+>>>>>>> Stashed changes
