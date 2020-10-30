@@ -29,6 +29,7 @@ import modelo.Pagamento;
 
 public class PagamentoController extends Application implements Initializable {
 
+	private static final ActionEvent ActionEvent  = null;
 	ControlePagamento cp;
 	private static Stage stage;
 
@@ -59,15 +60,16 @@ public class PagamentoController extends Application implements Initializable {
      
 		Pagamento p = new Pagamento();
 		ControlePagamento cp = new ControlePagamento(p);
-
+		
 		for (int i = 0; i <= 6; i++) {
 
 			int x = i;
 			btParcelas.setOnAction(Event -> {
-
-				if (x == 1) {
-					btParcelas.setText(mnItem1.getText() + cp.totalPagamento());
-				}
+				
+						
+		//		if (true)) {
+			//		btParcelas.setText(mnItem1.getText() + cp.totalPagamento());
+			//	}
 				if (x == 2) {
 					btParcelas.setText(mnItem2.getText() + cp.totalPagamento() / 2);
 				}
@@ -88,6 +90,16 @@ public class PagamentoController extends Application implements Initializable {
 		}
 
 	}
+    
+    @FXML
+    void OneSelect(ActionEvent event) {
+    	Pagamento p = new Pagamento();
+		ControlePagamento cp = new ControlePagamento(p);
+		Double x = 7.80;
+		String num = ""+x;
+    	btParcelas.setText(mnItem1.getText() + num);
+
+    }
     
 	@FXML
 	void finaliza(ActionEvent event) {

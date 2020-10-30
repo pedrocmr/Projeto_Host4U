@@ -1,5 +1,11 @@
 package controlador;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Iterator;
 
 import modelo.Reserva;
@@ -9,6 +15,10 @@ import repositorio.RepositorioReservaArray;
 public class ControleReserva {
 
 	RepositorioReservaArray repo;
+	private FileWriter fileWriter;
+	private FileReader fileReader;
+	private BufferedReader leitor;
+	private BufferedWriter escrever;
 
 	public ControleReserva() {
 		
@@ -56,7 +66,45 @@ public class ControleReserva {
 		return resultado;
 		
 
-	}
+	} //fim da adiciona reserva
+	
+	public boolean verificaReserva(Reserva reserva) {
+		boolean resultado = false;
+		File arquivo = new File("src/reserva.txt");
+		
+		try {
+			
+			
+			fileReader = new FileReader(arquivo);
+			leitor = new BufferedReader(fileReader);
+			String linha = leitor.readLine();
+			
+			do {
+				
+				String [] vamosPorPartes = linha.split(",");
+				
+				
+				if (reserva.getCheckin().equals(vamosPorPartes[2]) && reserva.getCheckout().equals(vamosPorPartes[3]) ) { //se já houver essa data
+					
+					resultado = false;
+				}
+				
+				if (linha != null) {
+					
+					linha = leitor.readLine();
+				
+				}
+				
+			}while(linha != null);
+		
+		} catch (IOException e) {
+			
+			System.out.println("erro" + e.getMessage());
+		}
+		
+		return resultado;
+		
+	}//fim da verifica reserva
 
 	// MÉTODO CANCELAR RESERVAS
 	public boolean cancelaReserva(Usuario usuario, Reserva reservaCancela) {
