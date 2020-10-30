@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="root" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.HomeController">
+<AnchorPane fx:id="root" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.HomeController">
    <children>
       <ImageView fx:id="imagem" fitHeight="73.0" fitWidth="130.0" layoutX="14.0" layoutY="14.0">
          <image>
@@ -42,12 +42,12 @@
             <Image url="@../../../../../../Imagens/carneiros.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="btCadastrar" layoutX="486.0" layoutY="14.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="29.0" prefWidth="105.0" style="-fx-background-color: yellow;" text="Cadastre-se">
+      <Button fx:id="btCadastrar" layoutX="486.0" layoutY="14.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="105.0" style="-fx-background-color: yellow;" text="Cadastre-se">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btLogin" layoutX="602.0" layoutY="14.0" mnemonicParsing="false" onAction="#logar" prefHeight="29.0" prefWidth="79.0" style="-fx-background-color: yellow;" text="Login">
+      <Button fx:id="btLogin" layoutX="602.0" layoutY="14.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="79.0" style="-fx-background-color: yellow;" text="Login">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -62,26 +62,21 @@
             <Font name="System Italic" size="14.0" />
          </font>
       </Text>
-      <Button fx:id="btn" layoutX="14.0" layoutY="468.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="4.0" style="-fx-background-color: whit;" />
-      <Button fx:id="btBoa" layoutX="77.0" layoutY="380.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Boa Viagem">
+      <Button fx:id="btBoa" layoutX="70.0" layoutY="380.0" mnemonicParsing="false" text="Boa Viagem">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btTam" layoutX="312.0" layoutY="381.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Tamandaré">
+      <Button fx:id="btTam" layoutX="312.0" layoutY="380.0" mnemonicParsing="false" text="Tamandaré">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btPort" layoutX="518.0" layoutY="380.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Porto de Galinhas">
+      <Button fx:id="btPort" layoutX="522.0" layoutY="380.0" mnemonicParsing="false" text="Porto de Galinhas">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font>
       </Button>
-      <ImageView fx:id="imagemBv" fitHeight="170.0" fitWidth="225.0" layoutX="7.0" layoutY="210.0">
-         <image>
-            <Image url="@../../../../../../Imagens/Saved%20Pictures/boa%20viagem.jpeg" />
-         </image>
-      </ImageView>
+      <Button layoutX="8.0" layoutY="210.0" mnemonicParsing="false" prefHeight="170.0" prefWidth="225.0" style="-fx-background-image: file:///C:/Users/dufel/OneDrive/Documentos/GitHub/Projeto_Host4U/InterfaceGraficaEclipse/src/boa%20viagem.jpeg;" text="Button" />
    </children>
 </AnchorPane>
