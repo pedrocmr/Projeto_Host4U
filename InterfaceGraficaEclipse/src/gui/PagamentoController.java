@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 import controlador.ControlePagamento;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -25,7 +24,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import modelo.Pagamento;
 
 public class PagamentoController extends Application implements Initializable {
 
@@ -54,46 +52,57 @@ public class PagamentoController extends Application implements Initializable {
     @FXML private MenuItem mnItem5;
     @FXML private MenuItem mnItem6;
     
-    @FXML
-    void selecionaParcela(ActionEvent event) {
+    
+    @FXML void selecionaParcela(ActionEvent event) {
      
-		Pagamento p = new Pagamento();
-		ControlePagamento cp = new ControlePagamento(p);
-
-		for (int i = 0; i <= 6; i++) {
-
-			int x = i;
-			btParcelas.setOnAction(Event -> {
-
-				if (x == 1) {
-					btParcelas.setText(mnItem1.getText() + cp.totalPagamento());
-				}
-				if (x == 2) {
-					btParcelas.setText(mnItem2.getText() + cp.totalPagamento() / 2);
-				}
-				if (x == 3) {
-					btParcelas.setText(mnItem3.getText() + cp.totalPagamento() / 3);
-				}
-				if (x == 4) {
-					btParcelas.setText(mnItem4.getText() + cp.totalPagamento() / 4);
-				}
-				if (x == 5) {
-					btParcelas.setText(mnItem5.getText() + cp.totalPagamento() / 5);
-				}
-				if (x == 6) {
-					btParcelas.setText(mnItem6.getText() + cp.totalPagamento() / 6);
-				}
-			
-			});
-		}
 
 	}
     
-	@FXML
-	void finaliza(ActionEvent event) {
+    @FXML void primeiraParcela(ActionEvent event) {
 
-		Pagamento p = new Pagamento();
-		ControlePagamento cp = new ControlePagamento(p);
+    	mnItem1.setOnAction(Event -> {
+    		btParcelas.setText(mnItem1.getText());
+    	});
+    }
+    
+    @FXML void segundaParcela(ActionEvent event) {
+
+    	mnItem2.setOnAction(Event -> {
+    		btParcelas.setText(mnItem2.getText());
+    	});
+    	
+    }
+    
+    @FXML void terceiraParcela(ActionEvent event) {
+
+    	mnItem3.setOnAction(Event -> {
+    		btParcelas.setText(mnItem3.getText());
+    	});
+    }
+
+    @FXML void quartaParcela(ActionEvent event) {
+
+    	mnItem4.setOnAction(Event -> {
+    		btParcelas.setText(mnItem4.getText());
+    	});
+    }
+
+    @FXML
+    void quintaParcela(ActionEvent event) {
+
+    	mnItem5.setOnAction(Event -> {
+    		btParcelas.setText(mnItem5.getText());
+    	});
+    }
+
+    @FXML void sextaParcela(ActionEvent event) {
+
+    	mnItem6.setOnAction(Event -> {
+    		btParcelas.setText(mnItem6.getText());
+    	});
+    }
+
+	@FXML void finaliza(ActionEvent event) {
 
 		if (txNumero.getText().length() != 16 || txTitular.getText().length() < 6 || txCpf.getText().length() != 11
 				|| txCvv.getText().length() != 3 || btParcelas.getText().equals("Escolha a quantidade de parcelas")) {

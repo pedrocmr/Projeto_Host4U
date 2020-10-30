@@ -27,12 +27,12 @@
       <Label fx:id="lbParcelas" layoutX="16.0" layoutY="274.0" text="Parcelas:" />
       <MenuButton fx:id="btParcelas" layoutX="121.0" layoutY="270.0" mnemonicParsing="false" onAction="#selecionaParcela" prefHeight="25.0" prefWidth="228.0" text="Escolha a quantidade de parcelas">
         <items>
-          <MenuItem fx:id="mnItem1" mnemonicParsing="false" text="1x de R$ " />
-          <MenuItem fx:id="mnItem2" mnemonicParsing="false" text="2x de R$" />
-            <MenuItem fx:id="mnItem3" mnemonicParsing="false" text="3x de R$" />
-            <MenuItem fx:id="mnItem4" mnemonicParsing="false" text="4x de R$" />
-            <MenuItem fx:id="mnItem5" mnemonicParsing="false" text="5x de R$" />
-            <MenuItem fx:id="mnItem6" mnemonicParsing="false" text="6x de R$" />
+          <MenuItem fx:id="mnItem1" mnemonicParsing="false" onAction="#primeiraParcela" text="1x de R$ " />
+          <MenuItem fx:id="mnItem2" mnemonicParsing="false" onAction="#segundaParcela" text="2x de R$" />
+            <MenuItem fx:id="mnItem3" mnemonicParsing="false" onAction="#terceiraParcela" text="3x de R$" />
+            <MenuItem fx:id="mnItem4" mnemonicParsing="false" onAction="#quartaParcela" text="4x de R$" />
+            <MenuItem fx:id="mnItem5" mnemonicParsing="false" onAction="#quintaParcela" text="5x de R$" />
+            <MenuItem fx:id="mnItem6" mnemonicParsing="false" onAction="#sextaParcela" text="6x de R$" />
         </items>
       </MenuButton>
       <TextField fx:id="txCvv" layoutX="121.0" layoutY="310.0" prefHeight="25.0" prefWidth="132.0" />
