@@ -1,6 +1,5 @@
 package gui;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -77,24 +76,24 @@ public class CadastroController extends Application implements Initializable {
     	}
     	else {
     		
-    		
     		if(controleCad.adicionaUsuario(new Usuario(txtLogin.getText(), txtSenha.getText(), txtNome.getText(), txtCpf.getText(), sexo)) == true) 
     		{
-    			//abrir a tela Home 
-    			System.out.println("Cadastrado com sucesso");
+    			
+    			Alert erro = new Alert(AlertType.INFORMATION);    			
+    			erro.setTitle("Parabéns");
+    			erro.setHeaderText("");
+    			erro.setContentText("Cadastrado Com Sucesso!");
+    			erro.showAndWait();
     			proximaHome();
     		
-    		}
-    		else {
+    		} else {
     			Alert erro = new Alert(AlertType.INFORMATION);
     			erro.setTitle("Erro!");
     			erro.setHeaderText("Por favor, verifique se há ocorre algum destes casos: ");
     			erro.setContentText("Usuário já existe! "
     					+ "O campo CPF não pode conter letras.");
     			erro.showAndWait();
-    			
     		}
-    		
     	}
     	
     	
@@ -117,7 +116,7 @@ public class CadastroController extends Application implements Initializable {
 		}
 	}
     
-   
+    
     
     
 
@@ -149,16 +148,6 @@ public class CadastroController extends Application implements Initializable {
 		CadastroController.stage = stage;
 	}
 
-	public void anteriorLogin() {
-		LoginController loginC = new LoginController();
-		fecharTela();
-		
-		try {
-			loginC.start(new Stage());
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-	}
 	
 
 	
@@ -168,7 +157,6 @@ public class CadastroController extends Application implements Initializable {
 		
 		btnSair.setOnMouseClicked((MouseEvent mouse) -> {
 			fecharTela();
-			anteriorLogin();
 		});
 		
 			 

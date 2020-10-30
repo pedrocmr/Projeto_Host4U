@@ -6,10 +6,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import modelo.Usuario;
-import repositorio.RepositorioUsuarioArray;
 
 public class ControleCadastro {
 
@@ -27,31 +25,28 @@ public class ControleCadastro {
 		
 		private boolean verificaCadastro(String cpf) {
 			
-			if(cpf.equals(validarCpf(cpf)) == false) {
+			if(validarCpf(cpf).equals("Erro")) {
 				return false;
 			}
 			
-			Boolean resultado = false;
+			Boolean resultado = true;
 			File arquivo = new File("src/arquivo.txt");
 			
-			
-			
 			try {
+				
 				
 				fileReader = new FileReader(arquivo);
 				leitor = new BufferedReader(fileReader);
 				String linha = leitor.readLine();
 				
-				
-				
 				do {
 					
 					String [] vamosPorPartes = linha.split(",");
 					
-					if (cpf.equals(vamosPorPartes[3])) { //se houver outro cpf igual no arquivo
+					
+					if (cpf.equals(vamosPorPartes[3])) {
 						
 						resultado = false;
-						return false;
 					}
 					
 					if (linha != null) {
@@ -60,22 +55,24 @@ public class ControleCadastro {
 					
 					}
 					
-				}while(linha != null); 
-			
+				}while(linha != null);
 			
 			} catch (IOException e) {
 				
 				System.out.println("erro" + e.getMessage());
 			}
 			
-			return true;
+			return resultado;
 			
 		} // fim da verifica cpf
 		
 		public boolean adicionaUsuario(Usuario user) {
 			
+			
+			
 			Boolean resultado = false;
 			
+		
 			
 			if(verificaCadastro(user.getCpf()) == true) {
 				
@@ -95,18 +92,21 @@ public class ControleCadastro {
 					System.out.println("erro" + e.getMessage());
 					resultado = false;
 				}
-			 } else {
-				 resultado = false;
-			 }
 			 
-			return resultado;
-		}
+		
+			} else {
+				 resultado = false;
+		 }
+		
+		
+		return resultado;		
+		
+	}
 		
 		
 		private String validarCpf(String cpf) {
-			Double intCpf;
 			
-
+			
 			if (cpf.equals("00000000000") || cpf.equals("11111111111") || cpf.equals("22222222222")||
 			        cpf.equals("33333333333") || cpf.equals("44444444444") ||
 			        cpf.equals("55555555555") || cpf.equals("66666666666") ||
@@ -118,12 +118,11 @@ public class ControleCadastro {
 				}
 			
 			try {
-				 intCpf = Double.parseDouble(cpf);
+			   Double intCpf = Double.parseDouble(cpf);
 			     return cpf;
 			} catch (NumberFormatException e) {
-				System.out.println("Cpf não pode conter letras!");
+			    System.out.println("Cpf não pode conter letras!");
 			}
-			
 			
 			return "Erro";
 
