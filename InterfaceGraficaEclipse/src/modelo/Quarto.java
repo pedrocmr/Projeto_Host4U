@@ -2,17 +2,17 @@ package modelo;
 
 public class Quarto {
 
-	private Integer ocupacaoMaximaPessoas;
-	private Integer andar;
-	private Integer numero;
+	private int ocupacaoMaximaPessoas;
+	private int andar;
+	private int numero;
 	private Hotel hotel;
 	private String preferenciaCamas;
 	private double valorSuite;
-	private Integer numeroCamas;
-	private Double valorReserva;
+	private int numeroCamas;
+	private double valorReserva;
 
-	public Quarto(Integer numero, Integer andar, Hotel hotel, Integer ocupacaoMaximaPessoas, double valorSuite,
-			double valorDiariaUnidade, double valorDeAdicaoPorPessoa) {
+	public Quarto(int numero, int andar, Hotel hotel, int ocupacaoMaximaPessoas, double valorSuite, double valorDiariaUnidade,
+			double valorDeAdicaoPorPessoa) {
 
 		this.valorSuite = valorSuite;
 		this.valorReserva = valorDiariaUnidade;
@@ -40,30 +40,18 @@ public class Quarto {
 
 	}
 
-	public Integer getOcupacaoMaximaPessoas() {
+	public int getOcupacaoMaximaPessoas() {
 		return ocupacaoMaximaPessoas;
 	}
 
-	public void setOcupacaoMaximaPessoas(Integer ocupacaoMaximaPessoas) {
+	public void setOcupacaoMaximaPessoas(int ocupacaoMaximaPessoas) {
 		this.ocupacaoMaximaPessoas = ocupacaoMaximaPessoas;
 	}
 
-	public Integer getAndar() {
+	public int getAndar() {
 		return andar;
 	}
-
-	public void setAndar(Integer andar) {
-		this.andar = andar;
-	}
-
-	public Integer getNumero() {
-		return numero;
-	}
-
-	public void setNumero(Integer numero) {
-		this.numero = numero;
-	}
-
+	
 	public Hotel getHotel() {
 		return hotel;
 	}
@@ -72,48 +60,64 @@ public class Quarto {
 		this.hotel = hotel;
 	}
 
+	public void setAndar(int andar) {
+		this.andar = andar;
+	}
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
 	public String getPreferenciaCamas() {
 		return preferenciaCamas;
 	}
 
-	public void setPreferenciaCamas(String preferenciaCamas) {
-		this.preferenciaCamas = preferenciaCamas;
-	}
 
-	public Double getValorSuite() {
+	public double getValorSuite() {
 		return valorSuite;
 	}
 
-	public void setValorSuite(Double valorSuite) {
+	public void setValorSuite(double valorSuite) {
 		this.valorSuite = valorSuite;
-	}
-
-	public Integer getNumeroCamas() {
-		return numeroCamas;
-	}
-
-	public void setNumeroCamas(Integer numeroCamas) {
-		this.numeroCamas = numeroCamas;
-	}
-
-	public double getValorReserva() {
-		return valorReserva;
 	}
 
 	public void setValorReserva(double valorReserva) {
 		this.valorReserva = valorReserva;
 	}
 
+	public void setPreferenciaCamas(String preferenciaCamas) {
+
+		this.preferenciaCamas = preferenciaCamas;
+	}
+
+	public int getNumeroCamas() {
+		return numeroCamas;
+	}
+
+	public void setNumeroCamas(int numeroCamas) {
+		this.numeroCamas = numeroCamas;
+	}
+
+	public double getValorReserva() {
+		return valorReserva;
+	}
+	
+	
 	public boolean equals(Quarto quarto) {
 		if (this == quarto)
 			return true;
 		if (quarto == null)
 			return false;
+		
+		if (this.getHotel().equals(quarto.getHotel()) == true){
+			
+			if( (this.getNumero() == quarto.getNumero())) {
 
-		if (this.getHotel().equals(quarto.getHotel()) == true) {
-
-			if ((this.getNumero() == quarto.getNumero())) {
-
+				
 				return true;
 			}
 		}
@@ -122,9 +126,9 @@ public class Quarto {
 
 	@Override
 	public String toString() {
-		return "Ocupação máxima de pessoas: " + ocupacaoMaximaPessoas + ", Andar: " + andar + ", Número: " + numero
-				+ ", Valor da suíte: " + valorSuite + ", Número de camas: " + numeroCamas + ", Valor da reserva: "
-				+ valorReserva;
+		return "Ocupação máxima de pessoas: " + ocupacaoMaximaPessoas + ", Andar: " + andar + ", Número: "
+				+ numero + ", Valor da suíte: " + valorSuite + ", Número de camas: "
+				+ numeroCamas + ", Valor da reserva: " + valorReserva;
 	}
 
 }

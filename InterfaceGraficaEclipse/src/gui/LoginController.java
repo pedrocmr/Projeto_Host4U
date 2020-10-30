@@ -2,6 +2,7 @@ package gui;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

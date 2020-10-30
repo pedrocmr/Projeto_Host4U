@@ -27,7 +27,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Button fx:id="btGeraRelatorio" layoutX="106.0" layoutY="406.0" mnemonicParsing="false" onAction="#geraRelatorio" prefHeight="25.0" prefWidth="114.0" text="Gerar Relatório" />
+      <Button fx:id="btGeraRelatorio" layoutX="106.0" layoutY="406.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="114.0" text="Gerar Relatório" />
       <DatePicker fx:id="dtInicio" layoutX="78.0" layoutY="269.0" prefHeight="25.0" prefWidth="169.0" />
       <DatePicker fx:id="dtFim" layoutX="78.0" layoutY="338.0" prefHeight="25.0" prefWidth="169.0" />
       <Text fx:id="txTitulo" layoutX="167.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Relatório Administrador" textAlignment="CENTER" wrappingWidth="365.13671875">
@@ -41,12 +41,12 @@
          </font>
       </Text>
       <ChoiceBox fx:id="mnHotel2" layoutX="420.0" layoutY="218.0" prefHeight="25.0" prefWidth="169.0" />
-      <Button fx:id="btRelatorioGeral" layoutX="457.0" layoutY="304.0" mnemonicParsing="false" onAction="#relatorioGeral" text="Relatório Geral" />
+      <Button fx:id="btRelatorioGeral" layoutX="457.0" layoutY="304.0" mnemonicParsing="false" text="Relatório Geral" />
       <ImageView fx:id="imagem" fitHeight="71.0" fitWidth="123.0" layoutX="14.0" layoutY="14.0">
          <image>
             <Image url="@../../../../../../Imagens/H4ULogotipo.png" />
          </image>
       </ImageView>
-      <Button fx:id="btVoltar" layoutX="14.0" layoutY="461.0" mnemonicParsing="false" onAction="#voltar" text="Voltar" />
+      <Button fx:id="btVoltar" layoutX="14.0" layoutY="461.0" mnemonicParsing="false" text="Voltar" />
    </children>
 </AnchorPane>

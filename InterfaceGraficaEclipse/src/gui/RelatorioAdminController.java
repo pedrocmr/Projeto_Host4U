@@ -4,7 +4,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -40,49 +39,6 @@ public class RelatorioAdminController extends Application implements Initializab
     @FXML private ImageView imagem;
     @FXML private Button btVoltar;
 
-    @FXML
-    void geraRelatorio(ActionEvent event) {
-
-    	btGeraRelatorio.setOnMouseClicked((MouseEvent mouse) -> {
-			System.out.println("geraaaaa");
-		});
-		
-		btVoltar.setOnKeyPressed((KeyEvent enter) -> {
-			if(enter.getCode().equals(KeyCode.ENTER)) {
-			System.out.println("geraaaaa");	
-			}
-		});
-    }
-
-    @FXML
-    void relatorioGeral(ActionEvent event) {
-
-    	btRelatorioGeral.setOnMouseClicked((MouseEvent mouse) -> {
-           System.out.println("ola");
-    	});
-		
-		btRelatorioGeral.setOnKeyPressed((KeyEvent enter) -> {
-			if(enter.getCode().equals(KeyCode.ENTER)) {
-				System.out.println("ola");
-				
-			}
-		});
-    }
-
-    @FXML
-    void voltar(ActionEvent event) {
-
-		btVoltar.setOnMouseClicked((MouseEvent mouse) -> {
-			proximaHome();
-		});
-		
-		btVoltar.setOnKeyPressed((KeyEvent enter) -> {
-			if(enter.getCode().equals(KeyCode.ENTER)) {
-				proximaHome();
-				
-			}
-		});
-    }
 	
 	@Override
 	public void start(Stage stage) throws Exception {
@@ -132,8 +88,21 @@ public class RelatorioAdminController extends Application implements Initializab
 		}
 	}
 	
+	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		//PREENCHER
+
+		btVoltar.setOnMouseClicked((MouseEvent mouse) -> {
+			proximaHome();
+		});
+		
+		btVoltar.setOnKeyPressed((KeyEvent enter) -> {
+			if(enter.getCode().equals(KeyCode.ENTER)) {
+				proximaHome();
+				
+			}
+		});
+		
 	}
+
 
 }
