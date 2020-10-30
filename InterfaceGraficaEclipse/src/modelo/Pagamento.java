@@ -27,6 +27,8 @@ public class Pagamento {
 		this.parcelas = parcelas;
 		this.valorTotal = valorTotal;
 	}
+	
+	public Pagamento() {}
 
 	// GETTERS E SETTERS
 	public Reserva getReserva() {
