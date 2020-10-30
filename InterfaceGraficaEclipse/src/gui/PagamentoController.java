@@ -3,7 +3,6 @@ package gui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import controlador.ControleCadastro;
 import controlador.ControlePagamento;
 import javafx.application.Application;
 import javafx.fxml.FXML;

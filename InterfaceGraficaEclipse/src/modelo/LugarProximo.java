@@ -1,5 +1,6 @@
 package modelo;
 
+import repositorio.RepositorioLugarArray;
 
 public class LugarProximo {
 
@@ -8,9 +9,12 @@ public class LugarProximo {
 	private double distanciaEmKm;
 
 	public LugarProximo(Hotel h, Lugar l) {
+		
+		RepositorioLugarArray repo = new RepositorioLugarArray();
+		
 		this.hotel = h;
 		this.lugar = l;
-		this.distanciaEmKm = h.getLugar().distance(l);
+		this.distanciaEmKm = repo.getDistancia(l, h.getLugar());
 
 	}
 
