@@ -72,15 +72,18 @@ public class CadastroController extends Application implements Initializable {
 			erro.setContentText("Algum campo com tamanho inferior ao permitido! "
 					+ "Letras no campo do CPF!");
 			erro.showAndWait();
-			fecharTela();
-			abrirMesmaTela();
+			
     	}
     	else {
     		
     		if(controleCad.adicionaUsuario(new Usuario(txtLogin.getText(), txtSenha.getText(), txtNome.getText(), txtCpf.getText(), sexo)) == true) 
     		{
-    			//abrir a tela Home 
-    			System.out.println("Cadastrado com sucesso");
+    			
+    			Alert erro = new Alert(AlertType.INFORMATION);    			
+    			erro.setTitle("Parabéns");
+    			erro.setHeaderText("");
+    			erro.setContentText("Cadastrado Com Sucesso!");
+    			erro.showAndWait();
     			proximaHome();
     		
     		} else {
@@ -90,8 +93,6 @@ public class CadastroController extends Application implements Initializable {
     			erro.setContentText("Usuário já existe! "
     					+ "O campo CPF não pode conter letras.");
     			erro.showAndWait();
-    			fecharTela();
-    			abrirMesmaTela();
     		}
     	}
     	
@@ -115,29 +116,7 @@ public class CadastroController extends Application implements Initializable {
 		}
 	}
     
-    public void abrirMesmaTela() {
-    	CadastroController cC = new CadastroController();
-    	try {
-    		
-    		AnchorPane root =  FXMLLoader.load(getClass().getResource("Cadastro.fxml"));
-	   		Scene scene = new Scene(root, 700, 500);
-	   				 
-	   		stage.setTitle("HOST4U - Cadastro");
-	   		Image imagem = new Image("imagens/iconehotel.png");
-	   		stage.getIcons().add(imagem);
-	   		
-	   		stage.setResizable(false);
-	   		stage.setScene(scene);
-	   		stage.show();
-	
-	   		setStage(stage);// SETTANDO CENA
-
-    		
-    	} catch(Exception e) {
-    		
-    	}
-    	
-    }
+    
     
     
 
