@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,19 +25,50 @@ public class HomeController extends Application implements Initializable {
 
 	private static Stage stage;
 
-	    @FXML private AnchorPane root;
-	    @FXML private ImageView imagem;
-	    @FXML private Label lbTitulo;
-	    @FXML private Label lbSlogan;
-	    @FXML private Label lbPesquisa;
-	    @FXML private TextField txHotel;
-	    @FXML private ImageView imagemBv;
-	    @FXML private ImageView imagemPg;
-	    @FXML private ImageView imagemTm;
-	    @FXML private Button btCadastrar;
-	    @FXML private Button btLogin;
-	    @FXML private Text txtNome;
-	    @FXML private Text txtAviso;
+	@FXML private AnchorPane root;
+    @FXML private ImageView imagem;
+    @FXML private Label lbTitulo;
+    @FXML private Label lbSlogan;
+    @FXML private Label lbPesquisa;
+    @FXML private TextField txHotel;
+    @FXML private ImageView imagemPg;
+    @FXML private ImageView imagemTm;
+    @FXML private Button btCadastrar;
+    @FXML private Button btLogin;
+    @FXML private Text txtNome;
+    @FXML private Text txtAviso;
+    @FXML private Button btn;
+    @FXML private Button btBoa;
+    @FXML private Button btTam;
+    @FXML private Button btPort;
+    @FXML private ImageView imagemBv;
+	    
+	    @FXML void cadastrar(ActionEvent event) {
+	    	
+	    	btCadastrar.setOnMouseClicked((MouseEvent mouse) -> {
+				proximaTela();
+			});
+			
+			btCadastrar.setOnKeyPressed((KeyEvent enter) -> {
+				if(enter.getCode().equals(KeyCode.ENTER)) {
+					proximaTela();
+				}
+			});
+	    }
+
+	    @FXML
+	    void logar(ActionEvent event) {
+
+	    	btLogin.setOnMouseClicked((MouseEvent mouse) -> {
+				proximaLogin();
+			});
+			
+			btLogin.setOnKeyPressed((KeyEvent enter) -> {
+				if(enter.getCode().equals(KeyCode.ENTER)) {
+					proximaLogin();
+				}
+			});
+	    }
 	    
 	@Override
 	public void start(Stage stage) throws Exception {
@@ -66,27 +98,7 @@ public class HomeController extends Application implements Initializable {
 	}
 
 	public void initialize(URL location, ResourceBundle resources) {
-		
-		btLogin.setOnMouseClicked((MouseEvent mouse) -> {
-			proximaLogin();
-		});
-		
-		btLogin.setOnKeyPressed((KeyEvent enter) -> {
-			if(enter.getCode().equals(KeyCode.ENTER)) {
-				proximaLogin();
-			}
-		});
-		
-		btCadastrar.setOnMouseClicked((MouseEvent mouse) -> {
-			proximaTela();
-		});
-		
-		btCadastrar.setOnKeyPressed((KeyEvent enter) -> {
-			if(enter.getCode().equals(KeyCode.ENTER)) {
-				proximaTela();
-			}
-		});
-		
+		//PREENCHER
 	}
 	
 	public void fecharTela() {

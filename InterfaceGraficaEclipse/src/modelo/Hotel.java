@@ -20,6 +20,8 @@ public class Hotel {
 		this.lugar = lugar;
 
 	}
+	
+	public Hotel() {}
 
 	public String getNome() {
 		return nome;
