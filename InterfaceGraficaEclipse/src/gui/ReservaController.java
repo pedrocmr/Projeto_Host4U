@@ -151,7 +151,7 @@ public class ReservaController extends Application implements Initializable {
     
     public ObservableList<Quarto> listaTabela(){
 		//Hotel hotel = new Hotel();
-		return FXCollections.observableArrayList(hotel.getQuartos());
+		return FXCollections.observableArrayList();
 	}
 
 	public static void main(String[] args) {

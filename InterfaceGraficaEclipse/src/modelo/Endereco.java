@@ -14,6 +14,8 @@ public class Endereco {
 		this.estado = estado;
 	}
 
+	public Endereco() {}
+	
 	public String getLogradouro() {
 		return logradouro;
 	}

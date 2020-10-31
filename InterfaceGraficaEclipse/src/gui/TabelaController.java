@@ -1,7 +1,6 @@
 package gui;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.application.Application;
@@ -24,12 +23,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import modelo.Endereco;
 import modelo.Hotel;
-import modelo.Lugar;
-import modelo.Quarto;
 import repositorio.RepositorioHotelArray;
-import repositorio.RepositorioLugarArray;
+
 
 public class TabelaController extends Application implements Initializable{
 
@@ -78,7 +74,7 @@ public class TabelaController extends Application implements Initializable{
 	public void start(Stage stage) throws Exception {
 		
 		AnchorPane root = FXMLLoader.load(getClass().getResource("Tabela.fxml"));
-		Scene scene = new Scene(root, 700, 500);
+		Scene scene = new Scene(root, 735, 500);
 
 		// COLOCANDO TÍTULO
 		stage.setTitle("HOST4U - Hotéis");
@@ -141,13 +137,32 @@ public class TabelaController extends Application implements Initializable{
 		clnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
 		clnQuartos.setCellValueFactory(new PropertyValueFactory<>("qtdQuartos"));
 		clnEndereço.setCellValueFactory(new PropertyValueFactory<>("endereco"));
-		tabela.setItems(listaTabela());
+		
+		tabela.setItems(listaTabelaBV());
+		
 	}
    
    public ObservableList<Hotel> listaTabela(){
 		RepositorioHotelArray rH = new RepositorioHotelArray();
 		return FXCollections.observableArrayList(rH.listarHoteis());
 	}
+   
+   public ObservableList<Hotel> listaTabelaBV(){
+		RepositorioHotelArray rH = new RepositorioHotelArray();
+		return FXCollections.observableArrayList(rH.listarHoteisBV());
+	}
+   
+   public ObservableList<Hotel> listaTabelaTM(){
+		RepositorioHotelArray rH = new RepositorioHotelArray();
+		return FXCollections.observableArrayList(rH.listarHoteisTM());
+	}
+   
+   public ObservableList<Hotel> listaTabelaPG(){
+		RepositorioHotelArray rH = new RepositorioHotelArray();
+		return FXCollections.observableArrayList(rH.listarHoteisPG());
+	}
+   
+   
 	
 	public static void main(String[] args) {
 
