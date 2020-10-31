@@ -2,26 +2,40 @@ package modelo;
 
 import java.util.ArrayList;
 
+
+
 public class Hotel {
 
 	private String nome;
 	private int idHotel;
 	private Endereco endereco;
-	private ArrayList<Quarto> quartos;
+	private ArrayList<Quarto> quartos = new ArrayList<Quarto>(130);
 	private int andares;
 	private Lugar lugar;
+	private Integer qtdQuartos = quartos.size();
 
-	public Hotel(String nome, int idHotel, int andares, Lugar lugar) {
+
+	public Hotel(String nome, int idHotel, int andares, Lugar lugar, Integer qtdQuartos, Endereco endereco) {
 
 		this.nome = nome;
 		this.idHotel = idHotel;
 		this.andares = andares;
-		this.endereco = new Endereco();
+		this.endereco = endereco;
 		this.lugar = lugar;
-
+		this.qtdQuartos = qtdQuartos;
+	
 	}
 	
 	public Hotel() {}
+	
+	
+	
+	public Integer getQtdQuartos() {
+		return qtdQuartos;
+	}
+	public void setQtdQuartos(Integer novaqtdQuartos) {
+		this.qtdQuartos = novaqtdQuartos;
+	}
 
 	public String getNome() {
 		return nome;
