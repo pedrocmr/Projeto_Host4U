@@ -19,7 +19,7 @@ public class Teste {
 		
 		Lugar l1 = new Lugar("Praia", "Porto de galinhas", 11.1,23.43);
 		
-		//Hotel h1 = new Hotel("nome", 2, 10, l1);
+		Hotel h1 = new Hotel("nome", 2, 10, l1);
 		Quarto q1 = new Quarto(1, 1, h1, 3, 120, 200, 50);
 		
 		LocalDate dIn1 = LocalDate.of(2020, 10, 25);

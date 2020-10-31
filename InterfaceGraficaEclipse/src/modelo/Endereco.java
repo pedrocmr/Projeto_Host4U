@@ -7,11 +7,8 @@ public class Endereco {
 	private String cidade;
 	private String estado;
 
-	public Endereco(String logradouro, int num, String city, String state) {
-		this.logradouro = logradouro;
-		this.numero = num;
-		this.cidade = city;
-		this.estado = state;
+	public Endereco() {
+
 	}
 
 	public String getLogradouro() {
@@ -48,8 +45,8 @@ public class Endereco {
 
 	@Override
 	public String toString() {
-		return "Logradouro: " + logradouro + ", Número: " + numero + ", Cidade: " + cidade + ", Estado: "
-				+ estado;
+		return "Endereco [Logradouro: " + logradouro + ", Número: " + numero + ", Cidade: " + cidade + ", Estado: "
+				+ estado + "]";
 	}
 
 }
