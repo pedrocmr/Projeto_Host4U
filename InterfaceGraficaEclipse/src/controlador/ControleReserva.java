@@ -30,7 +30,11 @@ public class ControleReserva {
 		
 		boolean resultado = false;
 		
-		if (novaReserva != null) {
+		if(verificaReserva(novaReserva) == true ) {
+			
+		}
+		
+		/*if (novaReserva != null) {
 			
 			boolean jaReservada = false;
 			
@@ -59,7 +63,7 @@ public class ControleReserva {
 					}			
 				}
 			}
-		}
+		}*/
 		
 		
 		
@@ -83,8 +87,8 @@ public class ControleReserva {
 				
 				String [] vamosPorPartes = linha.split(",");
 				
-				
-				if (reserva.getCheckin().equals(vamosPorPartes[2]) && reserva.getCheckout().equals(vamosPorPartes[3]) ) { //se já houver essa data
+			
+				if (reserva.getCheckin().equals(vamosPorPartes[2]) && reserva.getCheckout().equals(vamosPorPartes[3])) { //se já houver essa data
 					
 					resultado = false;
 				}

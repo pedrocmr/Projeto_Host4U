@@ -11,6 +11,7 @@ public class RepositorioLugarArray implements IRepositorioLugar {
 	public RepositorioLugarArray() {
 		
 		lugares = new ArrayList<>();
+		
 	}
 
 	public boolean adicionaLugar (String tipoDeLugar, String nomeDoLugar, double latitude, double longitude) {

@@ -9,13 +9,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="root" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: turquoise;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TabelaController">
+<AnchorPane fx:id="root" prefHeight="500.0" prefWidth="735.0" style="-fx-background-color: turquoise;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TabelaController">
    <children>
-      <TableView fx:id="tabela" layoutX="6.0" layoutY="120.0" prefHeight="326.0" prefWidth="689.0">
+      <TableView fx:id="tabela" layoutX="13.0" layoutY="121.0" prefHeight="326.0" prefWidth="719.0">
         <columns>
-          <TableColumn fx:id="clnNome" prefWidth="229.6" text="Nome" />
-          <TableColumn fx:id="clnQuartos" prefWidth="229.6" text="Quartos disponíveis" />
-            <TableColumn fx:id="clnEndereço" prefWidth="229.6" text="Endereço" />
+          <TableColumn fx:id="clnNome" prefWidth="206.0" text="Nome" />
+          <TableColumn fx:id="clnQuartos" prefWidth="77.0" text="Quartos " />
+            <TableColumn fx:id="clnEndereço" prefWidth="450.0" text="Endereço" />
         </columns>
       </TableView>
       <Button fx:id="btVoltar" layoutX="62.0" layoutY="455.0" mnemonicParsing="false" onAction="#voltar" prefHeight="25.0" prefWidth="131.0" text="Voltar">
@@ -25,7 +25,7 @@
       </Button>
       <Text fx:id="txtTitulo" layoutX="105.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confira abaixo os hotéis disponíveis na região selecionada: ">
          <font>
-            <Font name="System Bold Italic" size="17.0" />
+            <Font name="System Bold Italic" size="20.0" />
          </font>
       </Text>
       <Button fx:id="btAvancar" layoutX="493.0" layoutY="455.0" mnemonicParsing="false" onAction="#avancaTela" prefHeight="25.0" prefWidth="131.0" text="Avançar">
@@ -33,7 +33,7 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <ImageView fx:id="imagem" fitHeight="74.0" fitWidth="131.0" layoutX="285.0" layoutY="6.0">
+      <ImageView fx:id="imagem" fitHeight="74.0" fitWidth="131.0" layoutX="293.0" layoutY="6.0">
          <image>
             <Image url="@../../../../../../Imagens/H4ULogotipo.png" />
          </image>

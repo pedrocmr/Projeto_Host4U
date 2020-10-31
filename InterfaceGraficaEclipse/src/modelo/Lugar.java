@@ -12,6 +12,7 @@ public class Lugar {
 		this.nomeDoLugar = nomeLugar;
 		this.longitude = longet;
 		this.latitude = lat;
+		
 	}
 
 	public String getTipoDeLugar() {
