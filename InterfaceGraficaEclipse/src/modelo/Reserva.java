@@ -15,6 +15,7 @@ public class Reserva {
 		
 		
 		this.usuario = usuario;
+		this.quarto = quarto;
 		this.checkin = checkin;
 		this.checkout = checkout;
 

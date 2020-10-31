@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Iterator;
+import java.time.LocalDate;
 
 import modelo.Reserva;
 import modelo.Usuario;
@@ -23,6 +23,7 @@ public class ControleReserva {
 	public ControleReserva() {
 		
 		repo = new RepositorioReservaArray();
+		
 	}
 
 	// MÉTODO PARA PREENCHER RESERVAS
@@ -32,70 +33,71 @@ public class ControleReserva {
 		
 		if (novaReserva != null) {
 			
-			boolean jaReservada = false;
-			
-			for (Reserva existente : repo.getReservas()) {
-
-				if (existente.getQuarto().getHotel().equals(novaReserva.getQuarto().getHotel()) == true) {
-					
+			if(verificaReserva(novaReserva)) {
 				
-					if(existente.getQuarto().getNumero() == novaReserva.getQuarto().getNumero()){
+				try {
 					
-						if((novaReserva.getCheckin().isBefore(existente.getCheckin()) == true) &&
-							(novaReserva.getCheckout().isBefore(existente.getCheckin()) == true) ||
-							novaReserva.getCheckin().isAfter(existente.getCheckout()) == true) {
-						
-						}else {
-							
-							jaReservada = true;
-						}
-					}
-						
-					if(jaReservada == false) {
-						
-						repo.getReservas().add(novaReserva);
+					fileWriter = new FileWriter("src/reserva.txt",true);
+					escrever = new BufferedWriter(fileWriter);
+					escrever.write(novaReserva.getQuarto().getNumero().toString()+","+
+									novaReserva.getQuarto().getHotel().getIdHotel()+","+
+									novaReserva.getUsuario().getCpf()+","+
+									novaReserva.getCheckin()+","+
+									novaReserva.getCheckout()+"\n");
+					escrever.close();
+					fileWriter.close();
 					
-						resultado = true;
-					}			
+				}catch(IOException e) {
+					
+					e.printStackTrace();
+					return false;
 				}
-			}
+				
+				resultado = true;
+			}		
+									
+		}else{
+			
+			return false;
+			
 		}
 		
-		
-		
 		return resultado;
-		
-
-	} //fim da adiciona reserva
+	}
 	
-	public boolean verificaReserva(Reserva reserva) {
-		boolean resultado = false;
+	private boolean verificaReserva(Reserva reserva) {
+		
+		boolean resultado = true;
 		File arquivo = new File("src/reserva.txt");
 		
-		try {
+			try {
 			
+				fileReader = new FileReader(arquivo);
+				leitor = new BufferedReader(fileReader);
+				String linha = leitor.readLine();
 			
-			fileReader = new FileReader(arquivo);
-			leitor = new BufferedReader(fileReader);
-			String linha = leitor.readLine();
-			
-			do {
+				do {
 				
-				String [] vamosPorPartes = linha.split(",");
+					String [] vamosPorPartes = linha.split(",");
 				
+					LocalDate in = LocalDate.parse(vamosPorPartes[3]);
+					LocalDate out = LocalDate.parse(vamosPorPartes[4]);
 				
-				if (reserva.getCheckin().equals(vamosPorPartes[2]) && reserva.getCheckout().equals(vamosPorPartes[3]) ) { //se já houver essa data
+					if (reserva.getCheckin().isBefore(in) && reserva.getCheckout().isBefore(in) ||
+						reserva.getCheckin().isAfter(out)) { 
 					
-					resultado = false;
-				}
+					}else {
+						
+						resultado = false;
+					}
 				
-				if (linha != null) {
+					if (linha != null) {
 					
-					linha = leitor.readLine();
+						linha = leitor.readLine();
 				
-				}
+					}
 				
-			}while(linha != null);
+				}while(linha != null);
 		
 		} catch (IOException e) {
 			
@@ -111,25 +113,110 @@ public class ControleReserva {
 		
 		if(reservaCancela == null) { 
 			
+			
 			return false;
 		}
-			
+		
 		boolean resultado = false;
 		
-		for (Iterator<Reserva> iterator = repo.getReservas().iterator(); iterator.hasNext();) {
-				
-			Reserva existente = iterator.next();
-				
-				if(existente.equals(reservaCancela)) {
+			
+			
+				if (duplicaReserva(reservaCancela.getQuarto().getNumero().toString()+","+
+						reservaCancela.getQuarto().getHotel().getIdHotel()+","+
+						reservaCancela.getUsuario().getCpf()+","+
+						reservaCancela.getCheckin()+","+
+						reservaCancela.getCheckout())) {
 					
-					iterator.remove();
+					File reserva = new File("src/reserva.txt");
+					reserva.delete();
+					escreveReserva();
+					File apagaDuplicada = new File ("src/reservaDuplicada.txt");
+					apagaDuplicada.delete();
 					resultado = true;
 				}
-			}
-		
+			
 		return resultado;
+	}
+	
+	public boolean duplicaReserva(String linha) {
+		
+		boolean resultado = false;
+		
+		try {
+			File reservaDuplicada = new File ("src/reservaDuplicada.txt");	
+			fileWriter = new FileWriter(reservaDuplicada,true);
+			escrever = new BufferedWriter(fileWriter);
+			fileReader = new FileReader("src/reserva.txt");
+			leitor = new BufferedReader(fileReader);
+			String linhaDaDuplicada = leitor.readLine();
+			
+			do {
+			
+				
+				if(linhaDaDuplicada.equals(linha)) {
+				
+					resultado = true;
+					
+				}else {
+					
+					escrever.write(linhaDaDuplicada+"\n");
+				}
+				
+				if(linhaDaDuplicada != null) {
+
+					linhaDaDuplicada = leitor.readLine();
+					
+				}
+			
+			}while(linhaDaDuplicada != null);
+			
+			escrever.close();
+			fileReader.close();
+			fileWriter.close();
+			leitor.close();
+			
+		}catch(IOException e) {
+			
+			e.printStackTrace();
+		}
+	
+		return resultado;
+	}
+	
+	private void escreveReserva() {
+		
+		try {
+			File reservaNova = new File ("src/reserva.txt");
+			fileWriter = new FileWriter(reservaNova);
+			escrever = new BufferedWriter(fileWriter);
+			fileReader = new FileReader("src/reservaDuplicada.txt");
+			leitor = new BufferedReader(fileReader);
+			String linhaDaDuplicada = leitor.readLine();
+			
+			do {
+			
+				escrever.write(linhaDaDuplicada+"\n");
+			
+				if(linhaDaDuplicada != null) {
+
+					linhaDaDuplicada = leitor.readLine();
+				}
+			
+			}while(linhaDaDuplicada != null);
+			
+			escrever.close();
+			fileReader.close();
+			fileWriter.close();
+			leitor.close();
+			
+		}catch(IOException e) {
+			
+			e.printStackTrace();
+		}
 		
 	}
+	
+	
 
 	// MÉTODO REMARCAR RESERVAS
 	public boolean remarcarReserva(Usuario usuario, Reserva reservaCancela, Reserva reservaRemarca) {
