@@ -22,20 +22,11 @@ public class LoginController extends Application{
 	
 	private static Stage stage;
 	
-	@FXML
-	private TextField txtLogin;
-    
-	@FXML
-    private TextField txtSenha;
-
-    @FXML
-    private Button btEntrar;
-
-    @FXML
-    private Button btSair;
-
-    @FXML
-    private Button btCadastro;
+	@FXML private TextField txtLogin;
+	@FXML private TextField txtSenha;
+    @FXML private Button btEntrar;
+    @FXML private Button btSair;
+    @FXML private Button btCadastro;
     
     public void start(Stage stage) throws Exception {
 

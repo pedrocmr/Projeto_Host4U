@@ -70,12 +70,12 @@ public class ReservaController extends Application implements Initializable {
 	    void voltarTela(ActionEvent event) {
 
 	    	btVoltar.setOnMouseClicked((MouseEvent mouse) -> {
-				proximaHome();
+				proximaTabela();
 			});
 			
 			btVoltar.setOnKeyPressed((KeyEvent enter) -> {
 				if(enter.getCode().equals(KeyCode.ENTER)) {
-					proximaHome();
+					proximaTabela();
 					
 				}
 			});
@@ -129,12 +129,12 @@ public class ReservaController extends Application implements Initializable {
 		}
 	}
 	
-	public void proximaHome() {
-		HomeController hc = new HomeController();
+	public void proximaTabela() {
+		TabelaController tc = new TabelaController();
 		fecharTela();
 		
 		try {
-			hc.start(new Stage());
+			tc.start(new Stage());
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

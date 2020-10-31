@@ -37,21 +37,35 @@ public class HomeController extends Application implements Initializable {
     @FXML private Button btLogin;
     @FXML private Text txtNome;
     @FXML private Text txtAviso;
-    @FXML private Button btn;
     @FXML private Button btBoa;
     @FXML private Button btTam;
     @FXML private Button btPort;
     @FXML private ImageView imagemBv;
 	    
+    @FXML
+    void tabelaBv(MouseEvent event) {
+       proximaTabela();
+    }
+
+    @FXML
+    void tabelaPg(MouseEvent event) {
+      proximaTabela();
+    }
+
+    @FXML
+    void tabelaTm(MouseEvent event) {
+      proximaTabela();
+    }
+    
 	    @FXML void cadastrar(ActionEvent event) {
 	    	
 	    	btCadastrar.setOnMouseClicked((MouseEvent mouse) -> {
-				proximaTela();
+				proximaCadastro();
 			});
 			
 			btCadastrar.setOnKeyPressed((KeyEvent enter) -> {
 				if(enter.getCode().equals(KeyCode.ENTER)) {
-					proximaTela();
+					proximaCadastro();
 				}
 			});
 	    }
@@ -105,7 +119,7 @@ public class HomeController extends Application implements Initializable {
 		HomeController.getStage().close();
 	}
 	
-	public void proximaTela() {
+	public void proximaCadastro() {
 		
 		CadastroController cc = new CadastroController();
 		fecharTela();
@@ -123,6 +137,18 @@ public class HomeController extends Application implements Initializable {
 		
 		try {
 			lc.start(new Stage());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	
+	public void proximaTabela() {
+		
+		TabelaController tc = new TabelaController();
+		fecharTela();
+		
+		try {
+			tc.start(new Stage());
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
