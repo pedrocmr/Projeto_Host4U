@@ -1,8 +1,11 @@
 INDEX VERSION 1.131+C:\Users\MILENA MAXIMO\Desktop\Projeto_Host4U\.metadata\.plugins\org.eclipse.jdt.core
 2642649259.index
 500797501.index
+<<<<<<< Updated upstream
 1451838320.index
 307898623.index
+=======
+>>>>>>> Stashed changes
 2388212571.index
 2350488526.index
 227714418.index
