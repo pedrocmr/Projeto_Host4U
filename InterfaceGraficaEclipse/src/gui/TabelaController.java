@@ -28,7 +28,6 @@ import modelo.Endereco;
 import modelo.Hotel;
 import modelo.Lugar;
 import modelo.Quarto;
-import repositorio.RepositorioHotelArray;
 import repositorio.RepositorioLugarArray;
 
 public class TabelaController extends Application implements Initializable{
@@ -38,8 +37,8 @@ public class TabelaController extends Application implements Initializable{
 	@FXML private AnchorPane root;
     @FXML private TableView<Hotel> tabela;
     @FXML private TableColumn<Hotel, String> clnNome;
-    @FXML private TableColumn<Hotel, Integer> clnQuartos;
-    @FXML private TableColumn<Hotel, String> clnEndereço;
+    @FXML private TableColumn<Hotel, ArrayList<Quarto>> clnQuartos;
+    @FXML private TableColumn<Hotel, Endereco> clnEndereço;
     @FXML private Button btVoltar;
     @FXML private Text txtTitulo;
     @FXML private Button btAvancar;
@@ -78,7 +77,7 @@ public class TabelaController extends Application implements Initializable{
 	public void start(Stage stage) throws Exception {
 		
 		AnchorPane root = FXMLLoader.load(getClass().getResource("Tabela.fxml"));
-		Scene scene = new Scene(root, 735, 500);
+		Scene scene = new Scene(root, 700, 500);
 
 		// COLOCANDO TÍTULO
 		stage.setTitle("HOST4U - Hotéis");
@@ -139,14 +138,14 @@ public class TabelaController extends Application implements Initializable{
    public void inicializaTabela() {
 		
 		clnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
-		clnQuartos.setCellValueFactory(new PropertyValueFactory<>("qtdQuartos"));
-		clnEndereço.setCellValueFactory(new PropertyValueFactory<>("endereco"));
-		tabela.setItems(listaTabela());
+		clnQuartos.setCellValueFactory(new PropertyValueFactory<>("quartos.size()"));
+		clnEndereço.setCellValueFactory(new PropertyValueFactory<>("endereco.getLogradouro()"));
+		
 	}
    
-   public ObservableList<Hotel> listaTabela(){
-		RepositorioHotelArray rH = new RepositorioHotelArray();
-		return FXCollections.observableArrayList(rH.listarHoteis()); 
+   public ObservableList<Lugar> listaTabela(){
+		RepositorioLugarArray rl = new RepositorioLugarArray();
+		return FXCollections.observableArrayList(rl.listarLugares());
 	}
 	
 	public static void main(String[] args) {
