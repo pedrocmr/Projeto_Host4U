@@ -141,14 +141,28 @@ public class TabelaController extends Application implements Initializable{
 		clnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
 		clnQuartos.setCellValueFactory(new PropertyValueFactory<>("qtdQuartos"));
 		clnEndereço.setCellValueFactory(new PropertyValueFactory<>("endereco"));
-		tabela.setItems(listaTabela());
+		tabela.setItems(listaTabelaBV()); // acho que a bronca tá aqui
 	}
+   HomeController hC = new HomeController();
    
    public ObservableList<Hotel> listaTabela(){
-		RepositorioHotelArray rH = new RepositorioHotelArray();
+	    RepositorioHotelArray rH = new RepositorioHotelArray();
 		return FXCollections.observableArrayList(rH.listarHoteis());
 	}
+   public ObservableList<Hotel> listaTabelaBV(){
+		RepositorioHotelArray rH = new RepositorioHotelArray();
+		return FXCollections.observableArrayList(rH.listarHoteisBV());
+	}
 	
+   public ObservableList<Hotel> listaTabelaPG(){
+		RepositorioHotelArray rH = new RepositorioHotelArray();
+		return FXCollections.observableArrayList(rH.listarHoteisPG());
+	}
+   
+   public ObservableList<Hotel> listaTabelaTM(){
+		RepositorioHotelArray rH = new RepositorioHotelArray();
+		return FXCollections.observableArrayList(rH.listarHoteisTM());
+	}
 	public static void main(String[] args) {
 
 		launch(args);
