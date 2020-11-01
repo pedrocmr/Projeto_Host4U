@@ -49,12 +49,12 @@ public class HomeController extends Application implements Initializable {
 
     @FXML
     void tabelaPg(MouseEvent event) {
-      proximaTabela3();
+      proximaTabela();
     }
 
     @FXML
     void tabelaTm(MouseEvent event) {
-      proximaTabela2();
+      proximaTabela();
     }
     
 	    @FXML void cadastrar(ActionEvent event) {
@@ -144,7 +144,7 @@ public class HomeController extends Application implements Initializable {
 	
 	public void proximaTabela() {
 		
-		TabelaControllerBV tc = new TabelaControllerBV();
+		TabelaController tc = new TabelaController();
 		fecharTela();
 		
 		try {
@@ -153,35 +153,7 @@ public class HomeController extends Application implements Initializable {
 			// TODO: handle exception
 		}
 	}
-	
-	public void proximaTabela2() {
-
-		TabelaControllerTM tc = new TabelaControllerTM();
-		fecharTela();
-
-		try {
-			tc.start(new Stage());
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-	}
-	
-	public void proximaTabela3() {
-
-		TabelaControllerPG tc = new TabelaControllerPG();
-		fecharTela();
-
-		try {
-			tc.start(new Stage());
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-	}
-	
-	
-	
-	
-	
+		
 	public static void main(String[] args) {
 
 		launch(args);

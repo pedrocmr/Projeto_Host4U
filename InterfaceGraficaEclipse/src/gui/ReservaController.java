@@ -28,6 +28,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import modelo.Hotel;
 import modelo.Quarto;
+import repositorio.RepositorioHotelArray;
 
 public class ReservaController extends Application implements Initializable {
 
@@ -130,7 +131,7 @@ public class ReservaController extends Application implements Initializable {
 	}
 	
 	public void proximaTabela() {
-		TabelaControllerBV tc = new TabelaControllerBV();
+		TabelaController tc = new TabelaController();
 		fecharTela();
 		
 		try {
@@ -153,6 +154,7 @@ public class ReservaController extends Application implements Initializable {
     
     public ObservableList<Quarto> listaTabela(){
 		Hotel rqa = new Hotel();
+		RepositorioHotelArray rh = new RepositorioHotelArray();
 		return FXCollections.observableArrayList(rqa.getQuartos());
 	}
 

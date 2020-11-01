@@ -27,7 +27,7 @@ import modelo.Hotel;
 import repositorio.RepositorioHotelArray;
 
 
-public class TabelaControllerBV extends Application implements Initializable{
+public class TabelaController extends Application implements Initializable{
 
 	private static Stage stage;
 	
@@ -43,16 +43,13 @@ public class TabelaControllerBV extends Application implements Initializable{
 
     @FXML
     void avancaTela(ActionEvent event) {
-
+    	
     	btAvancar.setOnMouseClicked((MouseEvent mouse) -> {
-			telaReserva();
+    		if(tabela.getSelectionModel().getSelectedItem() != null) {
+			        telaReserva();
+    		}
 		});
-		
-		btAvancar.setOnKeyPressed((KeyEvent enter) -> {
-			if(enter.getCode().equals(KeyCode.ENTER)) {
-			 telaReserva();
-			}
-		});
+    
     }
 
     @FXML
@@ -101,11 +98,11 @@ public class TabelaControllerBV extends Application implements Initializable{
 	}
 
 	public static void setStage(Stage stage) {
-		TabelaControllerBV.stage = stage;
+		TabelaController.stage = stage;
 	}
 	
 	public void fecharTela() {
-		TabelaControllerBV.getStage().close();
+		TabelaController.getStage().close();
 	}
 	
 	public void proximaTela() {
@@ -138,7 +135,7 @@ public class TabelaControllerBV extends Application implements Initializable{
 		clnQuartos.setCellValueFactory(new PropertyValueFactory<>("qtdQuartos"));
 		clnEndereço.setCellValueFactory(new PropertyValueFactory<>("endereco"));
 		
-		tabela.setItems(listaTabelaBV());
+		tabela.setItems(listaTabela());
 		
 	}
    
@@ -147,10 +144,6 @@ public class TabelaControllerBV extends Application implements Initializable{
 		return FXCollections.observableArrayList(rH.listarHoteis());
 	}
    
-   public ObservableList<Hotel> listaTabelaBV(){
-		RepositorioHotelArray rH = new RepositorioHotelArray();
-		return FXCollections.observableArrayList(rH.listarHoteisBV());
-	}
   
 	public static void main(String[] args) {
 

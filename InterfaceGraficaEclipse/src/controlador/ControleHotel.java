@@ -3,6 +3,7 @@ package controlador;
 import modelo.Hotel;
 import modelo.LugarProximo;
 import modelo.Quarto;
+import repositorio.RepositorioLugarArray;
 
 public class ControleHotel {
 
@@ -27,10 +28,12 @@ public class ControleHotel {
 
 	public void adicionaLugares(LugarProximo... lugar) {
 
+		
 		if (lugar != null) {
+			
 			for (LugarProximo l : lugar) {
-
-				// NECESSITA DE IMPLEMENTAÇÃO
+               			
+				//PREENCHER
 			}
 
 		}

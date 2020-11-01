@@ -67,15 +67,15 @@ public class Hotel {
 	public void setAndares(int andares) {
 		this.andares = andares;
 	}
-
+	
 	public Lugar getLugar() {
-		return this.lugar;
+		return lugar;
 	}
 
-	public void setLugarProximo(Lugar lugar) {
+	public void setLugar(Lugar lugar) {
 		this.lugar = lugar;
 	}
-	
+
 	public boolean equals(Hotel hotel) {
 		if (this == hotel)
 			return true;
