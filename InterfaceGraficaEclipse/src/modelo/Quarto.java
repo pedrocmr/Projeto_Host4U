@@ -9,7 +9,7 @@ public class Quarto {
 	private String preferenciaCamas;
 	private double valorSuite;
 	private Integer numeroCamas;
-	private Double valorReserva;
+	private double valorReserva;
 
 	public Quarto(Integer numero, Integer andar, Hotel hotel, Integer ocupacaoMaximaPessoas, double valorSuite,
 			double valorDiariaUnidade, double valorDeAdicaoPorPessoa) {

@@ -28,7 +28,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import modelo.Hotel;
 import modelo.Quarto;
-import repositorio.RepositorioHotelArray;
 
 public class ReservaController extends Application implements Initializable {
 
@@ -131,7 +130,7 @@ public class ReservaController extends Application implements Initializable {
 	}
 	
 	public void proximaTabela() {
-		TabelaController tc = new TabelaController();
+		TabelaControllerBV tc = new TabelaControllerBV();
 		fecharTela();
 		
 		try {
@@ -147,13 +146,14 @@ public class ReservaController extends Application implements Initializable {
 		clnNumCamas.setCellValueFactory(new PropertyValueFactory<>("numeroCamas"));
 		clnAndar.setCellValueFactory(new PropertyValueFactory<>("andar"));
 		clnValor.setCellValueFactory(new PropertyValueFactory<>("valorReserva"));
+		
 		tabela.setItems(listaTabela());
 		
 	}
     
     public ObservableList<Quarto> listaTabela(){
-    	//Hotel hotel = new Hotel();
-		//return FXCollections.observableArrayList(hotel.getQuartos());
+		Hotel rqa = new Hotel();
+		return FXCollections.observableArrayList(rqa.getQuartos());
 	}
 
 	public static void main(String[] args) {

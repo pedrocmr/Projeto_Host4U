@@ -40,24 +40,21 @@ public class HomeController extends Application implements Initializable {
     @FXML private Button btBoa;
     @FXML private Button btTam;
     @FXML private Button btPort;
-    TabelaController tb;
     @FXML private ImageView imagemBv;
 	    
     @FXML
     void tabelaBv(MouseEvent event) {
-    	//tb = new TabelaController();
-    	//tb.listaTabelaBV();
-       proximaTabela();
+        proximaTabela();
     }
 
     @FXML
     void tabelaPg(MouseEvent event) {
-      proximaTabela();
+      proximaTabela3();
     }
 
     @FXML
     void tabelaTm(MouseEvent event) {
-      proximaTabela();
+      proximaTabela2();
     }
     
 	    @FXML void cadastrar(ActionEvent event) {
@@ -145,55 +142,45 @@ public class HomeController extends Application implements Initializable {
 		}
 	}
 	
-	
-	
 	public void proximaTabela() {
 		
-		
-		TabelaController tc = new TabelaController();
-		//tc.listaTabela();
+		TabelaControllerBV tc = new TabelaControllerBV();
 		fecharTela();
+		
 		try {
 			tc.start(new Stage());
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		
-		/*	if(id == 1) {
-			TabelaController tc = new TabelaController();
-			tc.listaTabelaPG();
-			fecharTela();
-			try {
-				tc.start(new Stage());
-			} catch (Exception e) {
-				// TODO: handle exception
-			}
-		}
-		
-		if(id == 2) {
-			TabelaController tc = new TabelaController();
-			tc.listaTabelaBV();
-			fecharTela();
-			try {
-				tc.start(new Stage());
-			} catch (Exception e) {
-				// TODO: handle exception
-			}
-		}
-		
-		if(id == 3) {
-			TabelaController tc = new TabelaController();
-			tc.listaTabelaTM();
-			fecharTela();
-			try {
-				tc.start(new Stage());
-			} catch (Exception e) {
-				// TODO: handle exception
-			}
-		}*/
-		
-		
 	}
+	
+	public void proximaTabela2() {
+
+		TabelaControllerTM tc = new TabelaControllerTM();
+		fecharTela();
+
+		try {
+			tc.start(new Stage());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	
+	public void proximaTabela3() {
+
+		TabelaControllerPG tc = new TabelaControllerPG();
+		fecharTela();
+
+		try {
+			tc.start(new Stage());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	
+	
+	
+	
 	
 	public static void main(String[] args) {
 
