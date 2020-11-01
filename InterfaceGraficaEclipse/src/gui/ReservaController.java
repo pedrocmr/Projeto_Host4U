@@ -11,13 +11,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -45,6 +48,14 @@ public class ReservaController extends Application implements Initializable {
 	    @FXML private Label lbQuartos;
 	    @FXML private MenuButton menuPessoas;
 	    @FXML private MenuButton menuQuartos;
+	    @FXML private MenuItem mnPessoa1;
+	    @FXML private MenuItem mnPessoa2;
+	    @FXML private MenuItem mnPessoa3;
+	    @FXML private MenuItem mnPessoa4;
+	    @FXML private MenuItem mnPessoa5;
+	    @FXML private MenuItem mnQuarto1;
+	    @FXML private MenuItem mnQuarto2;
+	    @FXML private MenuItem mnQuarto3;
 	    @FXML private RadioButton rdViajar;
 	    @FXML private Button btConfirmar;
 	    @FXML private Button btVoltar;
@@ -54,17 +65,92 @@ public class ReservaController extends Application implements Initializable {
 	    @FXML private TableColumn<Quarto, Integer> clnAndar;
 	    @FXML private TableColumn<Quarto, Double> clnValor;
 	    
+	    @FXML
+	    void pessoaUm(ActionEvent event) {
+
+	    	mnPessoa1.setOnAction(Event -> {
+	    		menuPessoas.setText(mnPessoa1.getText());
+	    	});
+	    }
+
+	    @FXML
+	    void pessoaDois(ActionEvent event) {
+
+	    	mnPessoa2.setOnAction(Event -> {
+	    		menuPessoas.setText(mnPessoa2.getText());
+	    	});
+	    }
+
+	    @FXML
+	    void pessoaTres(ActionEvent event) {
+
+	    	mnPessoa3.setOnAction(Event -> {
+	    		menuPessoas.setText(mnPessoa3.getText());
+	    	});
+	    }
+
+	    @FXML
+	    void pessoaQuatro(ActionEvent event) {
+
+	    	mnPessoa4.setOnAction(Event -> {
+	    		menuPessoas.setText(mnPessoa4.getText());
+	    	});
+	    }
+
+	    @FXML
+	    void pessoaCinco(ActionEvent event) {
+
+	    	mnPessoa5.setOnAction(Event -> {
+	    		menuPessoas.setText(mnPessoa5.getText());
+	    	});
+	    }
+	    
+	    @FXML
+		void quartoUm(ActionEvent event) {
+
+			mnQuarto1.setOnAction(Event -> {
+				menuQuartos.setText(mnQuarto1.getText());
+			});
+
+		}
+	    
+		@FXML
+		void quartoDois(ActionEvent event) {
+
+			mnQuarto2.setOnAction(Event -> {
+				menuQuartos.setText(mnQuarto2.getText());
+			});
+		}
+
+		@FXML
+		void quartoTres(ActionEvent event) {
+
+			mnQuarto3.setOnAction(Event -> {
+				menuQuartos.setText(mnQuarto3.getText());
+			});
+		}
+	    
 	    @FXML void confirmaReserva(ActionEvent event) {
 
-	    	btConfirmar.setOnMouseClicked((MouseEvent mouse) -> {
-				proximaTela();
-			});
-			
-			btConfirmar.setOnKeyPressed((KeyEvent enter) -> {
-				if(enter.getCode().equals(KeyCode.ENTER)) {
-					proximaTela();
-				}
-			});
+	    		if(dtCheckIn.getOnAction() == null || dtCheckOut.getOnAction() == null || menuPessoas.getText().equals("Pessoas") || menuQuartos.getText().equals("Quartos")  ) {
+	    			
+	    			Alert erro = new Alert(AlertType.ERROR);
+	    			erro.setTitle("Erro!");
+	    			erro.setHeaderText("Por favor, cheque os campos da reserva!");
+	    			erro.setContentText("Algum campo não preenchido.");
+	    			erro.showAndWait();
+	    		}
+	    		
+	    		else {
+	    			
+	    			Alert erro = new Alert(AlertType.INFORMATION);
+	    			erro.setTitle("Reserva agendada!");
+	    			erro.setContentText(" Agora efetue o pagamento para concluir a reserva!");
+	    			erro.showAndWait();
+
+	    			proximaTela();
+	    		}
+				
 	    }
 
 	    @FXML
