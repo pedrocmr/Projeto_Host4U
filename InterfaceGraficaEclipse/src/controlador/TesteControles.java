@@ -24,14 +24,13 @@ public class TesteControles {
 		Usuario cad4 = new Usuario("Pipico", "9", "Pipicão", "12312312309", "Melhor do mundo");
         ControleHotel ch = new ControleHotel(rafaels);
 		Reserva r = new Reserva(cad2, quinze,LocalDate.of(2020, 12, 11), LocalDate.of(2020, 12, 30));
-		
+		Reserva s = new Reserva(cad2, quinze,LocalDate.of(2021, 1, 11), LocalDate.of(2021, 1, 30));
 		ControleReserva cresera = new ControleReserva();
 		
-		cresera.cancelaReserva(r.getUsuario(), r);
-		
-        ch.adicionaQuartos(quinze);		
+        ch.adicionaQuartos(quinze);	
+        cresera.addReserva(r);
+        cresera.remarcarReserva(cad2, r, s);
         
-       System.out.println(rafaels.getQuartos());
 		
 	}
 

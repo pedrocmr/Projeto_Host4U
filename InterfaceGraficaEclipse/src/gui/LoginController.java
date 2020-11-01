@@ -1,5 +1,10 @@
 package gui;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,6 +32,8 @@ public class LoginController extends Application{
     @FXML private Button btEntrar;
     @FXML private Button btSair;
     @FXML private Button btCadastro;
+
+	private BufferedReader br;
     
     public void start(Stage stage) throws Exception {
 
@@ -96,7 +103,6 @@ public class LoginController extends Application{
 		
 		if(event.getCode().equals(KeyCode.ENTER)) {
 			
-			RepositorioUsuarioArray repo = new RepositorioUsuarioArray();
 			String msg = "";
 			
 			if(txtLogin.getText().length() < 4 || txtSenha.getText().length() < 8) {
@@ -105,16 +111,46 @@ public class LoginController extends Application{
 				
 			}else {
 			
-			for (Usuario user : repo.getUsuarios()) {
-				
-				if(user.getLogin().equals(txtLogin.getText()) && (user.getSenha().equals(txtSenha.getText()))) {
+				try {
+					boolean logou = false;
+					File arquivo = new File ("src/arquivo.txt");
+					FileReader fr = new FileReader(arquivo);
+					br = new BufferedReader(fr);
+					String linha = br.readLine();
 					
-					proximaTelaHome();
+					do{
+						
+						String [] vamosPorPartes = linha.split(",");
+						
+						if(vamosPorPartes[0].equals(txtLogin.getText()) && (vamosPorPartes[1].equals(txtSenha.getText()))) {
+							
+							logou = true;
+							
+							Usuario passaPraHome = new Usuario(vamosPorPartes[0],vamosPorPartes[1],vamosPorPartes[2],
+																vamosPorPartes[3],vamosPorPartes[4]);
+							
+							proximaTelaHomeLogado(passaPraHome);
+						}
+						
+						if(linha != null) {
+							
+							linha = br.readLine();
+						}
+						
+					}while(linha != null);
 					
+					if(!logou) {
+						
+						msg += "Usuario nao cadastrado";
+					}
+					
+				} catch (IOException e) {
+					
+					e.printStackTrace();
 				}
 				
 			}
-		}
+		
 			
 			if(msg.length() != 0) {
 				
@@ -164,8 +200,7 @@ public class LoginController extends Application{
 	 @FXML
 	    void clickEntrar(MouseEvent event) {
 
-		 RepositorioUsuarioArray repo = new RepositorioUsuarioArray();
-			String msg = "";
+		 	String msg = "";
 			
 			if(txtLogin.getText().length() < 4 || txtSenha.getText().length() < 8) {
 				
@@ -173,27 +208,56 @@ public class LoginController extends Application{
 				
 			}else {
 			
-			for (Usuario user : repo.getUsuarios()) {
-				
-				if(user.getLogin().equals(txtLogin.getText()) && (user.getSenha().equals(txtSenha.getText()))) {
+				try {
+					boolean logou = false;
+					File arquivo = new File ("src/arquivo.txt");
+					FileReader fr = new FileReader(arquivo);
+					br = new BufferedReader(fr);
+					String linha = br.readLine();
 					
-					proximaTelaHome();
+					do{
+						
+						String [] vamosPorPartes = linha.split(",");
+						
+						if(vamosPorPartes[0].equals(txtLogin.getText()) && (vamosPorPartes[1].equals(txtSenha.getText()))) {
+							
+							logou = true;
+							
+							Usuario passaPraHome = new Usuario(vamosPorPartes[0],vamosPorPartes[1],vamosPorPartes[2],
+																vamosPorPartes[3],vamosPorPartes[4]);
+							
+							proximaTelaHomeLogado(passaPraHome);
+						}
+						
+						if(linha != null) {
+							
+							linha = br.readLine();
+						}
+						
+					}while(linha != null);
 					
+					if(!logou) {
+						
+						msg += "Usuario nao cadastrado";
+					}
+					
+				} catch (IOException e) {
+					
+					e.printStackTrace();
 				}
 				
-			}
-		}
-			
-			if(msg.length() != 0) {
+				
+				
+			}if(msg.length() != 0) {
 				
 				Alert erro = new Alert(AlertType.ERROR);
 				erro.setTitle("Campos inválidos");
 				erro.setHeaderText("Por favor, tente novamente.");
 				erro.setContentText(msg);
 				erro.showAndWait();
+		
 			}
-		}
-	 
+	 }
 	 @FXML
 	    void clickCadastro(MouseEvent event) {
 
