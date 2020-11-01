@@ -31,18 +31,18 @@
       <Label fx:id="lbQuartos" layoutX="32.0" layoutY="303.0" text="Numero de quartos:" />
       <MenuButton fx:id="menuPessoas" layoutX="32.0" layoutY="267.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="221.0" text="Pessoas">
         <items>
-          <MenuItem mnemonicParsing="false" text="1" />
-          <MenuItem mnemonicParsing="false" text="2" />
-            <MenuItem mnemonicParsing="false" text="3" />
-            <MenuItem mnemonicParsing="false" text="4" />
-            <MenuItem mnemonicParsing="false" text="5" />
+          <MenuItem fx:id="mnPessoa1" mnemonicParsing="false" onAction="#pessoaUm" text="1" />
+          <MenuItem fx:id="mnPessoa2" mnemonicParsing="false" onAction="#pessoaDois" text="2" />
+            <MenuItem fx:id="mnPessoa3" mnemonicParsing="false" onAction="#pessoaTres" text="3" />
+            <MenuItem fx:id="mnPessoa4" mnemonicParsing="false" onAction="#pessoaQuatro" text="4" />
+            <MenuItem fx:id="mnPessoa5" mnemonicParsing="false" onAction="#pessoaCinco" text="5" />
         </items>
       </MenuButton>
       <MenuButton fx:id="menuQuartos" layoutX="33.0" layoutY="320.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="221.0" text="Quartos">
         <items>
-          <MenuItem mnemonicParsing="false" text="1" />
-          <MenuItem mnemonicParsing="false" text="2" />
-            <MenuItem mnemonicParsing="false" text="3" />
+          <MenuItem fx:id="mnQuarto1" mnemonicParsing="false" onAction="#quartoUm" text="1" />
+          <MenuItem fx:id="mnQuarto2" mnemonicParsing="false" onAction="#quartoDois" text="2" />
+            <MenuItem fx:id="mnQuarto3" mnemonicParsing="false" onAction="#quartoTres" text="3" />
         </items>
       </MenuButton>
       <RadioButton fx:id="rdViajar" layoutX="42.0" layoutY="366.0" mnemonicParsing="false" text="Vou viajar a trabalho" />
