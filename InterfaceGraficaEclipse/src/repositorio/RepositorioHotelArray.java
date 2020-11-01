@@ -8,6 +8,7 @@ import modelo.Hotel;
 import modelo.Lugar;
 
 public class RepositorioHotelArray implements IRepositorioHotel {
+	
 	private ArrayList <Hotel> hoteis;
 	private Lugar l1;
 	private Endereco end1;
@@ -15,7 +16,7 @@ public class RepositorioHotelArray implements IRepositorioHotel {
 	private Endereco end2;
 	private Lugar l3;
 	private Endereco end3;
-
+	
 		public RepositorioHotelArray() {
 
 			hoteis = new ArrayList<Hotel>();
@@ -33,6 +34,16 @@ public class RepositorioHotelArray implements IRepositorioHotel {
 			hoteis.add(new Hotel("Hotel Urbano ", 3, 10, l3, 100, end3));
 		}
 
+		public ArrayList<Hotel> getHoteis() {
+			return hoteis;
+		}
+
+
+		public void setHoteis(ArrayList<Hotel> hoteis) {
+			this.hoteis = hoteis;
+		}
+
+
 		public ArrayList<Hotel> listarHoteis() {
 			ArrayList<Hotel> ht = new ArrayList<Hotel>();
 			for(Hotel h : hoteis) {
@@ -47,7 +58,7 @@ public class RepositorioHotelArray implements IRepositorioHotel {
 			ArrayList<Hotel> bv = new ArrayList<Hotel>();
 			
 			for(Hotel h : hoteis) {
-				if(h.getEndereco().getCidade().equals("Boa Viagem")) {
+				if(h.getIdHotel() == 2) {
 				bv.add(h);
 				}
 			}
@@ -60,7 +71,7 @@ public class RepositorioHotelArray implements IRepositorioHotel {
 			ArrayList<Hotel> tm = new ArrayList<Hotel>();
 
 			for (Hotel h : hoteis) {
-				if (h.getEndereco().getCidade().equals("Tamandaré")) {
+				if (h.getIdHotel() == 3) {
 					tm.add(h);
 				}
 			}
@@ -73,7 +84,7 @@ public class RepositorioHotelArray implements IRepositorioHotel {
 			ArrayList<Hotel> pg = new ArrayList<Hotel>();
 
 			for (Hotel h : hoteis) {
-				if (h.getEndereco().getCidade().equals("Porto de Galinhas")) {
+				if (h.getIdHotel() == 1) {
 					pg.add(h);
 				}
 			}

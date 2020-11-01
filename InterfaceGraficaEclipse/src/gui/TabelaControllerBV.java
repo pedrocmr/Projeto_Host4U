@@ -27,7 +27,7 @@ import modelo.Hotel;
 import repositorio.RepositorioHotelArray;
 
 
-public class TabelaController extends Application implements Initializable{
+public class TabelaControllerBV extends Application implements Initializable{
 
 	private static Stage stage;
 	
@@ -101,11 +101,11 @@ public class TabelaController extends Application implements Initializable{
 	}
 
 	public static void setStage(Stage stage) {
-		TabelaController.stage = stage;
+		TabelaControllerBV.stage = stage;
 	}
 	
 	public void fecharTela() {
-		TabelaController.getStage().close();
+		TabelaControllerBV.getStage().close();
 	}
 	
 	public void proximaTela() {
@@ -151,19 +151,7 @@ public class TabelaController extends Application implements Initializable{
 		RepositorioHotelArray rH = new RepositorioHotelArray();
 		return FXCollections.observableArrayList(rH.listarHoteisBV());
 	}
-   
-   public ObservableList<Hotel> listaTabelaTM(){
-		RepositorioHotelArray rH = new RepositorioHotelArray();
-		return FXCollections.observableArrayList(rH.listarHoteisTM());
-	}
-   
-   public ObservableList<Hotel> listaTabelaPG(){
-		RepositorioHotelArray rH = new RepositorioHotelArray();
-		return FXCollections.observableArrayList(rH.listarHoteisPG());
-	}
-   
-   
-	
+  
 	public static void main(String[] args) {
 
 		launch(args);

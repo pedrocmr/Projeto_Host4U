@@ -1,7 +1,6 @@
 package gui;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.application.Application;
@@ -50,12 +49,12 @@ public class HomeController extends Application implements Initializable {
 
     @FXML
     void tabelaPg(MouseEvent event) {
-      proximaTabela();
+      proximaTabela3();
     }
 
     @FXML
     void tabelaTm(MouseEvent event) {
-      proximaTabela();
+      proximaTabela2();
     }
     
 	    @FXML void cadastrar(ActionEvent event) {
@@ -145,7 +144,7 @@ public class HomeController extends Application implements Initializable {
 	
 	public void proximaTabela() {
 		
-		TabelaController tc = new TabelaController();
+		TabelaControllerBV tc = new TabelaControllerBV();
 		fecharTela();
 		
 		try {
@@ -154,6 +153,34 @@ public class HomeController extends Application implements Initializable {
 			// TODO: handle exception
 		}
 	}
+	
+	public void proximaTabela2() {
+
+		TabelaControllerTM tc = new TabelaControllerTM();
+		fecharTela();
+
+		try {
+			tc.start(new Stage());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	
+	public void proximaTabela3() {
+
+		TabelaControllerPG tc = new TabelaControllerPG();
+		fecharTela();
+
+		try {
+			tc.start(new Stage());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	
+	
+	
+	
 	
 	public static void main(String[] args) {
 

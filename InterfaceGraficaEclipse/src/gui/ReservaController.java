@@ -130,7 +130,7 @@ public class ReservaController extends Application implements Initializable {
 	}
 	
 	public void proximaTabela() {
-		TabelaController tc = new TabelaController();
+		TabelaControllerBV tc = new TabelaControllerBV();
 		fecharTela();
 		
 		try {
@@ -147,11 +147,13 @@ public class ReservaController extends Application implements Initializable {
 		clnAndar.setCellValueFactory(new PropertyValueFactory<>("andar"));
 		clnValor.setCellValueFactory(new PropertyValueFactory<>("valorReserva"));
 		
+		tabela.setItems(listaTabela());
+		
 	}
     
     public ObservableList<Quarto> listaTabela(){
-		//Hotel hotel = new Hotel();
-		return FXCollections.observableArrayList();
+		Hotel rqa = new Hotel();
+		return FXCollections.observableArrayList(rqa.getQuartos());
 	}
 
 	public static void main(String[] args) {

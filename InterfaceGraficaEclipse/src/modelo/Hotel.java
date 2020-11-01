@@ -23,6 +23,8 @@ public class Hotel {
 
 	}
 	
+	public Hotel() {}
+	
 	public Integer getQtdQuartos() {
 		return qtdQuartos;
 	}
