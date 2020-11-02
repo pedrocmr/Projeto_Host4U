@@ -1,7 +1,14 @@
+/arquivo.txt
 /controlador/
 /gui/
+/imagens/
 /modelo/
 /repositorio/
+<<<<<<< Updated upstream
 /beiraMar.txt
 /urbano.txt
 /varanda.txt
+=======
+/reserva.txt
+/ControleRelatorioAdmin.class
+>>>>>>> Stashed changes
