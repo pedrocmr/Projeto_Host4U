@@ -7,15 +7,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="root" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MinhaReservaController">
+<AnchorPane fx:id="root" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: turquoise;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MinhaReservaController">
    <children>
       <TableView fx:id="tabela" layoutX="28.0" layoutY="88.0" prefHeight="325.0" prefWidth="644.0">
         <columns>
-          <TableColumn fx:id="rotuloNome" prefWidth="128.8" text="Nome" />
-          <TableColumn fx:id="rotuloHotel" prefWidth="128.8" text="Hotel" />
-            <TableColumn fx:id="rotuloQuarto" prefWidth="128.8" text="Quarto" />
-            <TableColumn fx:id="rotuloCheckin" prefWidth="128.8" text="Check-in" />
-            <TableColumn fx:id="rotuloCheckout" minWidth="0.0" prefWidth="128.8" text="Check-out" />
+          <TableColumn fx:id="rotuloHotel" prefWidth="301.0" text="Hotel" />
+            <TableColumn fx:id="rotuloQuarto" prefWidth="133.0" text="Quarto" />
+            <TableColumn fx:id="rotuloCheckin" prefWidth="94.0" text="Check-in" />
+            <TableColumn fx:id="rotuloCheckout" minWidth="0.0" prefWidth="115.0" text="Check-out" />
         </columns>
       </TableView>
       <ImageView fx:id="imagem" fitHeight="72.0" fitWidth="130.0" layoutX="274.0" layoutY="7.0">
@@ -23,7 +22,8 @@
             <Image url="@../../../../../../imagens/H4ULogotipo.png" />
          </image>
       </ImageView>
-      <Button fx:id="btSalvar" layoutX="404.0" layoutY="424.0" mnemonicParsing="false" onAction="#salvarAlteracao" prefHeight="32.0" prefWidth="130.0" text="Salvar Alterações" />
-      <Button fx:id="btVoltar" layoutX="174.0" layoutY="424.0" mnemonicParsing="false" onAction="#voltarTela" prefHeight="32.0" prefWidth="107.0" text="Voltar" />
+      <Button fx:id="btSalvar" layoutX="459.0" layoutY="424.0" mnemonicParsing="false" onAction="#salvarAlteracao" prefHeight="32.0" prefWidth="130.0" text="Salvar Alterações" />
+      <Button fx:id="btVoltar" layoutX="133.0" layoutY="424.0" mnemonicParsing="false" onAction="#voltarTela" prefHeight="32.0" prefWidth="130.0" text="Voltar" />
+      <Button fx:id="btAlterar" layoutX="297.0" layoutY="424.0" mnemonicParsing="false" onAction="#alteraReserva" prefHeight="32.0" prefWidth="130.0" text="Alterar" />
    </children>
 </AnchorPane>
