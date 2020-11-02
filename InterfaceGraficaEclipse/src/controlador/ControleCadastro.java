@@ -68,11 +68,7 @@ public class ControleCadastro {
 		
 		public boolean adicionaUsuario(Usuario user) {
 			
-			
-			
 			Boolean resultado = false;
-			
-		
 			
 			if(verificaCadastro(user.getCpf()) == true) {
 				

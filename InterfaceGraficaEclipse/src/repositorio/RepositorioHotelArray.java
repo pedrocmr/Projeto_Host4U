@@ -3,9 +3,11 @@ package repositorio;
 
 import java.util.ArrayList;
 
+import controlador.ControleHotel;
 import modelo.Endereco;
 import modelo.Hotel;
 import modelo.Lugar;
+import modelo.Quarto;
 
 public class RepositorioHotelArray implements IRepositorioHotel {
 	
@@ -24,13 +26,16 @@ public class RepositorioHotelArray implements IRepositorioHotel {
 			l1 = new Lugar("Praia", "Porto de Galinhas", 50, 60);
 			end1 = new Endereco("Rua do amor", 566, "Ipojuca", "PE");
 			hoteis.add(new Hotel("Hotel Beira Mar", 1, 20, l1, 130, end1));
+			Quarto quarto = new Quarto(1, 2, hoteis.get(0), 3, 100, 300, 75);
+			ControleHotel ch = new ControleHotel(hoteis.get(0));
+			ch.adicionaQuartos(quarto);
 			
-			l2 = new Lugar("Praia", "Boa Viagem", 100, 160);
+			l2 = new Lugar("Praia","Boa Viagem", 100, 160);
 			end2 = new Endereco("Avenida Boa Viagem", 235, "Recife", "PE");
 			hoteis.add(new Hotel("Hotel Varanda", 2, 23, l2, 160, end2));
 			
-			l3 = new Lugar("Praia", "Tamandaré", 170, 290);
-			end3 = new Endereco("Rua das Ostras", 669, "Tamandaré", "PE");
+			l3 = new Lugar("Praia","Tamandaré", 170, 290);
+			end3 = new Endereco("Rua das Ostras", 669,"Tamandaré", "PE");
 			hoteis.add(new Hotel("Hotel Urbano ", 3, 10, l3, 100, end3));
 		}
 
@@ -48,56 +53,18 @@ public class RepositorioHotelArray implements IRepositorioHotel {
 			ArrayList<Hotel> ht = new ArrayList<Hotel>();
 			for(Hotel h : hoteis) {
 				ht.add(h);
-				System.out.println(h.getNome());
-
 			}
 
 			return ht;
 		}
-		
-		public ArrayList<Hotel> listarHoteisBV(){
-			
-			ArrayList<Hotel> bv = new ArrayList<Hotel>();
-			
-			for(Hotel h : hoteis) {
-				if(h.getIdHotel() == 2) {
-				bv.add(h);
-				//System.out.println(h.getNome());
-
-				}
+		 
+		public ArrayList<Quarto> listarQuartos(){
+			ArrayList<Quarto> quartos = new ArrayList<Quarto>();
+			for(Quarto q : quartos) {
+				hoteis.get(0).getQuartos().add(q);
+				quartos.add(q);
 			}
-				
-			return bv;
+			return quartos;
 		}
-		
-		public ArrayList<Hotel> listarHoteisTM() {
-
-			ArrayList<Hotel> tm = new ArrayList<Hotel>();
-
-			for (Hotel h : hoteis) {
-				if (h.getIdHotel() == 3) {
-					tm.add(h);
-					//System.out.println(h.getNome());
-				}
-			}
-
-			return tm;
-		}
-		
-		public ArrayList<Hotel> listarHoteisPG() {
-
-			ArrayList<Hotel> pg = new ArrayList<Hotel>();
-
-			for (Hotel h : hoteis) {
-				if (h.getIdHotel() == 1) {
-					pg.add(h);
-					//System.out.println(h.getNome());
-
-				}
-			}
-
-			return pg;
-		}
-		
 	}
 

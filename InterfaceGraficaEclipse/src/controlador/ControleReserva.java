@@ -53,15 +53,16 @@ public class ControleReserva {
 					return false;
 				}
 				
+				
 				resultado = true;
-			}		
+			}	
 									
 		}else{
 			
-			return false;
 			
+			return false;
 		}
-		
+			
 		return resultado;
 	}
 	
@@ -118,8 +119,6 @@ public class ControleReserva {
 		}
 		
 		boolean resultado = false;
-		
-			
 			
 				if (duplicaReserva(reservaCancela.getQuarto().getNumero().toString()+","+
 						reservaCancela.getQuarto().getHotel().getIdHotel()+","+
@@ -138,13 +137,13 @@ public class ControleReserva {
 		return resultado;
 	}
 	
-	public boolean duplicaReserva(String linha) {
+	private boolean duplicaReserva(String linha) {
 		
 		boolean resultado = false;
 		
 		try {
 			File reservaDuplicada = new File ("src/reservaDuplicada.txt");	
-			fileWriter = new FileWriter(reservaDuplicada,true);
+			fileWriter = new FileWriter(reservaDuplicada);
 			escrever = new BufferedWriter(fileWriter);
 			fileReader = new FileReader("src/reserva.txt");
 			leitor = new BufferedReader(fileReader);
@@ -230,25 +229,13 @@ public class ControleReserva {
 		
 		if (cancelaReserva(usuario, reservaCancela)) {
 			
-			//cadastrado
-			
-			if (addReserva(reservaRemarca)) {
+			if(addReserva(reservaRemarca)) {
 				
 				resultado = true;
 			}
-		
-		}/*else {
-			
-			naoCadastrado = true;
 		}
-		
-		boolean naoCadastrado = false;
-		
-		if(naoCadastrado) { 
-		 * 
-		 * //posso alterar pra tentar mostrar algum erro na tela, dizendo que nao ha cadastro
-		}*/
-		
+			
+			
 		return resultado;
 	}
 }

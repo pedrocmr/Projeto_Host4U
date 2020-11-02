@@ -1,5 +1,10 @@
 package repositorio;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import modelo.Usuario;
@@ -8,6 +13,7 @@ public class RepositorioUsuarioArray implements IRepositorioUsuario {
 
 	
 	private ArrayList<Usuario> usuarios;
+	private BufferedReader br;
 	
 	public RepositorioUsuarioArray() {
 		
@@ -17,9 +23,34 @@ public class RepositorioUsuarioArray implements IRepositorioUsuario {
 	
 	public ArrayList<Usuario> listarUsuarios() {
 		
-		RepositorioUsuarioArray repo = new RepositorioUsuarioArray();
 		
-		return repo.getUsuarios();
+		try {
+			File arquivo = new File ("src/arquivo.txt");
+			FileReader fr = new FileReader(arquivo);
+			br = new BufferedReader(fr);
+			String linha = br.readLine();
+			
+			do{
+				
+				String [] vamosPorPartes = linha.split(",");
+				
+				if(vamosPorPartes.length == 5) {
+					usuarios.add(new Usuario(vamosPorPartes[0],vamosPorPartes[1],vamosPorPartes[2],
+							vamosPorPartes[3],vamosPorPartes[4]));
+				}
+				
+				if(linha != null) {
+					
+					linha = br.readLine();
+				}
+				
+			}while(linha != null);
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+		
+		return usuarios; 
 	}
 
 	@Override
