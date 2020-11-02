@@ -20,10 +20,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import repositorio.RepositorioHotelArray;
 
 public class RelatorioAdminController extends Application implements Initializable{
 	
 	public static Stage stage;
+	RepositorioHotelArray repoHoteis;
 	
 	@FXML private AnchorPane root;
     @FXML private ChoiceBox<?> mnHotel;
@@ -119,6 +121,9 @@ public class RelatorioAdminController extends Application implements Initializab
 	
 	public void fechaTela() {
 		RelatorioAdminController.getStage().close();
+	}
+	public void listarHoteis() {
+		repoHoteis.listarHoteis();
 	}
 
 	public void proximaHome() {
