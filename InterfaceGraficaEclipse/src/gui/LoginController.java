@@ -187,7 +187,9 @@ public class LoginController extends Application{
 		try {
 
 			home.start(new Stage());
-			home.btCadastrar.setDisable(false);
+			home.btCadastrar.setDisable(true);
+			home.btCadastrar.setOpacity(0.0);
+			
 
 		} catch (Exception e) {
 			

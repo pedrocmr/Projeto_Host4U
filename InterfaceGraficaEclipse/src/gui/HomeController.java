@@ -62,13 +62,14 @@ public class HomeController extends Application implements Initializable {
 	    	
 	    	btCadastrar.setOnMouseClicked((MouseEvent mouse) -> {
 				proximaCadastro();
-				btCadastrar.setVisible(false);
+				btCadastrar.setVisible(true);
 			});
 			
 			btCadastrar.setOnKeyPressed((KeyEvent enter) -> {
 				if(enter.getCode().equals(KeyCode.ENTER)) {
 					proximaCadastro();
-					btCadastrar.setVisible(false);	
+					btCadastrar.setVisible(true);	
+
 				}
 			});
 	    }
