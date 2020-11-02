@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -143,6 +144,10 @@ public class LoginController extends Application{
 							
 							proximaTelaHomeLogado(passaPraHome);
 							
+							System.out.println(meuPerCon.txNome.getText());
+							System.out.println(passaPraHome.getNome());
+							System.out.println("Teste");
+							
 						}
 						
 						if(linha != null) {
@@ -187,10 +192,7 @@ public class LoginController extends Application{
 		try {
 
 			home.start(new Stage());
-			home.btCadastrar.setDisable(true);
-			home.btCadastrar.setOpacity(0.0);
-			
-
+		
 		} catch (Exception e) {
 			
 			e.printStackTrace();
@@ -245,7 +247,16 @@ public class LoginController extends Application{
 							Usuario passaPraHome = new Usuario(vamosPorPartes[0],vamosPorPartes[1],vamosPorPartes[2],
 																vamosPorPartes[3],vamosPorPartes[4]);
 							
+							
+							
 							proximaTelaHomeLogado(passaPraHome);
+							MeuPerfilController meuPerCon = new MeuPerfilController();
+							meuPerCon.txLogin.setText(passaPraHome.getLogin());
+							System.out.println(meuPerCon.txLogin.getText());
+							//meuPerCon.txSenha.setText(vamosPorPartes[1]);
+							//meuPerCon.txNome.setText(vamosPorPartes[2]);
+							//meuPerCon.txSexo.setText(vamosPorPartes[4]);
+							System.out.println("Teste");
 						}
 						
 						if(linha != null) {
