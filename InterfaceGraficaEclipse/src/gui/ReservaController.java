@@ -1,8 +1,10 @@
 package gui;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import controlador.ControleReserva;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -53,6 +55,7 @@ public class ReservaController extends Application implements Initializable {
 	    @FXML private TableColumn<Quarto, Integer> clnNumCamas;
 	    @FXML private TableColumn<Quarto, Integer> clnAndar;
 	    @FXML private TableColumn<Quarto, Double> clnValor;
+	    @FXML private Button btBuscar;
 	    
 	    @FXML void confirmaReserva(ActionEvent event) {
 
@@ -88,6 +91,7 @@ public class ReservaController extends Application implements Initializable {
 		AnchorPane root = FXMLLoader.load(getClass().getResource("Reserva.fxml"));
 		Scene scene = new Scene(root, 700, 500);
 
+		
 		// COLOCANDO TÍTULO
 		stage.setTitle("HOST4U - Reserva");
 		Image imagem = new Image("imagens/iconehotel.png");
@@ -151,6 +155,22 @@ public class ReservaController extends Application implements Initializable {
 		tabela.setItems(listaTabela());
 		
 	}
+    
+    @FXML
+    void clickBuscar(MouseEvent event) {
+
+    	ControleReserva cresera = new ControleReserva();
+  
+    	
+    	
+    }
+    
+    @FXML
+    void keyBuscar(KeyEvent event) {
+
+    }
+    
+    
     
     public ObservableList<Quarto> listaTabela(){
 		Hotel rqa = new Hotel();

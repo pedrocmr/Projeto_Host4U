@@ -1,6 +1,9 @@
 package repositorio;
 
-
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import controlador.ControleHotel;
@@ -10,16 +13,18 @@ import modelo.Lugar;
 import modelo.Quarto;
 
 public class RepositorioHotelArray implements IRepositorioHotel {
-	
-	private ArrayList <Hotel> hoteis;
+
+	private ArrayList<Hotel> hoteis;
 	private Lugar l1;
 	private Endereco end1;
 	private Lugar l2;
 	private Endereco end2;
 	private Lugar l3;
 	private Endereco end3;
-	
-		public RepositorioHotelArray() {
+	private FileReader fileReader;
+	private BufferedReader leitor;
+
+	public RepositorioHotelArray() {
 
 			hoteis = new ArrayList<Hotel>();
 			
@@ -37,34 +42,69 @@ public class RepositorioHotelArray implements IRepositorioHotel {
 			l3 = new Lugar("Praia","Tamandaré", 170, 290);
 			end3 = new Endereco("Rua das Ostras", 669,"Tamandaré", "PE");
 			hoteis.add(new Hotel("Hotel Urbano ", 3, 10, l3, 100, end3));
-		}
-
-		public ArrayList<Hotel> getHoteis() {
-			return hoteis;
-		}
-
-
-		public void setHoteis(ArrayList<Hotel> hoteis) {
-			this.hoteis = hoteis;
-		}
-
-
-		public ArrayList<Hotel> listarHoteis() {
-			ArrayList<Hotel> ht = new ArrayList<Hotel>();
-			for(Hotel h : hoteis) {
-				ht.add(h);
-			}
-
-			return ht;
-		}
-		 
-		public ArrayList<Quarto> listarQuartos(){
-			ArrayList<Quarto> quartos = new ArrayList<Quarto>();
-			for(Quarto q : quartos) {
-				hoteis.get(0).getQuartos().add(q);
-				quartos.add(q);
-			}
-			return quartos;
-		}
+			
+			
+			File hotel = new File("src/urbano.txt");
+			
+			try {
+	
+				 fileReader = new FileReader(hotel);
+				 leitor = new BufferedReader(fileReader);
+				String linha = leitor.readLine();
+			
+			
+				
+				do {
+					
+					String [] vamosPorPartes = linha.split(",");
+					
+					hoteis.get(2).getQuartos().add(new Quarto(Integer.parseInt(vamosPorPartes[1]),
+							Integer.parseInt(vamosPorPartes[2]),this.getHoteis().get(1),Integer.parseInt(vamosPorPartes[5]),
+							Double.parseDouble(vamosPorPartes[6]),Double.parseDouble(vamosPorPartes[3]),
+							Double.parseDouble(vamosPorPartes[4])));
+					
+					if (linha != null) {
+					
+						linha = leitor.readLine();
+				
+					}
+				
+				}while(linha != null);
+				
+					for (Quarto biu : hoteis.get(2).getQuartos()) {
+					
+					System.out.println(biu);
+					}
+					
+		} catch (IOException e) {
+			
+			System.out.println("erro" + e.getMessage());
+		}		
 	}
 
+	public ArrayList<Hotel> getHoteis() {
+		return hoteis;
+	}
+
+	public void setHoteis(ArrayList<Hotel> hoteis) {
+		this.hoteis = hoteis;
+	}
+
+	public ArrayList<Hotel> listarHoteis() {
+		ArrayList<Hotel> ht = new ArrayList<Hotel>();
+		for (Hotel h : hoteis) {
+			ht.add(h);
+		}
+
+		return ht;
+	}
+
+	public ArrayList<Quarto> listarQuartos() {
+		ArrayList<Quarto> quartos = new ArrayList<Quarto>();
+		for (Quarto q : quartos) {
+			hoteis.get(0).getQuartos().add(q);
+			quartos.add(q);
+		}
+		return quartos;
+	}
+}

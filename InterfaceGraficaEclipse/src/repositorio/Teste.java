@@ -33,9 +33,9 @@ public class Teste {
 		
 		//Reserva r1 = new Reserva(u1, q1, dIn1, dout1);
 		//repoUsuario.addUsuario(u1);
-		System.out.println(repoUsuario.getUsuarios());
 	//	ctReserva.preencheReserva(u1, dIn1, dout1);
 		
+		RepositorioHotelArray ads = new RepositorioHotelArray();
 		
 	}
 

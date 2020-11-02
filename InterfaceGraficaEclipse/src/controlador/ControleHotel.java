@@ -1,9 +1,7 @@
 package controlador;
 
 import modelo.Hotel;
-import modelo.LugarProximo;
 import modelo.Quarto;
-import repositorio.RepositorioLugarArray;
 
 public class ControleHotel {
 
@@ -25,18 +23,23 @@ public class ControleHotel {
 			}
 		}
 	}
-
-	public void adicionaLugares(LugarProximo... lugar) {
-
+	
+	public Quarto getQuarto(int numero) {
 		
-		if (lugar != null) {
+		Quarto quarto = null;
+		
+		for(Quarto existente : hotel.getQuartos()) {
 			
-			for (LugarProximo l : lugar) {
-               			
-				//PREENCHER
+			if ((existente.getHotel().getIdHotel() == this.hotel.getIdHotel()) && (existente.getNumero() == numero)) {
+				
+				
+				quarto = existente;
 			}
-
+			
+			
 		}
+			
+		
+		return quarto;
 	}
-
 }
