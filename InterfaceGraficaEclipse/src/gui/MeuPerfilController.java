@@ -20,6 +20,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import modelo.Usuario;
 
 public class MeuPerfilController extends Application implements Initializable{
 
@@ -31,13 +32,13 @@ public class MeuPerfilController extends Application implements Initializable{
         @FXML private Label texto4;
         @FXML private Label texto3;
 	    @FXML private Label texto5;
-	    @FXML private TextField txNome;
-	    @FXML private TextField txSexo;
-	    @FXML private TextField txLogin;
+	    @FXML public TextField txNome;
+	    @FXML public TextField txSexo;
+	    @FXML public TextField txLogin;
 	    @FXML private Button btSalvar;
 	    @FXML private ImageView imagem1;
 	    @FXML private Button btVoltar;
-	    @FXML private PasswordField txSenha;
+	    @FXML public PasswordField txSenha;
 	    @FXML private ImageView imagemHost;
 	    @FXML private Button btReservas;
      
@@ -115,6 +116,12 @@ public class MeuPerfilController extends Application implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		//PREENCHER
+		Usuario user = new Usuario("rafael0607", "12345678", "Rafaellindo", "23344378956", "M");
+		txLogin.setText(user.getLogin());
+		txNome.setText(user.getNome());
+		txSenha.setText(user.getSenha());
+		txSexo.setText(user.getSexo());
+		
 	}
 	
     public void fecharTela() {

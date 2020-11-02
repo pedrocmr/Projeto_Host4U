@@ -156,7 +156,13 @@ public class CadastroController extends Application implements Initializable {
 		// TODO Auto-generated method stub
 		
 		btnSair.setOnMouseClicked((MouseEvent mouse) -> {
+			HomeController hC = new HomeController();
 			fecharTela();
+			try {
+				hC.start(new Stage());
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
 		});
 		
 			 

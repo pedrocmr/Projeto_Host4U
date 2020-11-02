@@ -70,6 +70,8 @@ public class RepositorioHotelArray implements IRepositorioHotel {
 					}
 				
 				}while(linha != null);
+				//fileReader.close();
+				//leitor.close();
 				
 					for (Quarto biu : hoteis.get(2).getQuartos()) {
 					

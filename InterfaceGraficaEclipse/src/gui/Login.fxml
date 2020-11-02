@@ -3,6 +3,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="450.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.LoginController">
+<AnchorPane prefHeight="450.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.LoginController">
    <children>
       <VBox layoutX="217.0" layoutY="163.0" prefHeight="81.0" prefWidth="243.0" spacing="30.0">
          <children>
@@ -19,10 +20,7 @@
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor></TextField>
-            <TextField fx:id="txtSenha" promptText="Senha">
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor></TextField>
+            <PasswordField fx:id="txtSenha" promptText="Senha" />
          </children>
       </VBox>
       <HBox layoutX="264.0" layoutY="271.0" spacing="30.0" AnchorPane.bottomAnchor="154.0" AnchorPane.topAnchor="271.0">

@@ -20,6 +20,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import modelo.Usuario;
 
 public class HomeController extends Application implements Initializable {
 
@@ -33,8 +34,8 @@ public class HomeController extends Application implements Initializable {
     @FXML private TextField txHotel;
     @FXML private ImageView imagemPg;
     @FXML private ImageView imagemTm;
-    @FXML private Button btCadastrar;
-    @FXML private Button btLogin;
+    @FXML public Button btCadastrar;
+    @FXML public Button btLogin;
     @FXML private Text txtNome;
     @FXML private Text txtAviso;
     @FXML private Button btBoa;
@@ -61,11 +62,13 @@ public class HomeController extends Application implements Initializable {
 	    	
 	    	btCadastrar.setOnMouseClicked((MouseEvent mouse) -> {
 				proximaCadastro();
+				btCadastrar.setVisible(false);
 			});
 			
 			btCadastrar.setOnKeyPressed((KeyEvent enter) -> {
 				if(enter.getCode().equals(KeyCode.ENTER)) {
 					proximaCadastro();
+					btCadastrar.setVisible(false);	
 				}
 			});
 	    }
@@ -113,6 +116,7 @@ public class HomeController extends Application implements Initializable {
 
 	public void initialize(URL location, ResourceBundle resources) {
 		//PREENCHER
+
 	}
 	
 	public void fecharTela() {
@@ -133,6 +137,7 @@ public class HomeController extends Application implements Initializable {
 	
 	public void proximaLogin() {
 		LoginController lc = new LoginController();
+
 		fecharTela();
 		
 		try {
@@ -153,9 +158,19 @@ public class HomeController extends Application implements Initializable {
 			// TODO: handle exception
 		}
 	}
+	
+	public void botaoInvisivel(Button bt) {
+		
+		LoginController lC = new LoginController();
+		Usuario user = new Usuario();
+		if(lC.proximaTelaHomeLogado(user) == true ) {
+			bt.setVisible(false);
+
+		}
+	}
 		
 	public static void main(String[] args) {
-
+		
 		launch(args);
 	}
 

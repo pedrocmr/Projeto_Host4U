@@ -14,6 +14,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -28,7 +29,7 @@ public class LoginController extends Application{
 	private static Stage stage;
 	
 	@FXML private TextField txtLogin;
-	@FXML private TextField txtSenha;
+	@FXML private  PasswordField txtSenha;
     @FXML private Button btEntrar;
     @FXML private Button btSair;
     @FXML private Button btCadastro;
@@ -80,17 +81,21 @@ public class LoginController extends Application{
 		
 	}
 
-	private void proximaTelaHomeLogado(Usuario usuario) {
+	public boolean proximaTelaHomeLogado(Usuario usuario) {
 		
 		HomeController home = new HomeController();
 		fechaTela();
-		
+		//home.btCadastrar.setDisable(true);
+
 		try {
+			
 			home.start(new Stage());
 		} catch (Exception e) {
 			
 			e.printStackTrace();
+			return false;
 		}
+		return true; 
 	}
 
 	private void fechaTela() {
@@ -128,8 +133,16 @@ public class LoginController extends Application{
 							
 							Usuario passaPraHome = new Usuario(vamosPorPartes[0],vamosPorPartes[1],vamosPorPartes[2],
 																vamosPorPartes[3],vamosPorPartes[4]);
+							MeuPerfilController meuPerCon = new MeuPerfilController();
+							String pegaLogin = vamosPorPartes[0];
+							meuPerCon.txLogin.setText(pegaLogin);
+							meuPerCon.txSenha.setText(vamosPorPartes[1]);
+							meuPerCon.txNome.setText(vamosPorPartes[2]);
+							meuPerCon.txSexo.setText(vamosPorPartes[4]);
+							
 							
 							proximaTelaHomeLogado(passaPraHome);
+							
 						}
 						
 						if(linha != null) {
@@ -168,10 +181,14 @@ public class LoginController extends Application{
 	private void proximaTelaHome() {
 		
 		HomeController home = new HomeController();
+		
 		fechaTela();
 		
 		try {
+
 			home.start(new Stage());
+			home.btCadastrar.setDisable(false);
+
 		} catch (Exception e) {
 			
 			e.printStackTrace();
