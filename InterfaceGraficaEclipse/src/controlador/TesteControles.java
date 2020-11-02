@@ -1,5 +1,6 @@
 package controlador;
 
+import java.io.File;
 import java.time.LocalDate;
 
 import modelo.Endereco;
@@ -31,7 +32,6 @@ public class TesteControles {
         cresera.addReserva(r);
         cresera.remarcarReserva(cad2, r, s);
         
-		
 	}
 
 }

@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
@@ -13,23 +12,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: turquoise;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ReservaController">
+<AnchorPane fx:id="root" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: turquoise;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ReservaController">
    <children>
-      <ImageView fx:id="imagem" fitHeight="79.0" fitWidth="134.0" layoutX="283.0" layoutY="7.0">
+      <ImageView fx:id="imagem" fitHeight="72.0" fitWidth="127.0" layoutX="44.0" layoutY="19.0">
          <image>
-            <Image url="@../../../../../../Imagens/H4ULogotipo.png" />
+            <Image url="@../imagens/H4ULogotipo.png" />
          </image>
       </ImageView>
-      <Label fx:id="lbTitulo" layoutX="97.0" layoutY="86.0" text="Preencha os dados para prosseguir com a reserva:">
+      <Label fx:id="lbTitulo" layoutX="220.0" layoutY="32.0" prefHeight="45.0" prefWidth="575.0" text="Preencha os dados para prosseguir com a reserva:">
          <font>
-            <Font name="Agency FB" size="30.0" />
+            <Font size="16.0" />
          </font>
       </Label>
-      <Label fx:id="lbEntrada" layoutX="32.0" layoutY="146.0" text="Data de entrada:" />
-      <Label fx:id="lbSaida" layoutX="32.0" layoutY="198.0" text="Data de saída:" />
-      <Label fx:id="lbPessoas" layoutX="33.0" layoutY="250.0" text="Quantidade de pessoas:" />
-      <Label fx:id="lbQuartos" layoutX="32.0" layoutY="303.0" text="Numero de quartos:" />
-      <MenuButton fx:id="menuPessoas" layoutX="32.0" layoutY="267.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="221.0" text="Pessoas">
+      <Label fx:id="lbEntrada" layoutX="33.0" layoutY="135.0" text="Data de entrada:" />
+      <Label fx:id="lbSaida" layoutX="32.0" layoutY="186.0" text="Data de saída:" />
+      <Label fx:id="lbPessoas" layoutX="34.0" layoutY="265.0" text="Quantidade de pessoas:" />
+      <Label fx:id="lbQuartos" layoutX="33.0" layoutY="318.0" text="Numero de Camas:" />
+      <MenuButton fx:id="menuPessoas" layoutX="32.0" layoutY="286.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="221.0" text="Pessoas">
         <items>
           <MenuItem fx:id="mnPessoa1" mnemonicParsing="false" onAction="#pessoaUm" text="1" />
           <MenuItem fx:id="mnPessoa2" mnemonicParsing="false" onAction="#pessoaDois" text="2" />
@@ -38,22 +37,21 @@
             <MenuItem fx:id="mnPessoa5" mnemonicParsing="false" onAction="#pessoaCinco" text="5" />
         </items>
       </MenuButton>
-      <MenuButton fx:id="menuQuartos" layoutX="33.0" layoutY="320.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="221.0" text="Quartos">
+      <MenuButton fx:id="menuQuartos" layoutX="32.0" layoutY="345.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="221.0" text="Camas">
         <items>
           <MenuItem fx:id="mnQuarto1" mnemonicParsing="false" onAction="#quartoUm" text="1" />
           <MenuItem fx:id="mnQuarto2" mnemonicParsing="false" onAction="#quartoDois" text="2" />
             <MenuItem fx:id="mnQuarto3" mnemonicParsing="false" onAction="#quartoTres" text="3" />
         </items>
       </MenuButton>
-      <RadioButton fx:id="rdViajar" layoutX="42.0" layoutY="366.0" mnemonicParsing="false" text="Vou viajar a trabalho" />
       <Button fx:id="btConfirmar" layoutX="397.0" layoutY="409.0" mnemonicParsing="false" onAction="#confirmaReserva" prefHeight="35.0" prefWidth="174.0" text="Confimar Reserva">
          <font>
             <Font name="Arial" size="16.0" />
          </font>
       </Button>
       <Button fx:id="btVoltar" layoutX="14.0" layoutY="461.0" mnemonicParsing="false" onAction="#voltarTela" text="Voltar" />
-      <DatePicker fx:id="dtCheckIn" layoutX="32.0" layoutY="166.0" prefHeight="25.0" prefWidth="221.0" promptText="Check-in" />
-      <DatePicker fx:id="dtCheckOut" layoutX="32.0" layoutY="215.0" prefHeight="25.0" prefWidth="221.0" promptText="Check-out" />
+      <DatePicker fx:id="dtCheckIn" layoutX="29.0" layoutY="152.0" prefHeight="25.0" prefWidth="156.0" promptText="Check-in" />
+      <DatePicker fx:id="dtCheckOut" layoutX="29.0" layoutY="203.0" prefHeight="25.0" prefWidth="156.0" promptText="Check-out" />
       <TableView fx:id="tabela" layoutX="274.0" layoutY="143.0" prefHeight="244.0" prefWidth="420.0">
         <columns>
           <TableColumn fx:id="clnNumQuarto" prefWidth="123.0" text="Número do Quarto" />
@@ -62,5 +60,6 @@
             <TableColumn fx:id="clnValor" prefWidth="134.0" text="Valor da Reserva" />
         </columns>
       </TableView>
+      <Button fx:id="btBuscar" layoutX="192.0" layoutY="182.0" mnemonicParsing="false" onKeyPressed="#keyBuscar" onMouseClicked="#clickBuscar" prefHeight="25.0" prefWidth="55.0" text="Buscar" />
    </children>
 </AnchorPane>
