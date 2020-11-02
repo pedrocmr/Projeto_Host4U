@@ -34,7 +34,6 @@ public class MinhaReservaController extends Application implements Initializable
 	
 	    @FXML private AnchorPane root;
 	    @FXML private TableView<Reserva> tabela;
-	    @FXML private TableColumn<Reserva, Usuario> rotuloNome;
 	    @FXML private TableColumn<Reserva, Quarto> rotuloHotel;
 	    @FXML private TableColumn<Reserva, Quarto> rotuloQuarto;
         @FXML private TableColumn<Reserva, LocalDate> rotuloCheckin;
@@ -42,7 +41,14 @@ public class MinhaReservaController extends Application implements Initializable
         @FXML private ImageView imagem;
 	    @FXML private Button btSalvar;
 	    @FXML private Button btVoltar;
-	
+	    @FXML private Button btAlterar;
+	    
+	    @FXML
+	    void alteraReserva(ActionEvent event) {
+
+	    	
+	    }
+	    
 	    @FXML
 	    void salvarAlteracao(ActionEvent event) {
 
@@ -107,11 +113,12 @@ public class MinhaReservaController extends Application implements Initializable
 	
 	public void inicializaTabela() {
 		
-		rotuloNome.setCellValueFactory(new PropertyValueFactory<>("usuario.getNome()"));
-		rotuloHotel.setCellValueFactory(new PropertyValueFactory<>("quarto.getHotel().getNome()"));
-		rotuloQuarto.setCellValueFactory(new PropertyValueFactory<>("usuario.getNome()"));
+		rotuloHotel.setCellValueFactory(new PropertyValueFactory<>(""));
+		rotuloQuarto.setCellValueFactory(new PropertyValueFactory<>(""));
 		rotuloCheckin.setCellValueFactory(new PropertyValueFactory<>("checkin"));
 		rotuloCheckout.setCellValueFactory(new PropertyValueFactory<>("checkout"));
+		
+		
 	}
 	
 	public ObservableList<Reserva> listaTabela(){
