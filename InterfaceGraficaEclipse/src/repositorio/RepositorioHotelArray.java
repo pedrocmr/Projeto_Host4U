@@ -48,6 +48,8 @@ public class RepositorioHotelArray implements IRepositorioHotel {
 			ArrayList<Hotel> ht = new ArrayList<Hotel>();
 			for(Hotel h : hoteis) {
 				ht.add(h);
+				System.out.println(h.getNome());
+
 			}
 
 			return ht;
@@ -60,6 +62,8 @@ public class RepositorioHotelArray implements IRepositorioHotel {
 			for(Hotel h : hoteis) {
 				if(h.getIdHotel() == 2) {
 				bv.add(h);
+				//System.out.println(h.getNome());
+
 				}
 			}
 				
@@ -73,6 +77,7 @@ public class RepositorioHotelArray implements IRepositorioHotel {
 			for (Hotel h : hoteis) {
 				if (h.getIdHotel() == 3) {
 					tm.add(h);
+					//System.out.println(h.getNome());
 				}
 			}
 
@@ -86,6 +91,8 @@ public class RepositorioHotelArray implements IRepositorioHotel {
 			for (Hotel h : hoteis) {
 				if (h.getIdHotel() == 1) {
 					pg.add(h);
+					//System.out.println(h.getNome());
+
 				}
 			}
 

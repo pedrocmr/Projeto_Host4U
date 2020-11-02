@@ -138,7 +138,7 @@ public class TabelaControllerBV extends Application implements Initializable{
 		clnQuartos.setCellValueFactory(new PropertyValueFactory<>("qtdQuartos"));
 		clnEndereço.setCellValueFactory(new PropertyValueFactory<>("endereco"));
 		
-		tabela.setItems(listaTabelaBV());
+		tabela.setItems(listaTabelaBV()); //here
 		
 	}
    

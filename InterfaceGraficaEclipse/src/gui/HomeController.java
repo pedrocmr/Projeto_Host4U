@@ -44,17 +44,17 @@ public class HomeController extends Application implements Initializable {
 	    
     @FXML
     void tabelaBv(MouseEvent event) {
-        proximaTabela();
+        proximaTabela1();
     }
 
     @FXML
     void tabelaPg(MouseEvent event) {
-      proximaTabela3();
+      proximaTabela3();  //3
     }
 
     @FXML
     void tabelaTm(MouseEvent event) {
-      proximaTabela2();
+      proximaTabela2(); //2
     }
     
 	    @FXML void cadastrar(ActionEvent event) {
@@ -142,7 +142,7 @@ public class HomeController extends Application implements Initializable {
 		}
 	}
 	
-	public void proximaTabela() {
+	public void proximaTabela1() {
 		
 		TabelaControllerBV tc = new TabelaControllerBV();
 		fecharTela();
