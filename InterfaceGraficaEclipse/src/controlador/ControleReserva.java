@@ -7,7 +7,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
+import modelo.Quarto;
 import modelo.Reserva;
 import modelo.Usuario;
 import repositorio.RepositorioReservaArray;
@@ -107,7 +109,113 @@ public class ControleReserva {
 		
 		return resultado;
 		
-	}//fim da verifica reserva
+	}
+	
+	public ArrayList<Quarto> verificaReservaComDatas(int idHotel, LocalDate checkin, LocalDate checkout) {
+		
+		ArrayList<Quarto> disponiveis = new ArrayList<>();
+		
+		File arquivo = new File("src/reserva.txt");
+		
+			try {
+			
+				fileReader = new FileReader(arquivo);
+				leitor = new BufferedReader(fileReader);
+				String linha = leitor.readLine();
+			
+				do {
+				
+					String [] vamosPorPartes = linha.split(",");
+					
+					if(idHotel == Integer.parseInt(vamosPorPartes[0])) {
+						
+						LocalDate in = LocalDate.parse(vamosPorPartes[3]);
+						LocalDate out = LocalDate.parse(vamosPorPartes[4]);
+						
+						if (checkin.isBefore(in) && checkout.isBefore(in) ||
+								checkin.isAfter(out)) { 
+							
+							
+							}
+						
+					}
+					
+				
+				
+					if (linha != null) {
+					
+						linha = leitor.readLine();
+				
+					}
+				
+				}while(linha != null);
+		
+		} catch (IOException e) {
+			
+			System.out.println("erro" + e.getMessage());
+		}
+		
+		return disponiveis;
+		
+	}
+	private ArrayList buscaQuarto(int id) {
+		
+		ArrayList quartos;
+		File hotel;
+		
+			switch (id) {
+		
+			case 1: {
+			
+				hotel = new File ("src/urbano.txt");
+				break;
+			}case 2:{
+			
+				hotel = new File ("src/beiraMar.txt");
+				break;
+			}case 3:{
+			
+				hotel = new File ("src/varanda.txt");
+				break;
+			}default:{
+			
+				return null;
+			}
+		}
+			
+			try {
+				
+				fileReader = new FileReader(hotel);
+				leitor = new BufferedReader(fileReader);
+				String linha = leitor.readLine();
+			
+				do {
+				
+					String [] vamosPorPartes = linha.split(",");
+				
+					LocalDate in = LocalDate.parse(vamosPorPartes[3]);
+					LocalDate out = LocalDate.parse(vamosPorPartes[4]);
+				
+					
+				
+					if (linha != null) {
+					
+						linha = leitor.readLine();
+				
+					}
+				
+				}while(linha != null);
+		
+		} catch (IOException e) {
+			
+			System.out.println("erro" + e.getMessage());
+		}
+			
+		
+			
+			
+		return null;
+	}
 
 	// MÉTODO CANCELAR RESERVAS
 	public boolean cancelaReserva(Usuario usuario, Reserva reservaCancela) {

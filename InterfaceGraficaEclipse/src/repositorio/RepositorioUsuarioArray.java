@@ -23,7 +23,6 @@ public class RepositorioUsuarioArray implements IRepositorioUsuario {
 	
 	public ArrayList<Usuario> listarUsuarios() {
 		
-		
 		try {
 			File arquivo = new File ("src/arquivo.txt");
 			FileReader fr = new FileReader(arquivo);
