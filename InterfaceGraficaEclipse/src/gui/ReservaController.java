@@ -1,6 +1,5 @@
 package gui;
 
-import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -14,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -22,7 +22,6 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -33,6 +32,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import modelo.Hotel;
 import modelo.Quarto;
+import modelo.Usuario;
 import repositorio.RepositorioHotelArray;
 
 public class ReservaController extends Application implements Initializable {
@@ -67,6 +67,13 @@ public class ReservaController extends Application implements Initializable {
 	    @FXML private TableColumn<Quarto, Integer> clnAndar;
 	    @FXML private TableColumn<Quarto, Double> clnValor;
 	    @FXML private Button btBuscar;
+	    	  private Usuario usuario;
+	    	  
+	    	  
+	    public ReservaController(Usuario usuario) {
+		
+	    	this.usuario = usuario;
+		}
 	    
 	    @FXML
 	    void pessoaUm(ActionEvent event) {
@@ -210,7 +217,7 @@ public class ReservaController extends Application implements Initializable {
 	
 	public void proximaTela() {
 		
-		PagamentoController p = new PagamentoController();
+		PagamentoController p = new PagamentoController(usuario);
 		fecharTela();
 		
 		try {
@@ -221,7 +228,7 @@ public class ReservaController extends Application implements Initializable {
 	}
 	
 	public void proximaTabela() {
-		TabelaController tc = new TabelaController();
+		TabelaController tc = new TabelaController(usuario);
 		fecharTela();
 		
 		try {
