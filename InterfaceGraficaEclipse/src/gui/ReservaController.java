@@ -3,7 +3,6 @@ package gui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import controlador.ControleReserva;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -32,8 +31,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import modelo.Hotel;
 import modelo.Quarto;
-import modelo.Usuario;
-import repositorio.RepositorioHotelArray;
 
 public class ReservaController extends Application implements Initializable {
 
@@ -67,13 +64,6 @@ public class ReservaController extends Application implements Initializable {
 	    @FXML private TableColumn<Quarto, Integer> clnAndar;
 	    @FXML private TableColumn<Quarto, Double> clnValor;
 	    @FXML private Button btBuscar;
-	    	  private Usuario usuario;
-	    	  
-	    	  
-	    public ReservaController(Usuario usuario) {
-		
-	    	this.usuario = usuario;
-		}
 	    
 	    @FXML
 	    void pessoaUm(ActionEvent event) {
@@ -217,7 +207,7 @@ public class ReservaController extends Application implements Initializable {
 	
 	public void proximaTela() {
 		
-		PagamentoController p = new PagamentoController(usuario);
+		PagamentoController p = new PagamentoController();
 		fecharTela();
 		
 		try {
@@ -228,7 +218,7 @@ public class ReservaController extends Application implements Initializable {
 	}
 	
 	public void proximaTabela() {
-		TabelaController tc = new TabelaController(usuario);
+		TabelaController tc = new TabelaController();
 		fecharTela();
 		
 		try {
@@ -250,11 +240,7 @@ public class ReservaController extends Application implements Initializable {
 	}
     
     @FXML
-    void clickBuscar(MouseEvent event) {
-
-    	ControleReserva cresera = new ControleReserva();
-  
-    	
+    void clickBuscar(MouseEvent event) {    	
     	
     }
     
@@ -267,7 +253,6 @@ public class ReservaController extends Application implements Initializable {
     
     public ObservableList<Quarto> listaTabela(){
 		Hotel rqa = new Hotel();
-		RepositorioHotelArray rh = new RepositorioHotelArray();
 		return FXCollections.observableArrayList(rqa.getQuartos());
 	}
 

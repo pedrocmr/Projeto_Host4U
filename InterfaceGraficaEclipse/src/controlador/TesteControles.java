@@ -1,6 +1,5 @@
 package controlador;
 
-import java.io.File;
 import java.time.LocalDate;
 
 import modelo.Endereco;

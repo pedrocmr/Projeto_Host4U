@@ -3,7 +3,6 @@ package repositorio;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import javafx.util.converter.LocalDateStringConverter;
 import modelo.Endereco;
 import modelo.Hotel;
 import modelo.Lugar;

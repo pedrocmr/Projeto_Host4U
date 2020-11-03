@@ -42,14 +42,7 @@ public class MinhaReservaController extends Application implements Initializable
 	    @FXML private Button btSalvar;
 	    @FXML private Button btVoltar;
 	    @FXML private Button btAlterar;
-	    	  private Usuario usuario;
-	    
 	    	  
-	    public MinhaReservaController(Usuario usuario) {
-		
-	    	this.usuario = usuario;
-		}
-	   
 	    @FXML
 	    void alteraReserva(ActionEvent event) {
 
@@ -140,7 +133,7 @@ public class MinhaReservaController extends Application implements Initializable
 	
 	public void proximaTela() {
 		
-		MeuPerfilController mp = new MeuPerfilController(usuario);
+		MeuPerfilController mp = new MeuPerfilController();
 		fecharTela();
 		
 		try {

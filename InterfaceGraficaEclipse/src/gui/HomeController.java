@@ -25,8 +25,6 @@ import modelo.Usuario;
 public class HomeController extends Application implements Initializable {
 
 	private static Stage stage;
-	
-	private static  HomeController controller;
 
 	@FXML private AnchorPane root;
     @FXML private ImageView imagem;
@@ -154,7 +152,7 @@ public class HomeController extends Application implements Initializable {
 	
 	public void proximaPerfil() {
 		
-		MeuPerfilController mpc = new MeuPerfilController(usuario);
+		MeuPerfilController mpc = new MeuPerfilController();
 		fecharTela();
 		
 		try {

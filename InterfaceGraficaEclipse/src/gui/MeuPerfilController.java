@@ -20,7 +20,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import modelo.Usuario;
 
 public class MeuPerfilController extends Application implements Initializable{
 
@@ -41,15 +40,8 @@ public class MeuPerfilController extends Application implements Initializable{
 	    @FXML public PasswordField txSenha;
 	    @FXML private ImageView imagemHost;
 	    @FXML private Button btReservas;
-	    private Usuario usuario;
-	    
-	    public MeuPerfilController(Usuario usuario) {
-		
-	    	this.usuario = usuario;
-		}
-	    
-	    
-     
+	          
+				
 	    @FXML
 	    void salvarAlteracoes(ActionEvent event) {
 
@@ -80,9 +72,7 @@ public class MeuPerfilController extends Application implements Initializable{
 
 	    @FXML
 	    void voltar(ActionEvent event) {
-	    	
-	    	
-	    	
+
 	    	btVoltar.setOnMouseClicked((MouseEvent mouse) -> {
 				telaHome();
 			});
@@ -124,9 +114,7 @@ public class MeuPerfilController extends Application implements Initializable{
 	}
 	
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		
-		Usuario user = new Usuario("rafael0607", "12345678", "Rafaellindo", "23344378956", "M");
+	public void initialize(URL location, ResourceBundle resources) {		
 		
 	}
 	
@@ -136,7 +124,7 @@ public class MeuPerfilController extends Application implements Initializable{
     
     public void telaHome() {
     	
-    	HomeController hc = new HomeController(usuario);
+    	HomeController hc = new HomeController();
 		fecharTela();
 		
 		try {
@@ -148,7 +136,7 @@ public class MeuPerfilController extends Application implements Initializable{
 
     public void proximaTela() {
 	
-	MinhaReservaController rc = new MinhaReservaController(usuario);
+	MinhaReservaController rc = new MinhaReservaController();
 	fecharTela();
 	
 	try {
