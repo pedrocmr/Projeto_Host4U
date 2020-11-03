@@ -12,7 +12,7 @@
       <TableView fx:id="tabela" layoutX="28.0" layoutY="88.0" prefHeight="325.0" prefWidth="644.0">
         <columns>
           <TableColumn fx:id="rotuloHotel" prefWidth="301.0" text="Hotel" />
-            <TableColumn fx:id="rotuloQuarto" prefWidth="133.0" text="Quarto" />
+            <TableColumn fx:id="rotuloQuarto" prefWidth="133.0" text="Número do Quarto" />
             <TableColumn fx:id="rotuloCheckin" prefWidth="94.0" text="Check-in" />
             <TableColumn fx:id="rotuloCheckout" minWidth="0.0" prefWidth="115.0" text="Check-out" />
         </columns>

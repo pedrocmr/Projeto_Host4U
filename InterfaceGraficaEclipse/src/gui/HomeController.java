@@ -42,7 +42,16 @@ public class HomeController extends Application implements Initializable {
     @FXML private Button btTam;
     @FXML private Button btPort;
     @FXML private ImageView imagemBv;
+    public static Usuario usuario;
 	    
+    HomeController(Usuario usuario){
+    	this.usuario = usuario;
+    }
+    
+    HomeController(){
+    	
+    }
+    
     @FXML
     void tabelaBv(MouseEvent event) {
         proximaTabela();

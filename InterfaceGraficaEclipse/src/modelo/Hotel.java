@@ -11,6 +11,8 @@ public class Hotel {
 	private int andares;
 	private Lugar lugar;
 	private Integer qtdQuartos = quartos.size();
+	String nomeH;
+	Integer num;
 
 	public Hotel(String nome, int idHotel, int andares, Lugar lugar, Integer qtdQuartos, Endereco endereco) {
 
@@ -23,7 +25,13 @@ public class Hotel {
 
 	}
 	
-	public Hotel() {}
+	public Hotel() {
+		
+		for(int i = 0; i < quartos.size(); i++) {
+			num = quartos.get(i).getNumero();
+		}
+		
+	}
 	
 	public Integer getQtdQuartos() {
 		return qtdQuartos;

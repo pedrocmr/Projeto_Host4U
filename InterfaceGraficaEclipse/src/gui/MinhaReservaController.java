@@ -42,6 +42,11 @@ public class MinhaReservaController extends Application implements Initializable
 	    @FXML private Button btSalvar;
 	    @FXML private Button btVoltar;
 	    @FXML private Button btAlterar;
+	    private Usuario usuario;
+	    
+	    MinhaReservaController(Usuario usuario){
+	    	this.usuario = usuario;
+	    }
 	    
 	    @FXML
 	    void alteraReserva(ActionEvent event) {
@@ -113,18 +118,19 @@ public class MinhaReservaController extends Application implements Initializable
 	
 	public void inicializaTabela() {
 		
-		rotuloHotel.setCellValueFactory(new PropertyValueFactory<>(""));
-		rotuloQuarto.setCellValueFactory(new PropertyValueFactory<>(""));
+		
+		rotuloHotel.setCellValueFactory(new PropertyValueFactory<>("nome"));
+		rotuloQuarto.setCellValueFactory(new PropertyValueFactory<>("num"));
 		rotuloCheckin.setCellValueFactory(new PropertyValueFactory<>("checkin"));
 		rotuloCheckout.setCellValueFactory(new PropertyValueFactory<>("checkout"));
 		
+		tabela.setItems(listaTabela());
 		
 	}
 	
 	public ObservableList<Reserva> listaTabela(){
 		RepositorioReservaArray rr = new RepositorioReservaArray();
-		Usuario user = new Usuario();
-		return FXCollections.observableArrayList(rr.listarReservas(user.getCpf()));
+		return FXCollections.observableArrayList(rr.listarTodasReservas());
 	}
 	
 	public void fecharTela() {

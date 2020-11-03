@@ -1,15 +1,36 @@
 package repositorio;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+
+import javafx.util.converter.LocalDateStringConverter;
+import modelo.Endereco;
+import modelo.Hotel;
+import modelo.Lugar;
+import modelo.Quarto;
 import modelo.Reserva;
+import modelo.Usuario;
 
 public class RepositorioReservaArray implements IRepositorioReserva {
 
 	ArrayList<Reserva> reservas;
 
 	public RepositorioReservaArray() {
+		
+		reservas = new ArrayList<Reserva>();
+		
+		Endereco end = new Endereco("rua doze", 76, "Cabo", "PE");
+		Lugar lugar = new Lugar("restaurante", "A Kancela", 23, 90);
+		Hotel h = new Hotel("Hotel edu", 1, 2, lugar, 10, end );
+		Usuario user = new Usuario("edu456", "futebol" , "Eduardo", "12345678909", "M");
+		Quarto q = new Quarto(1, 2, h , 2, 100.4, 300, 50.9);
+		LocalDate checkin = LocalDate.of(2020, 11, 12);
+		LocalDate checkout = LocalDate.of(2020, 12, 24);
+		
+		
+		Reserva res = new Reserva(user, q, checkin , checkout);
+		reservas.add(res);
 
-		this.reservas = new ArrayList<Reserva>();
 	}
 
 

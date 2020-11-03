@@ -41,6 +41,7 @@ public class MeuPerfilController extends Application implements Initializable{
 	    @FXML public PasswordField txSenha;
 	    @FXML private ImageView imagemHost;
 	    @FXML private Button btReservas;
+	    
      
 	    @FXML
 	    void salvarAlteracoes(ActionEvent event) {
@@ -115,12 +116,13 @@ public class MeuPerfilController extends Application implements Initializable{
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		//PREENCHER
+		
 		Usuario user = new Usuario("rafael0607", "12345678", "Rafaellindo", "23344378956", "M");
-		/*txLogin.setText(user.getLogin());
+		
+		txLogin.setText(user.getLogin());
 		txNome.setText(user.getNome());
 		txSenha.setText(user.getSenha());
-		txSexo.setText(user.getSexo());*/
+		txSexo.setText(user.getSexo());
 		
 		
 		
