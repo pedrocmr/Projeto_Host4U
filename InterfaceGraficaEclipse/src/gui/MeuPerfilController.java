@@ -3,7 +3,6 @@ package gui;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -29,8 +28,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import modelo.Usuario;
-import repositorio.RepositorioUsuarioArray;
 
 public class MeuPerfilController extends Application implements Initializable{
 
@@ -60,12 +57,10 @@ public class MeuPerfilController extends Application implements Initializable{
 	       FileReader fileReader;
 	       BufferedReader leitor;
 	       BufferedWriter escrever;
-	       RepositorioUsuarioArray repUser = new RepositorioUsuarioArray();
+	     
 	       String linha;
-	       String nome = txNome.getText();
 	       String loginNew = txLogin.getText();
-	       String senha = txSenha.getText();
-	       String sexo = txSexo.getText();
+	      
 	       try {
 	    	   
 	    		fileReader = new FileReader(arquivo);
@@ -116,53 +111,6 @@ public class MeuPerfilController extends Application implements Initializable{
 			
 			
 	    }
-	    
-	 /*  public boolean validarLogin(String login)  {
-			
-		   File arquivo = new File("src/arquivo.txt");
-	       FileWriter fileWriter;
-	       FileReader fileReader;
-	       BufferedReader leitor;
-	       BufferedWriter escrever;
-		  
-		   
-	       try {
-			   boolean resultado;
-			   fileReader = new FileReader(arquivo);
-	    	   fileWriter = new FileWriter(arquivo);
-	    	   leitor = new BufferedReader(fileReader);
-	    	   escrever = new BufferedWriter(fileWriter);
-	    	   String linha = leitor.readLine();
-	    	   escrever.close();
-	    	   fileWriter.close(); 
-			  
-			   
-			  do {
-					
-					String [] vamosPorPartes = linha.split(",");
-					
-					
-					if (login.equals(vamosPorPartes[0])) { //se achei esse login no arquivo						
-						return false;
-					}
-					
-					if (linha != null) {
-						
-						linha = leitor.readLine();
-					
-					}
-					
-				}while(linha != null);
-				
-			  
-			  
-		  } catch (IOException e) {
-			    System.out.println("Esse login já existe!");
-			}
-			
-			return false;
-
-		}*/
 
 	    @FXML
 	    void verReservas(ActionEvent event) {
@@ -223,14 +171,6 @@ public class MeuPerfilController extends Application implements Initializable{
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		//PREENCHER
-		Usuario user = new Usuario("rafael0607", "12345678", "Rafaellindo", "23344378956", "M");
-		/*txLogin.setText(user.getLogin());
-		txNome.setText(user.getNome());
-		txSenha.setText(user.getSenha());
-		txSexo.setText(user.getSexo());*/
-		
-		
 		
 	}
 	
