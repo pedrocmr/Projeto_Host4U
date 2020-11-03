@@ -25,6 +25,8 @@ import modelo.Usuario;
 public class HomeController extends Application implements Initializable {
 
 	private static Stage stage;
+	
+	private static  HomeController controller;
 
 	@FXML private AnchorPane root;
     @FXML private ImageView imagem;
@@ -42,7 +44,38 @@ public class HomeController extends Application implements Initializable {
     @FXML private Button btTam;
     @FXML private Button btPort;
     @FXML private ImageView imagemBv;
-	    
+    @FXML private Button btMeuPerfil;
+    	  private Usuario usuario;
+    	  
+    public HomeController(Usuario usuario) {
+    	
+    	this.usuario = usuario;
+    	
+    }
+    
+    public HomeController() {
+    	
+    	usuario = null;
+    }
+    
+    @FXML
+    void actionMeuPerfil(ActionEvent event) {
+
+    	btMeuPerfil.setOnMouseClicked((MouseEvent mouse) -> {
+			
+    		proximaPerfil();
+			
+		});
+		
+		btMeuPerfil.setOnKeyPressed((KeyEvent enter) -> {
+			if(enter.getCode().equals(KeyCode.ENTER)) {
+				
+				proximaPerfil();
+					
+			}
+		});
+    
+    }
     @FXML
     void tabelaBv(MouseEvent event) {
         proximaTabela();
@@ -58,21 +91,6 @@ public class HomeController extends Application implements Initializable {
       proximaTabela();
     }
     
-	    @FXML void cadastrar(ActionEvent event) {
-	    	
-	    	btCadastrar.setOnMouseClicked((MouseEvent mouse) -> {
-				proximaCadastro();
-				btCadastrar.setVisible(true);
-			});
-			
-			btCadastrar.setOnKeyPressed((KeyEvent enter) -> {
-				if(enter.getCode().equals(KeyCode.ENTER)) {
-					proximaCadastro();
-					btCadastrar.setVisible(true);	
-
-				}
-			});
-	    }
 
 	    @FXML
 	    void logar(ActionEvent event) {
@@ -91,19 +109,28 @@ public class HomeController extends Application implements Initializable {
 	@Override
 	public void start(Stage stage) throws Exception {
 
-		AnchorPane root = FXMLLoader.load(getClass().getResource("Home.fxml"));
+		AnchorPane root;
+		
+		if(usuario == null) {
+			
+			root = FXMLLoader.load(getClass().getResource("Home.fxml"));
+		}else {
+			
+			root = FXMLLoader.load(getClass().getResource("HomeLogado.fxml"));
+		}
 
 		Scene scene = new Scene(root, 700, 500);
-
+		
+		
 		stage.setTitle("HOST4U - Home");
 		Image imagem = new Image("imagens/iconehotel.png");
 		stage.getIcons().add(imagem);
-
+		
 		stage.setResizable(false);
 		stage.setScene(scene);
 		stage.show();
 
-		setStage(stage);// SETTANDO CENA
+		setStage(stage);
 
 	}
 
@@ -116,27 +143,29 @@ public class HomeController extends Application implements Initializable {
 	}
 
 	public void initialize(URL location, ResourceBundle resources) {
-		//PREENCHER
+		
 
 	}
+	
 	
 	public void fecharTela() {
 		HomeController.getStage().close();
 	}
 	
-	public void proximaCadastro() {
+	public void proximaPerfil() {
 		
-		CadastroController cc = new CadastroController();
+		MeuPerfilController mpc = new MeuPerfilController(usuario);
 		fecharTela();
 		
 		try {
-			cc.start(new Stage());
+			mpc.start(new Stage());
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 	}
 	
 	public void proximaLogin() {
+		
 		LoginController lc = new LoginController();
 
 		fecharTela();
@@ -157,16 +186,6 @@ public class HomeController extends Application implements Initializable {
 			tc.start(new Stage());
 		} catch (Exception e) {
 			// TODO: handle exception
-		}
-	}
-	
-	public void botaoInvisivel(Button bt) {
-		
-		LoginController lC = new LoginController();
-		Usuario user = new Usuario();
-		if(lC.proximaTelaHomeLogado(user) == true ) {
-			bt.setVisible(false);
-
 		}
 	}
 		

@@ -34,6 +34,9 @@ public class LoginController extends Application{
     @FXML private Button btEntrar;
     @FXML private Button btSair;
     @FXML private Button btCadastro;
+    
+    private FileReader fileReader;
+    private BufferedReader leitor;
 
 	private BufferedReader br;
     
@@ -84,9 +87,9 @@ public class LoginController extends Application{
 
 	public boolean proximaTelaHomeLogado(Usuario usuario) {
 		
-		HomeController home = new HomeController();
+		
+		HomeController home = new HomeController(usuario);
 		fechaTela();
-		//home.btCadastrar.setDisable(true);
 
 		try {
 			
@@ -134,19 +137,7 @@ public class LoginController extends Application{
 							
 							Usuario passaPraHome = new Usuario(vamosPorPartes[0],vamosPorPartes[1],vamosPorPartes[2],
 																vamosPorPartes[3],vamosPorPartes[4]);
-							MeuPerfilController meuPerCon = new MeuPerfilController();
-							String pegaLogin = vamosPorPartes[0];
-							meuPerCon.txLogin.setText(pegaLogin);
-							meuPerCon.txSenha.setText(vamosPorPartes[1]);
-							meuPerCon.txNome.setText(vamosPorPartes[2]);
-							meuPerCon.txSexo.setText(vamosPorPartes[4]);
 							
-							
-							proximaTelaHomeLogado(passaPraHome);
-							
-							System.out.println(meuPerCon.txNome.getText());
-							System.out.println(passaPraHome.getNome());
-							System.out.println("Teste");
 							
 						}
 						
@@ -222,6 +213,8 @@ public class LoginController extends Application{
 	    void clickEntrar(MouseEvent event) {
 
 		 	String msg = "";
+		 	boolean logou = false;
+		 	Usuario passaPraHome = null;
 			
 			if(txtLogin.getText().length() < 4 || txtSenha.getText().length() < 8) {
 				
@@ -230,7 +223,7 @@ public class LoginController extends Application{
 			}else {
 			
 				try {
-					boolean logou = false;
+					
 					File arquivo = new File ("src/arquivo.txt");
 					FileReader fr = new FileReader(arquivo);
 					br = new BufferedReader(fr);
@@ -244,19 +237,12 @@ public class LoginController extends Application{
 							
 							logou = true;
 							
-							Usuario passaPraHome = new Usuario(vamosPorPartes[0],vamosPorPartes[1],vamosPorPartes[2],
+							 passaPraHome = new Usuario(vamosPorPartes[0],vamosPorPartes[1],vamosPorPartes[2],
 																vamosPorPartes[3],vamosPorPartes[4]);
 							
 							
-							
-							proximaTelaHomeLogado(passaPraHome);
-							MeuPerfilController meuPerCon = new MeuPerfilController();
-							meuPerCon.txLogin.setText(passaPraHome.getLogin());
-							System.out.println(meuPerCon.txLogin.getText());
-							//meuPerCon.txSenha.setText(vamosPorPartes[1]);
-							//meuPerCon.txNome.setText(vamosPorPartes[2]);
-							//meuPerCon.txSexo.setText(vamosPorPartes[4]);
-							System.out.println("Teste");
+							 proximaTelaHomeLogado(passaPraHome);
+							 break;
 						}
 						
 						if(linha != null) {
@@ -287,6 +273,8 @@ public class LoginController extends Application{
 				erro.showAndWait();
 		
 			}
+			
+			
 	 }
 	 @FXML
 	    void clickCadastro(MouseEvent event) {
