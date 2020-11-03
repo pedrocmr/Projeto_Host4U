@@ -41,6 +41,13 @@ public class MeuPerfilController extends Application implements Initializable{
 	    @FXML public PasswordField txSenha;
 	    @FXML private ImageView imagemHost;
 	    @FXML private Button btReservas;
+	    private Usuario usuario;
+	    
+	    public MeuPerfilController(Usuario usuario) {
+		
+	    	this.usuario = usuario;
+		}
+	    
 	    
      
 	    @FXML
@@ -73,7 +80,9 @@ public class MeuPerfilController extends Application implements Initializable{
 
 	    @FXML
 	    void voltar(ActionEvent event) {
-
+	    	
+	    	
+	    	
 	    	btVoltar.setOnMouseClicked((MouseEvent mouse) -> {
 				telaHome();
 			});
@@ -119,13 +128,6 @@ public class MeuPerfilController extends Application implements Initializable{
 		
 		Usuario user = new Usuario("rafael0607", "12345678", "Rafaellindo", "23344378956", "M");
 		
-		txLogin.setText(user.getLogin());
-		txNome.setText(user.getNome());
-		txSenha.setText(user.getSenha());
-		txSexo.setText(user.getSexo());
-		
-		
-		
 	}
 	
     public void fecharTela() {
@@ -134,7 +136,7 @@ public class MeuPerfilController extends Application implements Initializable{
     
     public void telaHome() {
     	
-    	HomeController hc = new HomeController();
+    	HomeController hc = new HomeController(usuario);
 		fecharTela();
 		
 		try {
@@ -146,7 +148,7 @@ public class MeuPerfilController extends Application implements Initializable{
 
     public void proximaTela() {
 	
-	MinhaReservaController rc = new MinhaReservaController();
+	MinhaReservaController rc = new MinhaReservaController(usuario);
 	fecharTela();
 	
 	try {

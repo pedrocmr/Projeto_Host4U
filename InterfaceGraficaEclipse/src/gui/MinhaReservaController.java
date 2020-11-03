@@ -42,12 +42,14 @@ public class MinhaReservaController extends Application implements Initializable
 	    @FXML private Button btSalvar;
 	    @FXML private Button btVoltar;
 	    @FXML private Button btAlterar;
-	    private Usuario usuario;
+	    	  private Usuario usuario;
 	    
-	    MinhaReservaController(Usuario usuario){
+	    	  
+	    public MinhaReservaController(Usuario usuario) {
+		
 	    	this.usuario = usuario;
-	    }
-	    
+		}
+	   
 	    @FXML
 	    void alteraReserva(ActionEvent event) {
 
@@ -118,19 +120,18 @@ public class MinhaReservaController extends Application implements Initializable
 	
 	public void inicializaTabela() {
 		
-		
-		rotuloHotel.setCellValueFactory(new PropertyValueFactory<>("nome"));
-		rotuloQuarto.setCellValueFactory(new PropertyValueFactory<>("num"));
+		rotuloHotel.setCellValueFactory(new PropertyValueFactory<>(""));
+		rotuloQuarto.setCellValueFactory(new PropertyValueFactory<>(""));
 		rotuloCheckin.setCellValueFactory(new PropertyValueFactory<>("checkin"));
 		rotuloCheckout.setCellValueFactory(new PropertyValueFactory<>("checkout"));
 		
-		tabela.setItems(listaTabela());
 		
 	}
 	
 	public ObservableList<Reserva> listaTabela(){
 		RepositorioReservaArray rr = new RepositorioReservaArray();
-		return FXCollections.observableArrayList(rr.listarTodasReservas());
+		Usuario user = new Usuario();
+		return FXCollections.observableArrayList(rr.listarReservas(user.getCpf()));
 	}
 	
 	public void fecharTela() {
@@ -139,7 +140,7 @@ public class MinhaReservaController extends Application implements Initializable
 	
 	public void proximaTela() {
 		
-		MeuPerfilController mp = new MeuPerfilController();
+		MeuPerfilController mp = new MeuPerfilController(usuario);
 		fecharTela();
 		
 		try {
