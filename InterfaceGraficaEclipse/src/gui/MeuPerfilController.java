@@ -1,5 +1,12 @@
 package gui;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -9,10 +16,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -20,6 +29,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import modelo.Usuario;
+import repositorio.RepositorioUsuarioArray;
 
 public class MeuPerfilController extends Application implements Initializable{
 
@@ -31,30 +42,127 @@ public class MeuPerfilController extends Application implements Initializable{
         @FXML private Label texto4;
         @FXML private Label texto3;
 	    @FXML private Label texto5;
-	    @FXML public TextField txNome;
-	    @FXML public TextField txSexo;
-	    @FXML public TextField txLogin;
+	    @FXML private TextField txNome;
+	    @FXML private TextField txSexo;
+	    @FXML private TextField txLogin;
 	    @FXML private Button btSalvar;
 	    @FXML private ImageView imagem1;
 	    @FXML private Button btVoltar;
-	    @FXML public PasswordField txSenha;
+	    @FXML private PasswordField txSenha;
 	    @FXML private ImageView imagemHost;
 	    @FXML private Button btReservas;
-	          
-				
+     
 	    @FXML
 	    void salvarAlteracoes(ActionEvent event) {
 
-	    	btSalvar.setOnMouseClicked((MouseEvent mouse) -> {
-				System.out.println("salvo!");
-			});
+	       File arquivo = new File("src/arquivo.txt");
+	       FileWriter fileWriter;
+	       FileReader fileReader;
+	       BufferedReader leitor;
+	       BufferedWriter escrever;
+	       RepositorioUsuarioArray repUser = new RepositorioUsuarioArray();
+	       String linha;
+	       String nome = txNome.getText();
+	       String loginNew = txLogin.getText();
+	       String senha = txSenha.getText();
+	       String sexo = txSexo.getText();
+	       try {
+	    	   
+	    		fileReader = new FileReader(arquivo);
+				leitor = new BufferedReader(fileReader);
+				 linha = leitor.readLine();
+				 fileWriter = new FileWriter(arquivo,true);
+				 escrever = new BufferedWriter(fileWriter);
+				
+	    	   
+			   do {
+					
+				   String [] vamosPorPartes = linha.split(","); 
+				
+					if (loginNew.equals(vamosPorPartes[0])) { //se achei esse login no arquivo						
+						
+					  String linhaDados = loginNew +  "," + vamosPorPartes[1] + "," + vamosPorPartes[2] + "," + vamosPorPartes[3] + "," + vamosPorPartes[4];
+					 vamosPorPartes[2] =  txNome.getText();
+					 vamosPorPartes[1] = txSenha.getText();
+					 vamosPorPartes[4] = txSexo.getText();
+					 linhaDados = loginNew +  "," + vamosPorPartes[1] + "," + vamosPorPartes[2] + "," + vamosPorPartes[3] + "," + vamosPorPartes[4];
+
+				      escrever.write(linhaDados + "\n");
+				      escrever.close();
+					   fileWriter.close();	 
+				    	  
+					}else {
+						Alert erro = new Alert(AlertType.ERROR);
+						erro.setTitle("Não tem como mudar");
+						erro.setHeaderText("O Login deve ser o mesmo.");
+						erro.setContentText("Erro");
+						erro.showAndWait();
+					}
+					
+					if (linha != null) {
+						
+						linha = leitor.readLine();
+						
+						
+					}
+					
+				}while(linha != null);
+				
 			 
-			btSalvar.setOnKeyPressed((KeyEvent enter) -> {
-				if(enter.getCode().equals(KeyCode.ENTER)) {
-					System.out.println("salvo!");
-				}
-			});
+			  
+		  } catch (IOException e) {
+			    System.out.println("Esse login já existe!");
+			}
+			
+			
 	    }
+	    
+	 /*  public boolean validarLogin(String login)  {
+			
+		   File arquivo = new File("src/arquivo.txt");
+	       FileWriter fileWriter;
+	       FileReader fileReader;
+	       BufferedReader leitor;
+	       BufferedWriter escrever;
+		  
+		   
+	       try {
+			   boolean resultado;
+			   fileReader = new FileReader(arquivo);
+	    	   fileWriter = new FileWriter(arquivo);
+	    	   leitor = new BufferedReader(fileReader);
+	    	   escrever = new BufferedWriter(fileWriter);
+	    	   String linha = leitor.readLine();
+	    	   escrever.close();
+	    	   fileWriter.close(); 
+			  
+			   
+			  do {
+					
+					String [] vamosPorPartes = linha.split(",");
+					
+					
+					if (login.equals(vamosPorPartes[0])) { //se achei esse login no arquivo						
+						return false;
+					}
+					
+					if (linha != null) {
+						
+						linha = leitor.readLine();
+					
+					}
+					
+				}while(linha != null);
+				
+			  
+			  
+		  } catch (IOException e) {
+			    System.out.println("Esse login já existe!");
+			}
+			
+			return false;
+
+		}*/
 
 	    @FXML
 	    void verReservas(ActionEvent event) {
@@ -114,7 +222,15 @@ public class MeuPerfilController extends Application implements Initializable{
 	}
 	
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {		
+	public void initialize(URL location, ResourceBundle resources) {
+		//PREENCHER
+		Usuario user = new Usuario("rafael0607", "12345678", "Rafaellindo", "23344378956", "M");
+		/*txLogin.setText(user.getLogin());
+		txNome.setText(user.getNome());
+		txSenha.setText(user.getSenha());
+		txSexo.setText(user.getSexo());*/
+		
+		
 		
 	}
 	
