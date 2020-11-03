@@ -124,6 +124,28 @@ public class ControleCadastro {
 
 		}
 		
+		public boolean atualiza(Usuario u) {
+			File arquivo = new File("src/arquivo.txt");
+			String linhaDados = u.getLogin() + "," + u.getSenha() + "," + u.getNome() + "," + u.getCpf()+ "," + u.getSexo();			
+			
+			try {
+				fileWriter = new FileWriter(arquivo);
+				escrever = new BufferedWriter(fileWriter);
+				escrever.write(linhaDados);
+
+				escrever.write(linhaDados + "\n");
+				escrever.close();
+				fileWriter.close();
+				 
+				 
+				 return true;
+			} catch (IOException e ) {
+				System.out.println("erro" + e.getMessage());
+			}
+		
+			return true;
+		}
+		
 		
 		
 }		

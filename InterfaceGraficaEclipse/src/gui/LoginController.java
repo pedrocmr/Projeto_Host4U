@@ -134,19 +134,7 @@ public class LoginController extends Application{
 							
 							Usuario passaPraHome = new Usuario(vamosPorPartes[0],vamosPorPartes[1],vamosPorPartes[2],
 																vamosPorPartes[3],vamosPorPartes[4]);
-							MeuPerfilController meuPerCon = new MeuPerfilController();
-							String pegaLogin = vamosPorPartes[0];
-							meuPerCon.txLogin.setText(pegaLogin);
-							meuPerCon.txSenha.setText(vamosPorPartes[1]);
-							meuPerCon.txNome.setText(vamosPorPartes[2]);
-							meuPerCon.txSexo.setText(vamosPorPartes[4]);
-							
-							
-							proximaTelaHomeLogado(passaPraHome);
-							
-							System.out.println(meuPerCon.txNome.getText());
-							System.out.println(passaPraHome.getNome());
-							System.out.println("Teste");
+								proximaTelaHomeLogado(passaPraHome);
 							
 						}
 						
@@ -247,16 +235,8 @@ public class LoginController extends Application{
 							Usuario passaPraHome = new Usuario(vamosPorPartes[0],vamosPorPartes[1],vamosPorPartes[2],
 																vamosPorPartes[3],vamosPorPartes[4]);
 							
-							
-							
 							proximaTelaHomeLogado(passaPraHome);
-							MeuPerfilController meuPerCon = new MeuPerfilController();
-							meuPerCon.txLogin.setText(passaPraHome.getLogin());
-							System.out.println(meuPerCon.txLogin.getText());
-							//meuPerCon.txSenha.setText(vamosPorPartes[1]);
-							//meuPerCon.txNome.setText(vamosPorPartes[2]);
-							//meuPerCon.txSexo.setText(vamosPorPartes[4]);
-							System.out.println("Teste");
+							
 						}
 						
 						if(linha != null) {
