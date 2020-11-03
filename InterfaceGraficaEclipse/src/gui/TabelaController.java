@@ -24,6 +24,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import modelo.Hotel;
+import modelo.Usuario;
 import repositorio.RepositorioHotelArray;
 
 
@@ -40,6 +41,13 @@ public class TabelaController extends Application implements Initializable{
     @FXML private Text txtTitulo;
     @FXML private Button btAvancar;
     @FXML private ImageView imagem;
+    
+    private Usuario usuario;
+    
+    public TabelaController(Usuario usuario) {
+    	
+    	this.usuario = usuario;
+	}
 
     @FXML
     void avancaTela(ActionEvent event) {
@@ -119,7 +127,7 @@ public class TabelaController extends Application implements Initializable{
 	
 	public void telaReserva() {
 		
-		ReservaController rc = new ReservaController();
+		ReservaController rc = new ReservaController(usuario);
 		fecharTela();
 		
 		try {
