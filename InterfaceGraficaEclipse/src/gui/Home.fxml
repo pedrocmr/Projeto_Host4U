@@ -74,7 +74,7 @@
       </Button>
       <ImageView fitHeight="170.0" fitWidth="225.0" layoutX="8.0" layoutY="210.0" onMouseClicked="#tabelaBv">
          <image>
-            <Image url="imagens/Saved%20Pictures/boa%20viagem.jpeg" />
+            <Image url="imagens/boa viagem.jpeg" />
          </image>
       </ImageView>
       <Button fx:id="btMeuPerfil" layoutX="502.0" layoutY="14.0" mnemonicParsing="false" onAction="#actionMeuPerfil" style="-fx-background-color: yellow;" text="Meu Perfil" visible="false">

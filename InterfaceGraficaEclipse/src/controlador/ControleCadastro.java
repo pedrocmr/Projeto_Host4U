@@ -25,22 +25,24 @@ public class ControleCadastro {
 		
 		private boolean verificaCadastro(String cpf) {
 			
+			System.out.println(validarCpf(cpf));
 			if(validarCpf(cpf).equals("Erro")) {
 				return false;
 			}
 			
 			Boolean resultado = true;
-			File arquivo = new File("src/arquivo.txt");
 			
 			try {
 				
 				
+				File arquivo = new File("src/arquivo.txt");
 				fileReader = new FileReader(arquivo);
 				leitor = new BufferedReader(fileReader);
 				String linha = leitor.readLine();
 				
 				do {
 					
+					resultado = true;
 					String [] vamosPorPartes = linha.split(",");
 					
 					
@@ -60,6 +62,7 @@ public class ControleCadastro {
 			} catch (IOException e) {
 				
 				System.out.println("erro" + e.getMessage());
+				resultado = false;
 			}
 			
 			return resultado;
