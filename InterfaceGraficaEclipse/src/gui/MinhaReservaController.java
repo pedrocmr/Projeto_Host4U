@@ -134,10 +134,11 @@ public class MinhaReservaController extends Application implements Initializable
 	public void proximaTela() {
 		
 		MeuPerfilController mp = new MeuPerfilController();
-		fecharTela();
+		
 		
 		try {
 			mp.start(new Stage());
+			fecharTela();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

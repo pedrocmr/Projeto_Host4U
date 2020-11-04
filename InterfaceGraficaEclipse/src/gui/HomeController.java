@@ -153,10 +153,11 @@ public class HomeController extends Application implements Initializable {
 	public void proximaPerfil() {
 		
 		MeuPerfilController mpc = new MeuPerfilController();
-		fecharTela();
+		
 		
 		try {
 			mpc.start(new Stage());
+			fecharTela();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -166,10 +167,11 @@ public class HomeController extends Application implements Initializable {
 		
 		LoginController lc = new LoginController();
 
-		fecharTela();
+		
 		
 		try {
 			lc.start(new Stage());
+			fecharTela();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -178,10 +180,11 @@ public class HomeController extends Application implements Initializable {
 	public void proximaTabela() {
 		
 		TabelaController tc = new TabelaController();
-		fecharTela();
+		
 		
 		try {
 			tc.start(new Stage());
+			fecharTela();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

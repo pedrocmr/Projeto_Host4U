@@ -128,10 +128,11 @@ public class RelatorioAdminController extends Application implements Initializab
 
 	public void proximaHome() {
 		HomeController hc = new HomeController();
-		fechaTela();
+		
 		
 		try {
 			hc.start(new Stage());
+			fechaTela();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

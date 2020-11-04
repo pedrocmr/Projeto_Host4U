@@ -107,10 +107,11 @@ public class CadastroController extends Application implements Initializable {
     
     public void proximaHome() {
 		HomeController hC = new HomeController();
-		fecharTela();
+		
 		
 		try {
 			hC.start(new Stage());
+			fecharTela();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -157,9 +158,10 @@ public class CadastroController extends Application implements Initializable {
 		
 		btnSair.setOnMouseClicked((MouseEvent mouse) -> {
 			HomeController hC = new HomeController();
-			fecharTela();
 			try {
 				hC.start(new Stage());
+				fecharTela();
+
 			} catch (Exception e) {
 				// TODO: handle exception
 			}

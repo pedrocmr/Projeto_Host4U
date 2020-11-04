@@ -11,6 +11,8 @@ public class MainApp extends Application {
 	
 		try {
 			hc.start(new Stage());
+			System.out.println("java version: "+System.getProperty("java.version")); 
+			System.out.println("javafx.version: " + System.getProperty("javafx.version"));
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

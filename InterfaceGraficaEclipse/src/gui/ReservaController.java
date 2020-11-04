@@ -208,10 +208,11 @@ public class ReservaController extends Application implements Initializable {
 	public void proximaTela() {
 		
 		PagamentoController p = new PagamentoController();
-		fecharTela();
+		
 		
 		try {
 			p.start(new Stage());
+			fecharTela();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -219,10 +220,11 @@ public class ReservaController extends Application implements Initializable {
 	
 	public void proximaTabela() {
 		TabelaController tc = new TabelaController();
-		fecharTela();
+		
 		
 		try {
 			tc.start(new Stage());
+			fecharTela();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

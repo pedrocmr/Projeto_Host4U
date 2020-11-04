@@ -181,10 +181,11 @@ public class MeuPerfilController extends Application implements Initializable{
     public void telaHome() {
     	
     	HomeController hc = new HomeController();
-		fecharTela();
+		
 		
 		try {
 			hc.start(new Stage());
+			fecharTela();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -193,10 +194,11 @@ public class MeuPerfilController extends Application implements Initializable{
     public void proximaTela() {
 	
 	MinhaReservaController rc = new MinhaReservaController();
-	fecharTela();
+	
 	
 	try {
 		rc.start(new Stage());
+		fecharTela();
 	} catch (Exception e) {
 		// TODO: handle exception
 	}
