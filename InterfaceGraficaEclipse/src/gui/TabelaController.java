@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -33,6 +34,7 @@ public class TabelaController extends Application implements Initializable{
 	
 	@FXML private AnchorPane root;
     @FXML private TableView<Hotel> tabela;
+    @FXML private TableColumn<Hotel, Boolean> selectCol;
     @FXML private TableColumn<Hotel, String> clnNome;
     @FXML private TableColumn<Hotel, Integer> clnQuartos;
     @FXML private TableColumn<Hotel, String> clnEndereço;
@@ -92,6 +94,13 @@ public class TabelaController extends Application implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 
 		inicializaTabela();
+		RepositorioHotelArray repHotel ;
+		repHotel = new RepositorioHotelArray();
+		repHotel.listarHotelPG(0);
+		repHotel.listarHotelBV(1);
+		repHotel.listarHotelTM(2);
+		
+		
 	}
 	
 	public static Stage getStage() {
@@ -133,10 +142,14 @@ public class TabelaController extends Application implements Initializable{
 	}
 	
    public void inicializaTabela() {
-		
+	    selectCol.setCellValueFactory(new PropertyValueFactory<>("Selecionado"));
 		clnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
 		clnQuartos.setCellValueFactory(new PropertyValueFactory<>("qtdQuartos"));
 		clnEndereço.setCellValueFactory(new PropertyValueFactory<>("endereco"));
+		
+		selectCol.setCellFactory(
+				CheckBoxTableCell.forTableColumn(selectCol)
+				);
 		
 		tabela.setItems(listaTabela());
 		
@@ -146,6 +159,21 @@ public class TabelaController extends Application implements Initializable{
 		RepositorioHotelArray rH = new RepositorioHotelArray();
 		return FXCollections.observableArrayList(rH.listarHoteis());
 	}
+   
+  /* public ObservableList<Hotel> listaTabelaPG(){ 
+		RepositorioHotelArray rH = new RepositorioHotelArray();
+		return FXCollections.observableArrayList(rH.listarHotelPG(0));
+	}
+   
+   public ObservableList<Hotel> listaTabelaBV(){
+		RepositorioHotelArray rH = new RepositorioHotelArray();
+		return FXCollections.observableArrayList(rH.listarHotelBV(1));
+	}
+   
+   public ObservableList<Hotel> listaTabelaTM(){
+		RepositorioHotelArray rH = new RepositorioHotelArray();
+		return FXCollections.observableArrayList(rH.listarHotelTM(2));
+	}*/
    
   
 	public static void main(String[] args) {

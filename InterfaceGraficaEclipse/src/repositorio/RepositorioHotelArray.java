@@ -41,7 +41,7 @@ public class RepositorioHotelArray implements IRepositorioHotel {
 			
 			l3 = new Lugar("Praia","Tamandaré", 170, 290);
 			end3 = new Endereco("Rua das Ostras", 669,"Tamandaré", "PE");
-			hoteis.add(new Hotel("Hotel Urbano ", 1, 10, l3, 10, end3));
+			hoteis.add(new Hotel("Hotel Urbano ", 3, 10, l3, 10, end3));
 			
 			
 			File hotel = new File("src/urbano.txt");
@@ -100,6 +100,24 @@ public class RepositorioHotelArray implements IRepositorioHotel {
 
 		return ht;
 	}
+	
+	public Hotel listarHotelPG(Integer id){
+		
+		System.out.println(hoteis.get(0));
+		return hoteis.get(0);
+	}
+	public Hotel listarHotelBV(Integer id){
+		
+		System.out.println(hoteis.get(1));
+		return hoteis.get(1);
+	}
+	
+	public Hotel listarHotelTM(Integer id){
+		
+		System.out.println(hoteis.get(2));
+		return hoteis.get(2);
+	}
+	
 
 	public ArrayList<Quarto> listarQuartos() {
 		ArrayList<Quarto> quartos = new ArrayList<Quarto>();

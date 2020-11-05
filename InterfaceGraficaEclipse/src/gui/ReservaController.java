@@ -31,6 +31,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import modelo.Hotel;
 import modelo.Quarto;
+import modelo.Usuario;
 
 public class ReservaController extends Application implements Initializable {
 
@@ -243,6 +244,10 @@ public class ReservaController extends Application implements Initializable {
     
     @FXML
     void clickBuscar(MouseEvent event) {    	
+    	System.out.println("Cliquei no botão buscar");
+    	Usuario u;
+    	LoginController.user.getLogin();
+    	u = new Usuario(LoginController.user.getLogin(), LoginController.user.getSenha(), LoginController.user.getNome(), LoginController.user.getCpf(), LoginController.user.getSexo());
     	
     }
     
