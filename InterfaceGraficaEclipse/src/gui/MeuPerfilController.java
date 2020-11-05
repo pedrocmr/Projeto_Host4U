@@ -28,11 +28,14 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import modelo.Usuario;
 
 public class MeuPerfilController extends Application implements Initializable{
 
+		private static final Usuario user = null;
+
 		static Stage stage;
-	
+		
 	    @FXML private AnchorPane root;
         @FXML private Label texto6;
         @FXML private Label texto2;
@@ -81,7 +84,13 @@ public class MeuPerfilController extends Application implements Initializable{
 					 vamosPorPartes[1] = txSenha.getText();
 					 vamosPorPartes[4] = txSexo.getText();
 					 linhaDados = loginNew +  "," + vamosPorPartes[1] + "," + vamosPorPartes[2] + "," + vamosPorPartes[3] + "," + vamosPorPartes[4];
-
+					 
+					 user.setLogin(loginNew); //quando voltar à tela Home, ainda vai estar logado
+					 user.setSenha(vamosPorPartes[1]);
+					 user.setNome(vamosPorPartes[2]);
+					 user.setCpf(vamosPorPartes[3]);
+					 user.setSexo(vamosPorPartes[4]);
+					 
 				      escrever.write(linhaDados + "\n");
 				      escrever.close();
 					   fileWriter.close();	 
@@ -171,7 +180,14 @@ public class MeuPerfilController extends Application implements Initializable{
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+		LoginController loginC = new LoginController();
+		txNome.setText(LoginController.user.getNome());
+		txLogin.setText(LoginController.user.getLogin());
+		txSenha.setText(LoginController.user.getSenha());
+		txSexo.setText(LoginController.user.getSexo());
+
+
+		//loginC.user;
 	}
 	
     public void fecharTela() {
@@ -179,9 +195,9 @@ public class MeuPerfilController extends Application implements Initializable{
 }
     
     public void telaHome() {
-    	
-    	HomeController hc = new HomeController();
-		
+    	Usuario u;
+    	u = new Usuario(LoginController.user.getLogin(),LoginController.user.getSenha(),LoginController.user.getNome(),LoginController.user.getCpf(),LoginController.user.getSexo());
+    	HomeController hc = new HomeController(u);
 		
 		try {
 			hc.start(new Stage());
