@@ -1,5 +1,11 @@
 package gui;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -9,10 +15,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -24,44 +32,93 @@ import modelo.Usuario;
 
 public class MeuPerfilController extends Application implements Initializable{
 
+		private static final Usuario user = null;
+
 		static Stage stage;
-	
+		
 	    @FXML private AnchorPane root;
         @FXML private Label texto6;
         @FXML private Label texto2;
         @FXML private Label texto4;
         @FXML private Label texto3;
 	    @FXML private Label texto5;
-	    @FXML public TextField txNome;
-	    @FXML public TextField txSexo;
-	    @FXML public TextField txLogin;
+	    @FXML private TextField txNome;
+	    @FXML private TextField txSexo;
+	    @FXML private TextField txLogin;
 	    @FXML private Button btSalvar;
 	    @FXML private ImageView imagem1;
 	    @FXML private Button btVoltar;
-	    @FXML public PasswordField txSenha;
+	    @FXML private PasswordField txSenha;
 	    @FXML private ImageView imagemHost;
 	    @FXML private Button btReservas;
-	    private Usuario usuario;
-	    
-	    public MeuPerfilController(Usuario usuario) {
-		
-	    	this.usuario = usuario;
-		}
-	    
-	    
      
 	    @FXML
 	    void salvarAlteracoes(ActionEvent event) {
 
-	    	btSalvar.setOnMouseClicked((MouseEvent mouse) -> {
-				System.out.println("salvo!");
-			});
+	       File arquivo = new File("src/arquivo.txt");
+	       FileWriter fileWriter;
+	       FileReader fileReader;
+	       BufferedReader leitor;
+	       BufferedWriter escrever;
+	     
+	       String linha;
+	       String loginNew = txLogin.getText();
+	      
+	       try {
+	    	   
+	    		fileReader = new FileReader(arquivo);
+				leitor = new BufferedReader(fileReader);
+				 linha = leitor.readLine();
+				 fileWriter = new FileWriter(arquivo,true);
+				 escrever = new BufferedWriter(fileWriter);
+				
+	    	   
+			   do {
+					
+				   String [] vamosPorPartes = linha.split(","); 
+				
+					if (loginNew.equals(vamosPorPartes[0])) { //se achei esse login no arquivo						
+						
+					  String linhaDados = loginNew +  "," + vamosPorPartes[1] + "," + vamosPorPartes[2] + "," + vamosPorPartes[3] + "," + vamosPorPartes[4];
+					 vamosPorPartes[2] =  txNome.getText();
+					 vamosPorPartes[1] = txSenha.getText();
+					 vamosPorPartes[4] = txSexo.getText();
+					 linhaDados = loginNew +  "," + vamosPorPartes[1] + "," + vamosPorPartes[2] + "," + vamosPorPartes[3] + "," + vamosPorPartes[4];
+					 
+					 user.setLogin(loginNew); //quando voltar à tela Home, ainda vai estar logado
+					 user.setSenha(vamosPorPartes[1]);
+					 user.setNome(vamosPorPartes[2]);
+					 user.setCpf(vamosPorPartes[3]);
+					 user.setSexo(vamosPorPartes[4]);
+					 
+				      escrever.write(linhaDados + "\n");
+				      escrever.close();
+					   fileWriter.close();	 
+				    	  
+					}else {
+						Alert erro = new Alert(AlertType.ERROR);
+						erro.setTitle("Não tem como mudar");
+						erro.setHeaderText("O Login deve ser o mesmo.");
+						erro.setContentText("Erro");
+						erro.showAndWait();
+					}
+					
+					if (linha != null) {
+						
+						linha = leitor.readLine();
+						
+						
+					}
+					
+				}while(linha != null);
+				
 			 
-			btSalvar.setOnKeyPressed((KeyEvent enter) -> {
-				if(enter.getCode().equals(KeyCode.ENTER)) {
-					System.out.println("salvo!");
-				}
-			});
+			  
+		  } catch (IOException e) {
+			    System.out.println("Esse login já existe!");
+			}
+			
+			
 	    }
 
 	    @FXML
@@ -80,9 +137,7 @@ public class MeuPerfilController extends Application implements Initializable{
 
 	    @FXML
 	    void voltar(ActionEvent event) {
-	    	
-	    	
-	    	
+
 	    	btVoltar.setOnMouseClicked((MouseEvent mouse) -> {
 				telaHome();
 			});
@@ -125,9 +180,14 @@ public class MeuPerfilController extends Application implements Initializable{
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
-		Usuario user = new Usuario("rafael0607", "12345678", "Rafaellindo", "23344378956", "M");
-		
+		LoginController loginC = new LoginController();
+		txNome.setText(LoginController.user.getNome());
+		txLogin.setText(LoginController.user.getLogin());
+		txSenha.setText(LoginController.user.getSenha());
+		txSexo.setText(LoginController.user.getSexo());
+
+
+		//loginC.user;
 	}
 	
     public void fecharTela() {
@@ -135,12 +195,13 @@ public class MeuPerfilController extends Application implements Initializable{
 }
     
     public void telaHome() {
-    	
-    	HomeController hc = new HomeController(usuario);
-		fecharTela();
+    	Usuario u;
+    	u = new Usuario(LoginController.user.getLogin(),LoginController.user.getSenha(),LoginController.user.getNome(),LoginController.user.getCpf(),LoginController.user.getSexo());
+    	HomeController hc = new HomeController(u);
 		
 		try {
 			hc.start(new Stage());
+			fecharTela();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -148,11 +209,12 @@ public class MeuPerfilController extends Application implements Initializable{
 
     public void proximaTela() {
 	
-	MinhaReservaController rc = new MinhaReservaController(usuario);
-	fecharTela();
+	MinhaReservaController rc = new MinhaReservaController();
+	
 	
 	try {
 		rc.start(new Stage());
+		fecharTela();
 	} catch (Exception e) {
 		// TODO: handle exception
 	}

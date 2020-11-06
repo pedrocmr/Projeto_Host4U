@@ -9,11 +9,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="root" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.HomeController">
+<AnchorPane fx:id="root" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.HomeController">
    <children>
       <ImageView fx:id="imagem" fitHeight="73.0" fitWidth="130.0" layoutX="14.0" layoutY="14.0">
          <image>
-            <Image url="@../../../../../../Imagens/H4ULogotipo.png" />
+            <Image url="imagens/H4ULogotipo.png" />
          </image>
       </ImageView>
       <Label fx:id="lbTitulo" layoutX="151.0" layoutY="21.0" prefHeight="29.0" prefWidth="105.0" text="HOST4U ">
@@ -34,12 +34,12 @@
       <TextField fx:id="txHotel" layoutX="438.0" layoutY="96.0" prefHeight="25.0" prefWidth="200.0" promptText="Hotel..." />
       <ImageView fx:id="imagemPg" fitHeight="170.0" fitWidth="225.0" layoutX="469.0" layoutY="210.0" onMouseClicked="#tabelaPg">
          <image>
-            <Image url="@../../../../../../Imagens/foto-abre-pgalinhas01.jpg" />
+            <Image url="imagens/foto-abre-pgalinhas01.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="imagemTm" fitHeight="170.0" fitWidth="225.0" layoutX="238.0" layoutY="210.0" onMouseClicked="#tabelaTm">
          <image>
-            <Image url="@../../../../../../Imagens/carneiros.jpg" />
+            <Image url="imagens/carneiros.jpg" />
          </image>
       </ImageView>
       <Button fx:id="btLogin" layoutX="599.0" layoutY="14.0" mnemonicParsing="false" onAction="#logar" prefHeight="29.0" prefWidth="79.0" style="-fx-background-color: yellow;" text="Login">
@@ -74,7 +74,7 @@
       </Button>
       <ImageView fitHeight="170.0" fitWidth="225.0" layoutX="8.0" layoutY="210.0" onMouseClicked="#tabelaBv">
          <image>
-            <Image url="@../../../../../../Imagens/Saved%20Pictures/boa%20viagem.jpeg" />
+            <Image url="imagens/boa viagem.jpeg" />
          </image>
       </ImageView>
       <Button fx:id="btMeuPerfil" layoutX="502.0" layoutY="14.0" mnemonicParsing="false" onAction="#actionMeuPerfil" style="-fx-background-color: yellow;" text="Meu Perfil" visible="false">

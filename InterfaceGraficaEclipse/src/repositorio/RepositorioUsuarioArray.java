@@ -2,7 +2,6 @@ package repositorio;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,7 +17,6 @@ public class RepositorioUsuarioArray implements IRepositorioUsuario {
 	public RepositorioUsuarioArray() {
 		
 		usuarios = new ArrayList<>();
-		usuarios.add(new Usuario ("renan", "12345678", "paixao", "12345678910","masculino"));
 	}
 	
 	public ArrayList<Usuario> listarUsuarios() {

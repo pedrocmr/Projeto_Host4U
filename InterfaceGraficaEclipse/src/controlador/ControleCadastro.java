@@ -8,8 +8,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import modelo.Usuario;
+import repositorio.IRepositorioUsuario;
 
-public class ControleCadastro {
+public class ControleCadastro implements IRepositorioUsuario {
 
 	Usuario usuario;
 	private static FileWriter fileWriter;
@@ -25,22 +26,24 @@ public class ControleCadastro {
 		
 		private boolean verificaCadastro(String cpf) {
 			
+			System.out.println(validarCpf(cpf));
 			if(validarCpf(cpf).equals("Erro")) {
 				return false;
 			}
 			
 			Boolean resultado = true;
-			File arquivo = new File("src/arquivo.txt");
 			
 			try {
 				
 				
+				File arquivo = new File("src/arquivo.txt");
 				fileReader = new FileReader(arquivo);
 				leitor = new BufferedReader(fileReader);
 				String linha = leitor.readLine();
 				
 				do {
 					
+					resultado = true;
 					String [] vamosPorPartes = linha.split(",");
 					
 					
@@ -60,6 +63,7 @@ public class ControleCadastro {
 			} catch (IOException e) {
 				
 				System.out.println("erro" + e.getMessage());
+				resultado = false;
 			}
 			
 			return resultado;
@@ -122,6 +126,46 @@ public class ControleCadastro {
 			
 			return "Erro";
 
+		}
+		
+		public boolean atualiza(Usuario u) {
+			File arquivo = new File("src/arquivo.txt");
+			String linhaDados = u.getLogin() + "," + u.getSenha() + "," + u.getNome() + "," + u.getCpf()+ "," + u.getSexo();			
+			
+			try {
+				fileWriter = new FileWriter(arquivo);
+				escrever = new BufferedWriter(fileWriter);
+				escrever.write(linhaDados);
+
+				escrever.write(linhaDados + "\n");
+				escrever.close();
+				fileWriter.close();
+				 
+				 
+				 return true;
+			} catch (IOException e ) {
+				System.out.println("erro" + e.getMessage());
+			}
+		
+			return true;
+		}
+
+		@Override
+		public void addUsuario(Usuario usuarioAdd) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public Usuario buscaPorCpf(String cpf) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public Usuario buscaPorLogin(String login) {
+			// TODO Auto-generated method stub
+			return null;
 		}
 		
 		

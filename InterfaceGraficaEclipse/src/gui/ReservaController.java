@@ -3,7 +3,6 @@ package gui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import controlador.ControleReserva;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -67,13 +66,6 @@ public class ReservaController extends Application implements Initializable {
 	    @FXML private TableColumn<Quarto, Integer> clnAndar;
 	    @FXML private TableColumn<Quarto, Double> clnValor;
 	    @FXML private Button btBuscar;
-	    	  private Usuario usuario;
-	    	  
-	    	  
-	    public ReservaController(Usuario usuario) {
-		
-	    	this.usuario = usuario;
-		}
 	    
 	    @FXML
 	    void pessoaUm(ActionEvent event) {
@@ -217,22 +209,24 @@ public class ReservaController extends Application implements Initializable {
 	
 	public void proximaTela() {
 		
-		PagamentoController p = new PagamentoController(usuario);
-		fecharTela();
+		PagamentoController p = new PagamentoController();
+		
 		
 		try {
 			p.start(new Stage());
+			fecharTela();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 	}
 	
 	public void proximaTabela() {
-		TabelaController tc = new TabelaController(usuario);
-		fecharTela();
+		TabelaController tc = new TabelaController();
+		
 		
 		try {
 			tc.start(new Stage());
+			fecharTela();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -250,11 +244,11 @@ public class ReservaController extends Application implements Initializable {
 	}
     
     @FXML
-    void clickBuscar(MouseEvent event) {
-
-    	ControleReserva cresera = new ControleReserva();
-  
-    	
+    void clickBuscar(MouseEvent event) {    	
+    	System.out.println("Cliquei no botão buscar");
+    	Usuario u;
+    	LoginController.user.getLogin();
+    	u = new Usuario(LoginController.user.getLogin(), LoginController.user.getSenha(), LoginController.user.getNome(), LoginController.user.getCpf(), LoginController.user.getSexo());
     	
     }
     
@@ -263,12 +257,8 @@ public class ReservaController extends Application implements Initializable {
 
     }
     
-    
-    
     public ObservableList<Quarto> listaTabela(){
-		Hotel rqa = new Hotel();
-		RepositorioHotelArray rh = new RepositorioHotelArray();
-		return FXCollections.observableArrayList(rqa.getQuartos());
+		return FXCollections.observableArrayList();
 	}
 
 	public static void main(String[] args) {

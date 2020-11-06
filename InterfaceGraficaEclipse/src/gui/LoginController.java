@@ -28,6 +28,7 @@ import repositorio.RepositorioUsuarioArray;
 public class LoginController extends Application{
 	
 	private static Stage stage;
+	public static Usuario user;
 	
 	@FXML private TextField txtLogin;
 	@FXML private  PasswordField txtSenha;
@@ -178,11 +179,12 @@ public class LoginController extends Application{
 		
 		HomeController home = new HomeController();
 		
-		fechaTela();
+		
 		
 		try {
 
 			home.start(new Stage());
+			fechaTela();
 		
 		} catch (Exception e) {
 			
@@ -240,7 +242,9 @@ public class LoginController extends Application{
 							 passaPraHome = new Usuario(vamosPorPartes[0],vamosPorPartes[1],vamosPorPartes[2],
 																vamosPorPartes[3],vamosPorPartes[4]);
 							
-							
+							 user = new Usuario(vamosPorPartes[0],vamosPorPartes[1],vamosPorPartes[2],
+										vamosPorPartes[3],vamosPorPartes[4]);
+							 
 							 proximaTelaHomeLogado(passaPraHome);
 							 break;
 						}

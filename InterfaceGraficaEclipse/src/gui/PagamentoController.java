@@ -24,7 +24,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import modelo.Usuario;
 
 public class PagamentoController extends Application implements Initializable {
 
@@ -52,13 +51,6 @@ public class PagamentoController extends Application implements Initializable {
     @FXML private MenuItem mnItem4;
     @FXML private MenuItem mnItem5;
     @FXML private MenuItem mnItem6;
-    	  private Usuario usuario;
-    	  
-    
-     public PagamentoController(Usuario usuario) {
-		
-    	 this.usuario = usuario;
-	}
     
     
     @FXML void selecionaParcela(ActionEvent event) {
@@ -187,11 +179,12 @@ public class PagamentoController extends Application implements Initializable {
 	
 	public void proximaTela() {
 		
-		ReservaController r = new ReservaController(usuario);
-		fecharTela();
-		
+		ReservaController r = new ReservaController();
+				
 		try {
 			r.start(new Stage());
+			fecharTela();
+
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -199,11 +192,12 @@ public class PagamentoController extends Application implements Initializable {
 	
 	public void proximaMinhaReserva() {
 
-		MinhaReservaController mrc = new MinhaReservaController(usuario);
-		fecharTela();
+		MinhaReservaController mrc = new MinhaReservaController();
+		
 
 		try {
 			mrc.start(new Stage());
+			fecharTela();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

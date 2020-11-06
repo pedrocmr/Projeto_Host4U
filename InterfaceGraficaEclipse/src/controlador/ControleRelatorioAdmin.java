@@ -7,8 +7,6 @@ import repositorio.RepositorioReservaArray;
 
 public class ControleRelatorioAdmin {
 	
-	private int quantidadeReservasPeriodo;
-	private int quantidadeReservasTotal;
 	RepositorioReservaArray repo;
 	
 	
@@ -23,7 +21,7 @@ public class ControleRelatorioAdmin {
 		for(Reserva r : repo.getReservas()) {
 			
 			totalReservas++;
-			
+			r.getUsuario();
 		 
 		}
 		

@@ -1,0 +1,3 @@
+Rua do amor,566,Ipojuca,PE
+Avenida Boa Viagem,235,Recife,PE
+Rua das Ostras,669,Tamandaré,PE

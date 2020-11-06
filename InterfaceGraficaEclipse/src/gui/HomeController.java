@@ -25,8 +25,6 @@ import modelo.Usuario;
 public class HomeController extends Application implements Initializable {
 
 	private static Stage stage;
-	
-	private static  HomeController controller;
 
 	@FXML private AnchorPane root;
     @FXML private ImageView imagem;
@@ -154,11 +152,12 @@ public class HomeController extends Application implements Initializable {
 	
 	public void proximaPerfil() {
 		
-		MeuPerfilController mpc = new MeuPerfilController(usuario);
-		fecharTela();
+		MeuPerfilController mpc = new MeuPerfilController();
+		
 		
 		try {
 			mpc.start(new Stage());
+			fecharTela();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -168,10 +167,11 @@ public class HomeController extends Application implements Initializable {
 		
 		LoginController lc = new LoginController();
 
-		fecharTela();
+		
 		
 		try {
 			lc.start(new Stage());
+			fecharTela();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -180,10 +180,11 @@ public class HomeController extends Application implements Initializable {
 	public void proximaTabela() {
 		
 		TabelaController tc = new TabelaController();
-		fecharTela();
+		
 		
 		try {
 			tc.start(new Stage());
+			fecharTela();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
