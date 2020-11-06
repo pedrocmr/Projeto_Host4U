@@ -12,9 +12,10 @@ import java.util.ArrayList;
 import modelo.Quarto;
 import modelo.Reserva;
 import modelo.Usuario;
+import repositorio.IRepositorioReserva;
 import repositorio.RepositorioReservaArray;
 
-public class ControleReserva {
+public class ControleReserva implements IRepositorioReserva {
 
 	RepositorioReservaArray repo;
 	private FileWriter fileWriter;
@@ -345,5 +346,23 @@ public class ControleReserva {
 			
 			
 		return resultado;
+	}
+
+	@Override
+	public ArrayList<Reserva> listarReservas(String usuarioCpf) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<Reserva> listarTodasReservas() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<Reserva> listarReservas(int idHotel) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

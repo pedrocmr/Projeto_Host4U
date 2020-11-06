@@ -7,7 +7,7 @@ public class Hotel {
 	private String nome;
 	private int idHotel;
 	private Endereco endereco;
-	private ArrayList<Quarto> quartos =  new ArrayList<Quarto>();
+	private ArrayList<Quarto> quartos = new ArrayList<Quarto>();
 	private int andares;
 	private Lugar lugar;
 	private Integer qtdQuartos = quartos.size();
