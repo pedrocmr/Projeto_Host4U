@@ -21,6 +21,9 @@ public class Reserva {
 
 	}
 
+	public Reserva() {
+		
+	}
 	// METODOS GETTERS E SETTERS
 	public Usuario getUsuario() {
 		return usuario;

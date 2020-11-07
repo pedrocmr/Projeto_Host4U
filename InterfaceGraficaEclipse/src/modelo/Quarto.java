@@ -40,6 +40,9 @@ public class Quarto {
 
 	}
 
+	public Quarto() {
+		
+	}
 	public Integer getOcupacaoMaximaPessoas() {
 		return ocupacaoMaximaPessoas;
 	}
