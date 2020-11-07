@@ -21,25 +21,31 @@ public class RepositorioHotelArray implements IRepositorioHotel {
 	public RepositorioHotelArray() {
 		
 		File addHotel = new File("src/hotel.txt");
+		RepositorioLugarArray repoLug = new RepositorioLugarArray();
+		RepositorioEndereco repoEnd = new RepositorioEndereco();
 		
 		try {
 
 			fileReader = new FileReader(addHotel);
 			leitor = new BufferedReader(fileReader);
 			String linha = leitor.readLine();
-
+			int i = 0;
 			do {
+				
 
 				String[] vamosPorPartes = linha.split(",");
 
-				hoteis.add(new Hotel(vamosPorPartes[0],Integer.parseInt(vamosPorPartes[1]),Integer.parseInt(vamosPorPartes[2]),vamosPorPartes[3],Integer.parseInt(vamosPorPartes[4]),vamosPorPartes[5]));
+				hoteis.add(new Hotel(vamosPorPartes[0],Integer.parseInt(vamosPorPartes[1]),Integer.parseInt(vamosPorPartes[2]), 
+						repoLug.getLugares().get(i), Integer.parseInt(vamosPorPartes[4]), repoEnd.getEnderecos().get(i)));
 				
+							
 				if (linha != null) {
 
 					linha = leitor.readLine();
-
 				}
 
+				
+				i++;
 			} while (linha != null);
 
 		} catch (IOException e) {
@@ -90,6 +96,8 @@ public class RepositorioHotelArray implements IRepositorioHotel {
 		}
 
 	}
+	
+	
 
 	public ArrayList<Hotel> getHoteis() {
 		return hoteis;

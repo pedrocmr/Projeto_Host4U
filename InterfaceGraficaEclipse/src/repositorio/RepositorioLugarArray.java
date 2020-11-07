@@ -1,16 +1,24 @@
 package repositorio;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import modelo.Lugar;
+import modelo.Quarto;
 
 public class RepositorioLugarArray implements IRepositorioLugar {
 	
 	private ArrayList <Lugar> lugares;
+	private FileReader fileReader;
+	private BufferedReader leitor;
 	
 	public RepositorioLugarArray() {
 		
 		lugares = new ArrayList<>();
+		adicionaLugar();
 	}
 
 	public boolean adicionaLugar (String tipoDeLugar, String nomeDoLugar, double latitude, double longitude) {
@@ -92,6 +100,46 @@ public class RepositorioLugarArray implements IRepositorioLugar {
 
 		    return Math.sqrt(distance) * 0.001;
 	}
+	
+private void adicionaLugar() {
+		
+		File lugar = new File("src/lugar.txt");
+		Lugar carpina;
+
+		try {
+
+			fileReader = new FileReader(lugar);
+			leitor = new BufferedReader(fileReader);
+			String linha = leitor.readLine();
+
+			do {
+
+				String[] vamosPorPartes = linha.split(",");
+				
+				
+				lugares.add(new Lugar(vamosPorPartes[0], vamosPorPartes[1], Double.parseDouble(vamosPorPartes[2]), Double.parseDouble(vamosPorPartes[3])));
+				
+
+				if (linha != null) {
+
+					linha = leitor.readLine();
+
+				}
+
+			} while (linha != null);
+
+			
+
+		} catch (IOException e) {
+
+			System.out.println("erro" + e.getMessage());
+		}
+		
+	}
+
+public ArrayList<Lugar> getLugares() {
+	return lugares;
+}
 		
 }
 

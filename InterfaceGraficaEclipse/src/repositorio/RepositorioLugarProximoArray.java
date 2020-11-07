@@ -42,4 +42,8 @@ public class RepositorioLugarProximoArray {
 		return resultado;
 	}
 
+	public ArrayList<LugarProximo> getLugaresProximos() {
+		return lugaresProximos;
+	}
+
 }
