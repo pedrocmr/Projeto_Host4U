@@ -92,7 +92,7 @@ public class Hotel {
 	@Override
 	public String toString() {
 		return "Nome: " + nome + ", Id.Hotel: " + idHotel + ", Endereço: " + endereco + ", Quartos: "
-				+ quartos.size() + ", Andares: " + andares + ", Lugares Próximos: " + lugar;
+				+ qtdQuartos + ", Andares: " + andares + ", Lugares Próximos: " + lugar;
 	}
 
 }

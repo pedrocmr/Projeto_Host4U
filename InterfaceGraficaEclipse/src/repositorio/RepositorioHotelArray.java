@@ -5,11 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-
-import controlador.ControleHotel;
-import modelo.Endereco;
 import modelo.Hotel;
-import modelo.Lugar;
 import modelo.Quarto;
 
 public class RepositorioHotelArray implements IRepositorioHotel {
@@ -17,6 +13,7 @@ public class RepositorioHotelArray implements IRepositorioHotel {
 	private ArrayList<Hotel> hoteis = new ArrayList<Hotel>();
 	private FileReader fileReader;
 	private BufferedReader leitor;
+	
 
 	public RepositorioHotelArray() {
 		
@@ -31,12 +28,12 @@ public class RepositorioHotelArray implements IRepositorioHotel {
 			String linha = leitor.readLine();
 			int i = 0;
 			do {
-				
+
 
 				String[] vamosPorPartes = linha.split(",");
 
 				hoteis.add(new Hotel(vamosPorPartes[0],Integer.parseInt(vamosPorPartes[1]),Integer.parseInt(vamosPorPartes[2]), 
-						repoLug.getLugares().get(i), Integer.parseInt(vamosPorPartes[4]), repoEnd.getEnderecos().get(i)));
+						repoLug.getLugares().get(i),Integer.parseInt(vamosPorPartes[4]), repoEnd.getEnderecos().get(i)));
 				
 							
 				if (linha != null) {
@@ -44,8 +41,8 @@ public class RepositorioHotelArray implements IRepositorioHotel {
 					linha = leitor.readLine();
 				}
 
-				
 				i++;
+				
 			} while (linha != null);
 
 		} catch (IOException e) {
@@ -57,35 +54,44 @@ public class RepositorioHotelArray implements IRepositorioHotel {
 	
 	public void addQuartoNoHotel() {
 
-		File hotel = new File("src/urbano.txt");
+		File hotel = new File("src/quarto.txt");
+		
 
 		try {
 
 			fileReader = new FileReader(hotel);
+			
 			leitor = new BufferedReader(fileReader);
+			
 			String linha = leitor.readLine();
+			
+			int i = 0;
 
 			do {
 
 				String[] vamosPorPartes = linha.split(",");
 
-				hoteis.get(2).getQuartos()
+				 hoteis.get(i)
+				 .getQuartos()
 						.add(new Quarto(Integer.parseInt(vamosPorPartes[1]), Integer.parseInt(vamosPorPartes[2]),
-								this.getHoteis().get(1), Integer.parseInt(vamosPorPartes[5]),
+								this.getHoteis().get(i), Integer.parseInt(vamosPorPartes[5]),
 								Double.parseDouble(vamosPorPartes[6]), Double.parseDouble(vamosPorPartes[3]),
 								Double.parseDouble(vamosPorPartes[4])));
 
-				if (linha != null) {
+	      
+				
+				if (linha.equals("pular")) {
 
 					linha = leitor.readLine();
 
 				}
+				
+				i++;
 
 			} while (linha != null);
-			// fileReader.close();
-			// leitor.close();
+			
 
-			for (Quarto biu : hoteis.get(2).getQuartos()) {
+			for (Quarto biu : hoteis.get(i).getQuartos()) {
 
 				System.out.println(biu);
 			}
@@ -97,8 +103,6 @@ public class RepositorioHotelArray implements IRepositorioHotel {
 
 	}
 	
-	
-
 	public ArrayList<Hotel> getHoteis() {
 		return hoteis;
 	}
