@@ -32,8 +32,8 @@ import modelo.Usuario;
 
 public class MeuPerfilController extends Application implements Initializable{
 
-		private static final Usuario user = null;
-
+		private static final Usuario user = new Usuario();
+		private String cpfCorrespondente;
 		static Stage stage;
 		
 	    @FXML private AnchorPane root;
@@ -74,33 +74,35 @@ public class MeuPerfilController extends Application implements Initializable{
 				
 	    	   
 			   do {
+				   loginNew = txLogin.getText();
 					
 				   String [] vamosPorPartes = linha.split(","); 
 				
-					if (loginNew.equals(vamosPorPartes[0])) { //se achei esse login no arquivo						
+					if (cpfCorrespondente.equals(vamosPorPartes[3])) { 						
 						
-					  String linhaDados = loginNew +  "," + vamosPorPartes[1] + "," + vamosPorPartes[2] + "," + vamosPorPartes[3] + "," + vamosPorPartes[4];
-					 vamosPorPartes[2] =  txNome.getText();
-					 vamosPorPartes[1] = txSenha.getText();
-					 vamosPorPartes[4] = txSexo.getText();
-					 linhaDados = loginNew +  "," + vamosPorPartes[1] + "," + vamosPorPartes[2] + "," + vamosPorPartes[3] + "," + vamosPorPartes[4];
-					 
-					 user.setLogin(loginNew); //quando voltar à tela Home, ainda vai estar logado
-					 user.setSenha(vamosPorPartes[1]);
-					 user.setNome(vamosPorPartes[2]);
-					 user.setCpf(vamosPorPartes[3]);
-					 user.setSexo(vamosPorPartes[4]);
-					 
-				      escrever.write(linhaDados + "\n");
-				      escrever.close();
-					   fileWriter.close();	 
-				    	  
-					}else {
-						Alert erro = new Alert(AlertType.ERROR);
-						erro.setTitle("Não tem como mudar");
-						erro.setHeaderText("O Login deve ser o mesmo.");
-						erro.setContentText("Erro");
-						erro.showAndWait();
+				
+						String linhaDados = loginNew +  "," + vamosPorPartes[1] + "," + vamosPorPartes[2] + "," + vamosPorPartes[3] + "," + vamosPorPartes[4];
+						 vamosPorPartes[2] =  txNome.getText();
+						 vamosPorPartes[1] = txSenha.getText();
+						 vamosPorPartes[4] = txSexo.getText();
+						 String novoConteudo = loginNew +  "," + vamosPorPartes[1] + "," + vamosPorPartes[2] + "," + vamosPorPartes[3] + "," + vamosPorPartes[4];
+						 
+						 System.out.println(linha.indexOf(linhaDados));
+						 
+						 
+						 user.setLogin(txLogin.getText()); 
+						 user.setSenha(txSenha.getText());
+						 user.setNome(txNome.getText());
+						 user.setSexo(txSexo.getText());
+						 
+						 
+					      escrever.write(novoConteudo + "\n");
+					      escrever.close();
+						   fileWriter.close();	 
+					    	  
+					}
+					else {
+						System.out.println("Erro");
 					}
 					
 					if (linha != null) {
@@ -185,9 +187,9 @@ public class MeuPerfilController extends Application implements Initializable{
 		txLogin.setText(LoginController.user.getLogin());
 		txSenha.setText(LoginController.user.getSenha());
 		txSexo.setText(LoginController.user.getSexo());
+		 cpfCorrespondente = LoginController.user.getCpf();
 
-
-		//loginC.user;
+		
 	}
 	
     public void fecharTela() {
