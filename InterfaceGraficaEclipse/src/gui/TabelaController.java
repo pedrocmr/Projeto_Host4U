@@ -37,7 +37,7 @@ public class TabelaController extends Application implements Initializable{
     @FXML private TableColumn<Hotel, Boolean> selectCol;
     @FXML private TableColumn<Hotel, String> clnNome;
     @FXML private TableColumn<Hotel, Integer> clnQuartos;
-    @FXML private TableColumn<Hotel, String> clnEndereço;
+    @FXML private TableColumn<Hotel, String> clnEndereco;
     @FXML private Button btVoltar;
     @FXML private Text txtTitulo;
     @FXML private Button btAvancar;
@@ -48,20 +48,8 @@ public class TabelaController extends Application implements Initializable{
     void avancaTela(ActionEvent event) {
     	
     	btAvancar.setOnMouseClicked((MouseEvent mouse) -> {
-    		RepositorioHotelArray repH = new RepositorioHotelArray();
-    		Hotel h = new Hotel();
-    		if(selectCol != null) {
-			       // telaReserva();
-			        if(clnNome.getCellValueFactory()== repH.listarHotelPG(0)) {
-			        	System.out.println(listaTabela().get(0).getNome());
-			        }
-			      //  if(clnNome.getCellValueFactory() == repH.listarHotelPG(1)) {
-			        //	System.out.println(listaTabela().get(1).getNome());
-			       // }
-			      //  if(clnNome.getCellValueFactory() == repH.listarHotelPG(2)) {
-			      //  	System.out.println(listaTabela().get(2).getNome());
-
-			      //  }
+    		if(tabela.getSelectionModel().getSelectedItem() != null) {
+			        telaReserva();
     		}
 		});
     
@@ -108,10 +96,9 @@ public class TabelaController extends Application implements Initializable{
 		inicializaTabela();
 		RepositorioHotelArray repHotel ;
 		repHotel = new RepositorioHotelArray();
-		//repHotel.listarHotelPG(0);
-		//repHotel.listarHotelBV(1);
-		//repHotel.listarHotelTM(2);
-		
+		repHotel.listarHotelPG(0);
+		repHotel.listarHotelBV(1);
+		repHotel.listarHotelTM(2);
 		
 		
 	}
@@ -158,39 +145,20 @@ public class TabelaController extends Application implements Initializable{
 	    selectCol.setCellValueFactory(new PropertyValueFactory<>("Selecionado"));
 		clnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
 		clnQuartos.setCellValueFactory(new PropertyValueFactory<>("qtdQuartos"));
-		clnEndereço.setCellValueFactory(new PropertyValueFactory<>("endereco"));
+		clnEndereco.setCellValueFactory(new PropertyValueFactory<>("endereco"));
 		
 		selectCol.setCellFactory(
 				CheckBoxTableCell.forTableColumn(selectCol)
-				
 				);
 		
 		tabela.setItems(listaTabela());
 		
-		
 	}
    
-   
-   public static ObservableList<Hotel> listaTabela(){
+   public ObservableList<Hotel> listaTabela(){
 		RepositorioHotelArray rH = new RepositorioHotelArray();
 		return FXCollections.observableArrayList(rH.listarHoteis());
 	}
-   
-   public static ObservableList<Hotel> listaTabelaPG(){ 
-		RepositorioHotelArray rH = new RepositorioHotelArray();
-		return FXCollections.observableArrayList(rH.listarHotelPG(0));
-	}
-   
-   public static ObservableList<Hotel> listaTabelaBV(){
-		RepositorioHotelArray rH = new RepositorioHotelArray();
-		return FXCollections.observableArrayList(rH.listarHotelBV(1));
-	}
-   
-   public static ObservableList<Hotel> listaTabelaTM(){
-		RepositorioHotelArray rH = new RepositorioHotelArray();
-		return FXCollections.observableArrayList(rH.listarHotelTM(2));
-	}
-   
   
 	public static void main(String[] args) {
 

@@ -1,9 +1,12 @@
 package controlador;
 
+import java.util.ArrayList;
+
 import modelo.Hotel;
 import modelo.Quarto;
+import repositorio.IRepositorioHotel;
 
-public class ControleHotel {
+public class ControleHotel implements IRepositorioHotel{
 
 	Hotel hotel;
 
@@ -11,6 +14,7 @@ public class ControleHotel {
 
 		this.hotel = hotel;
 	}
+
 
 	public void adicionaQuartos(Quarto... quarto) {
 
@@ -41,5 +45,11 @@ public class ControleHotel {
 			
 		
 		return quarto;
+	}
+
+	@Override
+	public ArrayList<Hotel> listarHoteis() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

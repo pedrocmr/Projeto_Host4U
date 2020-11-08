@@ -8,8 +8,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import modelo.Usuario;
+import repositorio.IRepositorioUsuario;
 
-public class ControleCadastro {
+public class ControleCadastro implements IRepositorioUsuario {
 
 	Usuario usuario;
 	private static FileWriter fileWriter;
@@ -147,6 +148,24 @@ public class ControleCadastro {
 			}
 		
 			return true;
+		}
+
+		@Override
+		public void addUsuario(Usuario usuarioAdd) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public Usuario buscaPorCpf(String cpf) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public Usuario buscaPorLogin(String login) {
+			// TODO Auto-generated method stub
+			return null;
 		}
 		
 		

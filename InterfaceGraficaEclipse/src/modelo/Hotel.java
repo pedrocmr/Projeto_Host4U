@@ -7,7 +7,7 @@ public class Hotel {
 	private String nome;
 	private int idHotel;
 	private Endereco endereco;
-	private ArrayList<Quarto> quartos =  new ArrayList<Quarto>();
+	private ArrayList<Quarto> quartos = new ArrayList<Quarto>();
 	private int andares;
 	private Lugar lugar;
 	private Integer qtdQuartos = quartos.size();
@@ -92,7 +92,7 @@ public class Hotel {
 	@Override
 	public String toString() {
 		return "Nome: " + nome + ", Id.Hotel: " + idHotel + ", Endereço: " + endereco + ", Quartos: "
-				+ quartos.size() + ", Andares: " + andares + ", Lugares Próximos: " + lugar;
+				+ qtdQuartos + ", Andares: " + andares + ", Lugares Próximos: " + lugar;
 	}
 
 }

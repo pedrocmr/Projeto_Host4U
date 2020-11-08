@@ -12,3 +12,5 @@ pedro,senhapedro,Pedro Moreira,12132142112,M
 rafael123,rafael123,rafael123,22113344556,M
 messiiii,mesiiiiiii,messiiiiii,21120987675,M
 wilian123,wilian123,wilian123,23322344556,M
+eduardo09,12345678,Eduardo Felipe,23456719045,M
+renanaaaa,renanrenan,renan,21324354657,M

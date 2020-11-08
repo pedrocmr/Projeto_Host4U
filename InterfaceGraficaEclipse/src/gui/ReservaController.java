@@ -32,6 +32,7 @@ import javafx.stage.Stage;
 import modelo.Hotel;
 import modelo.Quarto;
 import modelo.Usuario;
+import repositorio.RepositorioHotelArray;
 
 public class ReservaController extends Application implements Initializable {
 
@@ -256,11 +257,8 @@ public class ReservaController extends Application implements Initializable {
 
     }
     
-    
-    
     public ObservableList<Quarto> listaTabela(){
-		Hotel rqa = new Hotel();
-		return FXCollections.observableArrayList(rqa.getQuartos());
+		return FXCollections.observableArrayList();
 	}
 
 	public static void main(String[] args) {
