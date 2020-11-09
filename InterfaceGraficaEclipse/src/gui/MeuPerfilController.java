@@ -80,25 +80,20 @@ public class MeuPerfilController extends Application implements Initializable{
 				
 					if (cpfCorrespondente.equals(vamosPorPartes[3])) { 						
 						
-				
-						String linhaDados = loginNew +  "," + vamosPorPartes[1] + "," + vamosPorPartes[2] + "," + vamosPorPartes[3] + "," + vamosPorPartes[4];
+						 String linhaDados = loginNew +  "," + vamosPorPartes[1] + "," + vamosPorPartes[2] + "," + vamosPorPartes[3] + "," + vamosPorPartes[4];
 						 vamosPorPartes[2] =  txNome.getText();
 						 vamosPorPartes[1] = txSenha.getText();
 						 vamosPorPartes[4] = txSexo.getText();
 						 String novoConteudo = loginNew +  "," + vamosPorPartes[1] + "," + vamosPorPartes[2] + "," + vamosPorPartes[3] + "," + vamosPorPartes[4];
-						 
-						 System.out.println(linha.indexOf(linhaDados));
-						 
 						 
 						 user.setLogin(txLogin.getText()); 
 						 user.setSenha(txSenha.getText());
 						 user.setNome(txNome.getText());
 						 user.setSexo(txSexo.getText());
 						 
-						 
-					      escrever.write(novoConteudo + "\n");
-					      escrever.close();
-						   fileWriter.close();	 
+						 escrever.write(novoConteudo + "\n");
+					     escrever.close();
+						 fileWriter.close();	 
 					    	  
 					}
 					else {

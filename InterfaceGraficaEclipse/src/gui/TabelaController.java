@@ -49,7 +49,26 @@ public class TabelaController extends Application implements Initializable{
     	
     	btAvancar.setOnMouseClicked((MouseEvent mouse) -> {
     		if(tabela.getSelectionModel().getSelectedItem() != null) {
-			        telaReserva();
+			        	
+    				RepositorioHotelArray repoHotel = new RepositorioHotelArray();
+    				
+    				
+    				if(tabela.getSelectionModel().getSelectedItem() == repoHotel.listarHotelPG(0)) {
+    					//System.out.println( repoHotel.listarHotelPG(0));
+    					System.out.println("PG SELECIONADO");
+    				}
+    				
+    				else if (tabela.getSelectionModel().getSelectedItem() == repoHotel.listarHotelBV(1)) {
+    					//System.out.println( repoHotel.listarHotelBV(1));
+    					System.out.println("BV SELECIONADO");
+    				}
+    				
+    				else if(tabela.getSelectionModel().getSelectedItem() == repoHotel.listarHotelTM(2)) {
+    					//System.out.println( repoHotel.listarHotelTM(2));
+    					System.out.println("TM SELECIONADO");
+    				}
+    				
+    			//telaReserva();
     		}
 		});
     
@@ -147,7 +166,7 @@ public class TabelaController extends Application implements Initializable{
 		clnQuartos.setCellValueFactory(new PropertyValueFactory<>("qtdQuartos"));
 		clnEndereco.setCellValueFactory(new PropertyValueFactory<>("endereco"));
 		
-		selectCol.setCellFactory(
+		 selectCol.setCellFactory(
 				CheckBoxTableCell.forTableColumn(selectCol)
 				);
 		
