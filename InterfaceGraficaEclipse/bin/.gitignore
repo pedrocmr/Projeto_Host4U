@@ -1,18 +1,13 @@
 /arquivo.txt
-/controlador/
-/gui/
-/imagens/
-/modelo/
-/repositorio/
-<<<<<<< Updated upstream
 /beiraMar.txt
-/urbano.txt
-/varanda.txt
-=======
-/reserva.txt
-/ControleRelatorioAdmin.class
->>>>>>> Stashed changes
+/controlador/
 /endereco.txt
-/lugar.txt
+/gui/
 /hotel.txt
+/imagens/
+/lugar.txt
+/modelo/
 /quarto.txt
+/repositorio/
+/reserva.txt
+/varanda.txt

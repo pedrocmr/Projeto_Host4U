@@ -50,7 +50,7 @@ public class RepositorioHotelArray implements IRepositorioHotel {
 			System.out.println("erro" + e.getMessage());
 		}
 		
-		addQuartoNoHotel();
+		
 	}
 	
 	public void addQuartoNoHotel() {
