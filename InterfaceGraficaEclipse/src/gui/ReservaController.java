@@ -247,10 +247,16 @@ public class ReservaController extends Application implements Initializable {
     @FXML
     void clickBuscar(MouseEvent event) {    	
     	System.out.println("Cliquei no botão buscar");
-    	Usuario u;
-    	LoginController.user.getLogin();
-    	u = new Usuario(LoginController.user.getLogin(), LoginController.user.getSenha(), LoginController.user.getNome(), LoginController.user.getCpf(), LoginController.user.getSexo());
-    	
+    	Usuario u = new Usuario();
+    	u.setLogin(LoginController.user.getLogin());
+    	u.setSenha(LoginController.user.getSenha());
+    	u.setNome(LoginController.user.getNome());
+    	u.setCpf(LoginController.user.getCpf());
+    	u.setSexo( LoginController.user.getSexo());
+    	if(dtCheckIn != null && dtCheckOut != null && menuPessoas != null && menuQuartos != null) {
+    		System.out.println(dtCheckIn.getValue() + " | " + dtCheckOut.getValue());
+    		System.out.println("Pessoas: " + menuPessoas.getText() + "|" +  "quartos: " + menuQuartos.getText());
+    	}
     }
     
     @FXML
@@ -259,7 +265,9 @@ public class ReservaController extends Application implements Initializable {
     }
     
     public ObservableList<Quarto> listaTabela(){
-		return FXCollections.observableArrayList(TabelaController.quartoss);
+		System.out.println(TabelaController.quartoss);
+    	return FXCollections.observableArrayList(TabelaController.quartoss);
+		
 	}
 
 	public static void main(String[] args) {
