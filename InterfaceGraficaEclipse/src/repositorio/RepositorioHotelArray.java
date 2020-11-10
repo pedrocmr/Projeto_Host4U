@@ -52,6 +52,44 @@ public class RepositorioHotelArray implements IRepositorioHotel {
 		
 	}
 	
+	public String showHoteis() {
+		File hotel = new File("src/quarto.txt");
+		RepositorioLugarArray repoLug = new RepositorioLugarArray();
+		RepositorioEndereco repoEnd = new RepositorioEndereco();
+
+		try {
+
+			fileReader = new FileReader(hotel);
+			
+			leitor = new BufferedReader(fileReader);
+			
+			String linha = leitor.readLine();
+			
+			int i = 0;
+
+			do {
+
+				String[] vamosPorPartes = linha.split(",");
+				
+				if(linha!=null) {
+					return vamosPorPartes[0] + Integer.parseInt(vamosPorPartes[1]) + Integer.parseInt(vamosPorPartes[2]) +  
+							repoLug.getLugares().get(i) + Integer.parseInt(vamosPorPartes[4]) +  repoEnd.getEnderecos().get(i);
+				}
+				
+	     
+				i++;
+			} while (linha != null);
+			
+
+		} catch (IOException e) {
+
+			System.out.println("erro" + e.getMessage());
+		}
+		return showHoteis();
+
+		
+	}
+	
 	public void addQuartoNoHotel() {
 
 		File hotel = new File("src/quarto.txt");

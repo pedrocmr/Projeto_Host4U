@@ -1,6 +1,7 @@
 package gui;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.application.Application;
@@ -25,11 +26,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import modelo.Hotel;
+import modelo.Quarto;
 import repositorio.RepositorioHotelArray;
 
 
 public class TabelaController extends Application implements Initializable{
-
+	 public static ArrayList<Quarto> quartoss = new ArrayList<Quarto>();
 	private static Stage stage;
 	
 	@FXML private AnchorPane root;
@@ -51,24 +53,22 @@ public class TabelaController extends Application implements Initializable{
     		if(tabela.getSelectionModel().getSelectedItem() != null) {
 			        	
     				RepositorioHotelArray repoHotel = new RepositorioHotelArray();
-    				
-    				
-    				if(tabela.getSelectionModel().getSelectedItem() == repoHotel.listarHotelPG(0)) {
-    					//System.out.println( repoHotel.listarHotelPG(0));
-    					System.out.println("PG SELECIONADO");
+    				Hotel hotel ;
+    				if(tabela.getSelectionModel().getSelectedItem().equals(repoHotel.getHoteis().get(0)) ) {
+    					  quartoss =  repoHotel.getHoteis().get(0).getQuartos();
+    					telaReserva(quartoss);
+    				}
+    				else if(tabela.getSelectionModel().getSelectedItem().equals(repoHotel.getHoteis().get(1))){
+    					 quartoss =  repoHotel.getHoteis().get(1).getQuartos();
+    					telaReserva(quartoss);
     				}
     				
-    				else if (tabela.getSelectionModel().getSelectedItem() == repoHotel.listarHotelBV(1)) {
-    					//System.out.println( repoHotel.listarHotelBV(1));
-    					System.out.println("BV SELECIONADO");
+    				else if(tabela.getSelectionModel().getSelectedItem().equals(repoHotel.getHoteis().get(2))){
+    					 quartoss =  repoHotel.getHoteis().get(2).getQuartos();
+    					telaReserva(quartoss);
     				}
     				
-    				else if(tabela.getSelectionModel().getSelectedItem() == repoHotel.listarHotelTM(2)) {
-    					//System.out.println( repoHotel.listarHotelTM(2));
-    					System.out.println("TM SELECIONADO");
-    				}
-    				
-    			//telaReserva();
+    			
     		}
 		});
     
@@ -147,7 +147,7 @@ public class TabelaController extends Application implements Initializable{
 		}
 	}
 	
-	public void telaReserva() {
+	public void telaReserva(ArrayList<Quarto> q) {
 		
 		ReservaController rc = new ReservaController();
 		
@@ -179,6 +179,7 @@ public class TabelaController extends Application implements Initializable{
 		return FXCollections.observableArrayList(rH.listarHoteis());
 	}
   
+   
 	public static void main(String[] args) {
 
 		launch(args);

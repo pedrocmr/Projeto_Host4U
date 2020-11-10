@@ -37,6 +37,7 @@ import repositorio.RepositorioHotelArray;
 public class ReservaController extends Application implements Initializable {
 
 	    private static Stage stage;
+	    TabelaController tbController = new TabelaController();
 
 	    @FXML private AnchorPane root;
 	    @FXML private ImageView imagem;
@@ -258,7 +259,7 @@ public class ReservaController extends Application implements Initializable {
     }
     
     public ObservableList<Quarto> listaTabela(){
-		return FXCollections.observableArrayList();
+		return FXCollections.observableArrayList(TabelaController.quartoss);
 	}
 
 	public static void main(String[] args) {
